@@ -6,22 +6,28 @@ import { useState } from 'react'
 
 const plants = [
   {
-    name: 'Planta Cono Norte',
-    location: 'Bello',
-    radius: 'Radio 40km',
-    hours: 'Lun-Sab 5am-6pm',
-  },
-  {
-    name: 'Planta Cono Este',
-    location: 'Rionegro',
+    name: 'Planta Lima Norte',
+    location: 'Puente Piedra',
     radius: 'Radio 35km',
-    hours: 'Lun-Sab 5am-5pm',
+    hours: 'Lun-Sab 5am-8pm',
   },
   {
-    name: 'Planta Cono Sur',
-    location: 'Envigado',
+    name: 'Planta Lima Este',
+    location: 'Ate Vitarte',
     radius: 'Radio 30km',
-    hours: 'Lun-Sab 5am-6pm',
+    hours: 'Lun-Sab 5am-8pm',
+  },
+  {
+    name: 'Planta Lima Sur',
+    location: 'Villa El Salvador',
+    radius: 'Radio 30km',
+    hours: 'Lun-Sab 5am-8pm',
+  },
+  {
+    name: 'Planta Callao',
+    location: 'Ventanilla',
+    radius: 'Radio 25km',
+    hours: 'Lun-Sab 5am-7pm',
   },
 ]
 
@@ -39,11 +45,11 @@ export function CoverageSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-600)]">
-            • COBERTURA ESTRATÉGICA
+          <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-primary)]">
+            • COBERTURA EN LIMA METROPOLITANA
           </span>
           <h2 className="mt-3 text-3xl lg:text-[40px] font-bold leading-[1.1] tracking-[-0.02em] text-white text-balance max-w-3xl mx-auto">
-            3 plantas para que el concreto llegue en punto exacto de fraguado.
+            4 plantas estratégicas para que el concreto llegue en su punto óptimo.
           </h2>
         </motion.div>
 
@@ -60,7 +66,7 @@ export function CoverageSection() {
               {/* Map Background */}
               <div className="absolute inset-0 opacity-30">
                 <svg viewBox="0 0 400 300" className="w-full h-full">
-                  {/* Simplified map paths representing Antioquia region */}
+                  {/* Simplified map paths representing Lima region */}
                   <path
                     d="M50,150 Q100,50 200,80 Q300,110 350,150 Q300,250 200,280 Q100,260 50,150"
                     fill="none"
@@ -98,9 +104,10 @@ export function CoverageSection() {
 
               {/* Plant Markers */}
               {[
-                { x: '35%', y: '30%', name: 'Bello' },
-                { x: '65%', y: '45%', name: 'Rionegro' },
-                { x: '45%', y: '70%', name: 'Envigado' },
+                { x: '40%', y: '25%', name: 'Puente Piedra' },
+                { x: '70%', y: '45%', name: 'Ate Vitarte' },
+                { x: '45%', y: '75%', name: 'Villa El Salvador' },
+                { x: '25%', y: '40%', name: 'Ventanilla' },
               ].map((plant, index) => (
                 <motion.div
                   key={plant.name}
@@ -112,10 +119,10 @@ export function CoverageSection() {
                   style={{ left: plant.x, top: plant.y }}
                 >
                   {/* Glow ring */}
-                  <div className="absolute inset-0 w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--red-600)]/20 animate-ping" />
-                  <div className="absolute inset-0 w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--red-600)]/30" />
+                  <div className="absolute inset-0 w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--red-primary)]/20 animate-ping" />
+                  <div className="absolute inset-0 w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--red-primary)]/30" />
                   {/* Pin */}
-                  <div className="relative w-4 h-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--red-600)] border-2 border-white" />
+                  <div className="relative w-4 h-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--red-primary)] border-2 border-white" />
                   {/* Label */}
                   <span className="absolute top-4 left-1/2 -translate-x-1/2 text-xs font-medium text-white whitespace-nowrap">
                     {plant.name}
@@ -125,9 +132,10 @@ export function CoverageSection() {
 
               {/* Coverage Circles */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                <circle cx="35%" cy="30%" r="60" fill="var(--red-600)" fillOpacity="0.1" stroke="var(--red-600)" strokeWidth="1" strokeOpacity="0.3" />
-                <circle cx="65%" cy="45%" r="50" fill="var(--red-600)" fillOpacity="0.1" stroke="var(--red-600)" strokeWidth="1" strokeOpacity="0.3" />
-                <circle cx="45%" cy="70%" r="45" fill="var(--red-600)" fillOpacity="0.1" stroke="var(--red-600)" strokeWidth="1" strokeOpacity="0.3" />
+                <circle cx="40%" cy="25%" r="50" fill="var(--red-primary)" fillOpacity="0.1" stroke="var(--red-primary)" strokeWidth="1" strokeOpacity="0.3" />
+                <circle cx="70%" cy="45%" r="45" fill="var(--red-primary)" fillOpacity="0.1" stroke="var(--red-primary)" strokeWidth="1" strokeOpacity="0.3" />
+                <circle cx="45%" cy="75%" r="45" fill="var(--red-primary)" fillOpacity="0.1" stroke="var(--red-primary)" strokeWidth="1" strokeOpacity="0.3" />
+                <circle cx="25%" cy="40%" r="40" fill="var(--red-primary)" fillOpacity="0.1" stroke="var(--red-primary)" strokeWidth="1" strokeOpacity="0.3" />
               </svg>
             </div>
           </motion.div>
@@ -147,11 +155,11 @@ export function CoverageSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group p-5 rounded-xl bg-[var(--elevated)] border border-[var(--border-subtle)] hover:border-[var(--red-600)] transition-colors duration-300"
+                className="group p-5 rounded-xl bg-[var(--elevated)] border border-[var(--border-subtle)] hover:border-[var(--red-primary)] transition-colors duration-300"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-[var(--red-ghost)] flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-[var(--red-600)]" />
+                    <MapPin className="w-5 h-5 text-[var(--red-primary)]" />
                   </div>
                   <div className="flex-1">
                     <h4 className="text-lg font-semibold text-white">
@@ -180,12 +188,12 @@ export function CoverageSection() {
                   type="text"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
-                  placeholder="Ingresa tu dirección de obra"
-                  className="w-full h-[52px] pl-12 pr-4 rounded-lg bg-[var(--elevated)] border border-[var(--border)] text-white placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--red-600)] transition-colors"
+                  placeholder="Ingresa la dirección de tu obra"
+                  className="w-full h-[52px] pl-12 pr-4 rounded-lg bg-[var(--elevated)] border border-[var(--border)] text-white placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--red-primary)] transition-colors"
                 />
               </div>
-              <button className="h-[52px] px-6 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-600)] text-white rounded-lg hover:bg-[var(--red-700)] hover:glow-red-intense transition-all duration-150">
-                Encontrar
+              <button className="h-[52px] px-6 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-primary)] text-white rounded-lg hover:bg-[var(--red-dark)] hover:glow-red-intense transition-all duration-150">
+                Buscar
               </button>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
@@ -36,15 +37,15 @@ export function Navigation() {
     >
       <nav className="section-container h-full flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex items-center gap-1">
-            <div className="w-8 h-8 bg-[var(--red-600)] rounded-sm flex items-center justify-center">
-              <span className="font-display text-white text-lg">U</span>
-            </div>
-            <span className="font-display text-xl tracking-tight text-white">
-              UNIMAXCORP
-            </span>
-          </div>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unima_logo_transparente-9yVMcDbsHGaclLXyjqdkfFccg5Raf9.png"
+            alt="UNIMA Corp - Concreto & Maquinarias"
+            width={160}
+            height={60}
+            className="h-12 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -56,7 +57,7 @@ export function Navigation() {
               className="text-[11px] font-medium tracking-[0.14em] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 relative group"
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--red-600)] transition-all duration-200 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--red-primary)] transition-all duration-200 group-hover:w-full" />
             </Link>
           ))}
         </div>
@@ -65,7 +66,7 @@ export function Navigation() {
         <div className="hidden lg:block">
           <Link
             href="#contacto"
-            className="inline-flex items-center justify-center h-10 px-5 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-600)] text-white rounded-lg hover:bg-[var(--red-700)] hover:glow-red-intense transition-all duration-150 ease-snappy hover:scale-[1.02]"
+            className="inline-flex items-center justify-center h-10 px-5 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-primary)] text-white rounded-lg hover:bg-[var(--red-dark)] hover:glow-red-intense transition-all duration-150 ease-snappy hover:scale-[1.02]"
           >
             Cotizar Ahora
           </Link>
@@ -102,7 +103,7 @@ export function Navigation() {
             <Link
               href="#contacto"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center h-10 px-5 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-600)] text-white rounded-lg mt-2"
+              className="inline-flex items-center justify-center h-10 px-5 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-primary)] text-white rounded-lg mt-2"
             >
               Cotizar Ahora
             </Link>

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const navLinks = [
   { href: '#soluciones', label: 'Soluciones' },
@@ -18,15 +18,14 @@ export function Footer() {
         {/* Main Row */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <div className="w-8 h-8 bg-[var(--red-600)] rounded-sm flex items-center justify-center">
-                <span className="font-display text-white text-lg">U</span>
-              </div>
-              <span className="font-display text-xl tracking-tight text-white">
-                UNIMAXCORP
-              </span>
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unima_logo_transparente-9yVMcDbsHGaclLXyjqdkfFccg5Raf9.png"
+              alt="UNIMA Corp - Concreto & Maquinarias"
+              width={140}
+              height={52}
+              className="h-11 w-auto"
+            />
           </Link>
 
           {/* Nav Links */}
@@ -45,7 +44,7 @@ export function Footer() {
           {/* CTA */}
           <Link
             href="#contacto"
-            className="inline-flex items-center justify-center h-10 px-5 text-[13px] font-medium tracking-[0.12em] uppercase bg-transparent text-white border border-[var(--white-300)]/50 rounded-lg hover:bg-[var(--red-ghost)] hover:border-[var(--red-600)] transition-all duration-200"
+            className="inline-flex items-center justify-center h-10 px-5 text-[13px] font-medium tracking-[0.12em] uppercase bg-transparent text-white border border-[var(--white-300)]/50 rounded-lg hover:bg-[var(--red-ghost)] hover:border-[var(--red-primary)] transition-all duration-200"
           >
             Cotizar ahora
           </Link>
@@ -57,10 +56,10 @@ export function Footer() {
         {/* Bottom Row */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-4 text-sm text-[var(--text-muted)]">
           <p>
-            © 2026 UNIMAXCORP. Todos los derechos reservados.
+            © 2026 UNIMA Corp. Todos los derechos reservados.
           </p>
           <p>
-            NIT: XXX.XXX.XXX-X · Bello, Antioquia, Colombia
+            RUC: XXXXXXXXXXX · Lima, Perú
           </p>
           <div className="flex items-center gap-4">
             <Link href="#" className="hover:text-white transition-colors">

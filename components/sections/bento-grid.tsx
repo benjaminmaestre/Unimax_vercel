@@ -29,25 +29,25 @@ export function BentoGridSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-600)]">
-            • NUESTRAS CAPACIDADES
+          <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-primary)]">
+            • NUESTRAS SOLUCIONES
           </span>
           <h2 className="mt-3 text-3xl lg:text-[40px] font-bold leading-[1.1] tracking-[-0.02em] text-white text-balance">
-            Todo lo que tu obra necesita, en un solo aliado.
+            Todo lo que tu proyecto necesita, en un solo aliado.
           </h2>
         </motion.div>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-3">
           {/* Row 1 */}
-          {/* Card 1 - Concreto y Materiales (Large - 3 cols) */}
+          {/* Card 1 - Concreto Premezclado (Large - 3 cols) */}
           <motion.div
             custom={0}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-3 group relative overflow-hidden rounded-xl min-h-[480px] border border-[var(--border-subtle)] hover:border-[var(--red-600)] transition-colors duration-300"
+            className="lg:col-span-3 group relative overflow-hidden rounded-xl min-h-[480px] border border-[var(--border-subtle)] hover:border-[var(--red-primary)] transition-colors duration-300"
           >
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.04]"
@@ -57,16 +57,16 @@ export function BentoGridSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--black-950)] via-[var(--black-950)]/60 to-transparent" />
             <div className="relative h-full flex flex-col justify-end p-6 lg:p-8">
-              <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-600)]">
+              <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-primary)]">
                 PRODUCTOS
               </span>
               <h3 className="mt-2 text-2xl lg:text-[28px] font-semibold leading-[1.2] text-white">
                 Concreto Premezclado
               </h3>
               <ul className="mt-4 space-y-2">
-                {["f'c 21 / 28 / 35 / 42 MPa", "Mezclas especiales", "Diseño ASTM C94", "Concreto arquitectónico"].map((item) => (
+                {["f'c 175 / 210 / 280 / 350 kg/cm²", "Concreto de alta resistencia", "Diseño personalizado NTP", "Concreto autocompactante"].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-base text-[var(--text-secondary)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-600)]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-primary)]" />
                     {item}
                   </li>
                 ))}
@@ -81,31 +81,31 @@ export function BentoGridSection() {
             </div>
           </motion.div>
 
-          {/* Card 2 - Soluciones Logísticas (Small - 2 cols) */}
+          {/* Card 2 - Logística Inteligente (Small - 2 cols) */}
           <motion.div
             custom={1}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-2 group relative overflow-hidden rounded-xl min-h-[480px] bg-[var(--elevated)] border border-[var(--border-subtle)] hover:border-[var(--red-600)] transition-colors duration-300"
+            className="lg:col-span-2 group relative overflow-hidden rounded-xl min-h-[480px] bg-[var(--elevated)] border border-[var(--border-subtle)] hover:border-[var(--red-primary)] transition-colors duration-300"
           >
             <div className="h-full flex flex-col p-6 lg:p-8">
               {/* Icon */}
               <div className="w-20 h-20 rounded-xl bg-[var(--red-ghost)] flex items-center justify-center">
-                <Satellite className="w-10 h-10 text-[var(--red-600)]" />
+                <Satellite className="w-10 h-10 text-[var(--red-primary)]" />
               </div>
               
-              <span className="mt-6 text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-600)]">
-                SOLUCIONES
+              <span className="mt-6 text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-primary)]">
+                TECNOLOGÍA
               </span>
               <h3 className="mt-2 text-2xl lg:text-[28px] font-semibold leading-[1.2] text-white">
                 Logística Inteligente
               </h3>
               <ul className="mt-4 space-y-2 flex-1">
-                {["Rastreo GPS en tiempo real", "Control de calidad en laboratorio", "Soporte técnico in-situ", "Programación de vaciados continuos"].map((item) => (
+                {["Rastreo GPS en tiempo real", "Control de calidad en laboratorio propio", "Soporte técnico especializado", "Programación de vaciados continuos"].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-base text-[var(--text-secondary)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-600)]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-primary)]" />
                     {item}
                   </li>
                 ))}
@@ -114,7 +114,7 @@ export function BentoGridSection() {
                 href="#contacto"
                 className="group/link mt-6 inline-flex items-center gap-2 text-[var(--white-300)] hover:text-white transition-colors"
               >
-                <span className="text-sm font-medium">Ver soluciones</span>
+                <span className="text-sm font-medium">Ver servicios</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1.5" />
               </Link>
             </div>
@@ -128,25 +128,25 @@ export function BentoGridSection() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-2 group relative overflow-hidden rounded-xl min-h-[480px] bg-[var(--elevated)] border border-[var(--border-subtle)] hover:border-[var(--red-600)] transition-colors duration-300"
+            className="lg:col-span-2 group relative overflow-hidden rounded-xl min-h-[480px] bg-[var(--elevated)] border border-[var(--border-subtle)] hover:border-[var(--red-primary)] transition-colors duration-300"
             id="servicios"
           >
             <div className="h-full flex flex-col p-6 lg:p-8">
               {/* Icon */}
               <div className="w-20 h-20 rounded-xl bg-[var(--red-ghost)] flex items-center justify-center">
-                <Truck className="w-10 h-10 text-[var(--red-600)]" />
+                <Truck className="w-10 h-10 text-[var(--red-primary)]" />
               </div>
               
-              <span className="mt-6 text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-600)]">
+              <span className="mt-6 text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-primary)]">
                 SERVICIOS
               </span>
               <h3 className="mt-2 text-2xl lg:text-[28px] font-semibold leading-[1.2] text-white">
                 Bombeo y Maquinaria
               </h3>
               <ul className="mt-4 space-y-2 flex-1">
-                {["Boom pump hasta 52m", "Estacionaria alta presión", "Alquiler de maquinaria certificada", "Operadores calificados SENA"].map((item) => (
+                {["Boom pump hasta 58m de alcance", "Bombas estacionarias de alta presión", "Grúas torre y móviles", "Operadores certificados"].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-base text-[var(--text-secondary)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-600)]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-primary)]" />
                     {item}
                   </li>
                 ))}
@@ -168,7 +168,7 @@ export function BentoGridSection() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className="lg:col-span-3 group relative overflow-hidden rounded-xl min-h-[480px] border border-[var(--border-subtle)] hover:border-[var(--red-600)] transition-colors duration-300"
+            className="lg:col-span-3 group relative overflow-hidden rounded-xl min-h-[480px] border border-[var(--border-subtle)] hover:border-[var(--red-primary)] transition-colors duration-300"
           >
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.04]"
@@ -180,17 +180,17 @@ export function BentoGridSection() {
             
             {/* Play Button */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-[var(--red-600)]/90 flex items-center justify-center hover:bg-[var(--red-600)] hover:scale-110 transition-all duration-300 cursor-pointer">
+              <div className="w-20 h-20 rounded-full bg-[var(--red-primary)]/90 flex items-center justify-center hover:bg-[var(--red-primary)] hover:scale-110 transition-all duration-300 cursor-pointer">
                 <Play className="w-8 h-8 text-white ml-1" fill="white" />
               </div>
             </div>
 
             <div className="relative h-full flex flex-col justify-end p-6 lg:p-8">
-              <p className="text-base text-[var(--text-secondary)]">Nuestro equipo en acción</p>
+              <p className="text-base text-[var(--text-secondary)]">Nuestras plantas en operación</p>
               <div className="mt-3 inline-flex items-center gap-2 glass px-4 py-2 rounded-lg border border-[var(--border-subtle)] w-fit">
-                <span className="w-2 h-2 rounded-full bg-[var(--red-600)] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[var(--red-primary)] animate-pulse" />
                 <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-white">
-                  BOMBEO CONTINUO 24/7
+                  DESPACHO CONTINUO 24/7
                 </span>
               </div>
             </div>

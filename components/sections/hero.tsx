@@ -5,27 +5,27 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 const stats = [
-  { value: '+120.000', unit: 'm³/mes', label: 'DESPACHO' },
-  { value: '28', unit: 'años', label: 'TRAYECTORIA' },
-  { value: '3', unit: 'plantas', label: 'ANTIOQUIA' },
-  { value: '<90', unit: 'min', label: 'ENTREGA' },
+  { value: '+85.000', unit: 'm³/mes', label: 'DESPACHO' },
+  { value: '25', unit: 'años', label: 'TRAYECTORIA' },
+  { value: '4', unit: 'plantas', label: 'EN LIMA' },
+  { value: '<60', unit: 'min', label: 'ENTREGA' },
 ]
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden grain">
-      {/* Background Image with Overlays */}
+      {/* Background Image with Overlays - Concrete Plant Image */}
       <div className="absolute inset-0">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2076&auto=format&fit=crop')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1587582423116-ec07293f0395?q=80&w=2070&auto=format&fit=crop')`,
           }}
         />
         {/* Triple gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--black-950)] via-[var(--black-950)]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--black-950)] via-[var(--black-950)]/75 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--black-950)] via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[var(--black-950)]/45" />
+        <div className="absolute inset-0 bg-[var(--black-950)]/50" />
       </div>
 
       {/* Main Content */}
@@ -39,8 +39,8 @@ export function HeroSection() {
             className="flex flex-col"
           >
             {/* Pre-label */}
-            <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-600)] mb-3">
-              • CONCRETO PREMEZCLADO · MEDELLÍN
+            <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-primary)] mb-3">
+              • CONCRETO PREMEZCLADO · LIMA, PERÚ
             </span>
 
             {/* Display Headlines */}
@@ -49,30 +49,30 @@ export function HeroSection() {
                 CONCRETO QUE
               </span>
               <span className="block text-[60px] sm:text-[80px] lg:text-[120px] leading-[0.92] tracking-[-0.02em] text-outline">
-                PERDURA.
+                CONSTRUYE.
               </span>
             </h1>
 
             {/* Description */}
             <p className="mt-6 text-lg leading-[1.7] text-[var(--text-secondary)] max-w-[520px]">
-              Premezclado de alta resistencia, bombeo continuo y maquinaria pesada.
-              Desplegamos logística certificada para obras que no admiten errores.
+              Concreto premezclado de alta resistencia, bombeo especializado y maquinaria pesada.
+              Logística certificada para obras que exigen precisión y puntualidad en todo el Perú.
             </p>
 
             {/* CTA Stack */}
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
                 href="#contacto"
-                className="group inline-flex items-center justify-center h-[52px] px-7 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-600)] text-white rounded-lg hover:bg-[var(--red-700)] hover:glow-red-intense transition-all duration-150 ease-snappy hover:scale-[1.02]"
+                className="group inline-flex items-center justify-center h-[52px] px-7 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-primary)] text-white rounded-lg hover:bg-[var(--red-dark)] hover:glow-red-intense transition-all duration-150 ease-snappy hover:scale-[1.02]"
               >
-                Hacer un Pedido
+                Solicitar Cotización
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-150 group-hover:translate-x-1.5" />
               </Link>
               <Link
                 href="#soluciones"
-                className="inline-flex items-center justify-center h-[52px] px-7 text-[13px] font-medium tracking-[0.12em] uppercase bg-transparent text-white border border-[var(--white-300)]/50 rounded-lg hover:bg-[var(--red-ghost)] hover:border-[var(--red-600)] transition-all duration-200"
+                className="inline-flex items-center justify-center h-[52px] px-7 text-[13px] font-medium tracking-[0.12em] uppercase bg-transparent text-white border border-[var(--white-300)]/50 rounded-lg hover:bg-[var(--red-ghost)] hover:border-[var(--red-primary)] transition-all duration-200"
               >
-                Ver Catálogo
+                Ver Servicios
               </Link>
             </div>
 
@@ -80,11 +80,11 @@ export function HeroSection() {
             <div className="mt-12 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--text-muted)]">
               <span>ASTM C94</span>
               <span>·</span>
-              <span>NTC 321</span>
+              <span>NTP 339.114</span>
               <span>·</span>
               <span>ISO 9001</span>
               <span>·</span>
-              <span>+800 obras entregadas</span>
+              <span>+1.200 proyectos entregados</span>
             </div>
           </motion.div>
         </div>
@@ -111,7 +111,7 @@ export function HeroSection() {
                   <span className="font-display text-2xl lg:text-4xl text-white">
                     {stat.value}
                   </span>
-                  <span className="text-base lg:text-lg font-semibold text-[var(--red-600)]">
+                  <span className="text-base lg:text-lg font-semibold text-[var(--red-primary)]">
                     {stat.unit}
                   </span>
                 </div>

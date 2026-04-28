@@ -3,23 +3,27 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* UNIMAXCORP Design System - Dark Industrial Theme */
+/* UNIMA Corp Design System - Industrial Theme */
 :root {
-  /* Primitivos - Layer 1 */
-  --black-950: #050505;
-  --black-900: #0A0A0C;
-  --black-800: #111318;
-  --black-700: #1A1D24;
-  --black-600: #262A31;
-  --black-500: #363B44;
+  /* Primitivos - Layer 1 - Based on UNIMA Logo */
+  --black-950: #0A0F14;
+  --black-900: #0E1419;
+  --black-800: #151C24;
+  --black-700: #1C252F;
+  --black-600: #262F3A;
+  --black-500: #363F4A;
   --white-100: #FFFFFF;
-  --white-200: #E8E8E8;
-  --white-300: #BDBDBD;
-  --white-400: #8A8A8A;
-  --red-600: #D71920;
-  --red-700: #B01318;
-  --red-glow: rgba(215, 25, 32, 0.18);
-  --red-ghost: rgba(215, 25, 32, 0.06);
+  --white-200: #F5F7F8;
+  --white-300: #C8CED4;
+  --white-400: #8A9199;
+  
+  /* Brand Colors from Logo */
+  --blue-dark: #22384E;
+  --blue-primary: #304B63;
+  --red-primary: #C13D3A;
+  --red-dark: #8E2529;
+  --red-glow: rgba(193, 61, 58, 0.18);
+  --red-ghost: rgba(193, 61, 58, 0.06);
   --grain-light: rgba(255, 255, 255, 0.04);
   --grain-dark: rgba(0, 0, 0, 0.25);
 
@@ -30,35 +34,35 @@
   --card-foreground: var(--white-100);
   --popover: var(--black-700);
   --popover-foreground: var(--white-100);
-  --primary: var(--red-600);
+  --primary: var(--red-primary);
   --primary-foreground: var(--white-100);
-  --secondary: var(--black-600);
+  --secondary: var(--blue-primary);
   --secondary-foreground: var(--white-100);
   --muted: var(--black-700);
   --muted-foreground: var(--white-400);
-  --accent: var(--red-600);
+  --accent: var(--red-primary);
   --accent-foreground: var(--white-100);
-  --destructive: var(--red-700);
+  --destructive: var(--red-dark);
   --destructive-foreground: var(--white-100);
   --border: var(--black-600);
   --border-subtle: rgba(255, 255, 255, 0.06);
   --input: var(--black-700);
-  --ring: var(--red-600);
+  --ring: var(--red-primary);
 
   /* Surface tokens */
   --surface: var(--black-800);
   --elevated: var(--black-700);
-  --overlay: rgba(5, 5, 5, 0.82);
+  --overlay: rgba(10, 15, 20, 0.85);
 
   /* Text tokens */
   --text-primary: var(--white-100);
   --text-secondary: var(--white-200);
   --text-muted: var(--white-400);
-  --text-accent: var(--red-600);
+  --text-accent: var(--red-primary);
 
   /* Interactive tokens */
-  --cta-bg: var(--red-600);
-  --cta-hover: var(--red-700);
+  --cta-bg: var(--red-primary);
+  --cta-hover: var(--red-dark);
   --cta-glow: var(--red-glow);
   --ghost-hover: var(--red-ghost);
 
@@ -68,18 +72,18 @@
   /* Sidebar */
   --sidebar: var(--black-900);
   --sidebar-foreground: var(--white-100);
-  --sidebar-primary: var(--red-600);
+  --sidebar-primary: var(--red-primary);
   --sidebar-primary-foreground: var(--white-100);
   --sidebar-accent: var(--black-700);
   --sidebar-accent-foreground: var(--white-100);
   --sidebar-border: var(--black-600);
-  --sidebar-ring: var(--red-600);
+  --sidebar-ring: var(--red-primary);
 
   /* Chart colors */
-  --chart-1: var(--red-600);
-  --chart-2: var(--white-300);
-  --chart-3: var(--black-500);
-  --chart-4: var(--red-700);
+  --chart-1: var(--red-primary);
+  --chart-2: var(--blue-primary);
+  --chart-3: var(--white-300);
+  --chart-4: var(--red-dark);
   --chart-5: var(--white-400);
 }
 
@@ -156,7 +160,7 @@
     backdrop-filter: blur(24px) saturate(1.4);
   }
   .glass-intense {
-    background: rgba(5, 5, 5, 0.88);
+    background: rgba(10, 15, 20, 0.92);
     backdrop-filter: blur(28px) saturate(1.6);
   }
 
@@ -165,7 +169,7 @@
     box-shadow: 0 0 28px var(--red-glow);
   }
   .glow-red-intense {
-    box-shadow: 0 0 28px rgba(215, 25, 32, 0.35);
+    box-shadow: 0 0 28px rgba(193, 61, 58, 0.35);
   }
 
   /* Grain texture overlay */

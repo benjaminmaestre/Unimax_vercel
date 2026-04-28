@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const stats = [
-  { value: 120000, suffix: '', unit: 'm³', label: 'DESPACHO MENSUAL' },
-  { value: 800, suffix: '+', unit: '', label: 'OBRAS COMPLETADAS' },
-  { value: 28, suffix: '', unit: 'años', label: 'TRAYECTORIA' },
-  { value: 90, prefix: '<', suffix: '', unit: 'min', label: 'TIEMPO DE ENTREGA' },
+  { value: 85000, suffix: '', unit: 'm³', label: 'DESPACHO MENSUAL' },
+  { value: 1200, suffix: '+', unit: '', label: 'PROYECTOS COMPLETADOS' },
+  { value: 25, suffix: '', unit: 'años', label: 'EN EL MERCADO' },
+  { value: 60, prefix: '<', suffix: '', unit: 'min', label: 'TIEMPO DE ENTREGA' },
 ]
 
 function AnimatedCounter({ 
@@ -75,7 +75,7 @@ export function StatsSection() {
                   />
                 </span>
                 {stat.unit && (
-                  <span className="text-xl lg:text-2xl font-semibold text-[var(--red-600)]">
+                  <span className="text-xl lg:text-2xl font-semibold text-[var(--red-primary)]">
                     {stat.unit}
                   </span>
                 )}

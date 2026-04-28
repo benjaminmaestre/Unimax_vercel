@@ -7,38 +7,38 @@ import Link from 'next/link'
 const fleet = [
   {
     id: 1,
-    model: 'IMER 380',
-    type: 'Mixer Truck 8m³',
-    specs: ['Capacidad 8m³', 'Bomba integrada', 'GPS en tiempo real'],
+    model: 'VOLVO FMX 440',
+    type: 'Mixer 8m³',
+    specs: ['Capacidad 8m³', 'Tambor reforzado', 'GPS integrado'],
     image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2076&auto=format&fit=crop',
   },
   {
     id: 2,
-    model: 'SCHWING 10000',
-    type: 'Mixer Truck 10m³',
+    model: 'MERCEDES ACTROS',
+    type: 'Mixer 10m³',
     specs: ['Capacidad 10m³', 'Alto rendimiento', 'Certificado ISO'],
     image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069&auto=format&fit=crop',
   },
   {
     id: 3,
-    model: 'CIFA K42L',
-    type: 'Boom Pump 42m',
-    specs: ['Alcance 42m', 'Articulado', 'Para edificios'],
+    model: 'PUTZMEISTER M47',
+    type: 'Boom Pump 47m',
+    specs: ['Alcance 47m', '5 secciones', 'Para edificios'],
     image: 'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1985&auto=format&fit=crop',
   },
   {
     id: 4,
-    model: 'PUTZMEISTER 52',
-    type: 'Boom Pump 52m',
-    specs: ['Alcance 52m', 'Alta presión', 'Mega proyectos'],
+    model: 'SCHWING S58',
+    type: 'Boom Pump 58m',
+    specs: ['Alcance 58m', 'Alta presión', 'Mega proyectos'],
     image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop',
   },
   {
     id: 5,
-    model: 'S47 ALTA PRESIÓN',
-    type: 'Stationary Pump',
-    specs: ['160 bar', 'Bombeo vertical', 'Larga distancia'],
-    image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2070&auto=format&fit=crop',
+    model: 'LIEBHERR LTM 1100',
+    type: 'Grúa Móvil 100t',
+    specs: ['Capacidad 100t', '60m de pluma', 'Multi-terreno'],
+    image: 'https://images.unsplash.com/photo-1587582423116-ec07293f0395?q=80&w=2070&auto=format&fit=crop',
   },
 ]
 
@@ -54,11 +54,11 @@ export function FleetGallerySection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mb-12"
         >
-          <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-600)]">
+          <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-primary)]">
             • NUESTRA FLOTA
           </span>
           <h2 className="mt-3 text-3xl lg:text-[40px] font-bold leading-[1.1] tracking-[-0.02em] text-white text-balance">
-            Equipos certificados para cualquier envergadura.
+            Equipos de última generación para cualquier escala.
           </h2>
           <p className="mt-4 text-lg text-[var(--text-muted)] flex items-center gap-2">
             Desliza para explorar
@@ -79,7 +79,7 @@ export function FleetGallerySection() {
               transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="flex-shrink-0 w-[320px] lg:w-[360px] snap-start"
             >
-              <div className="group relative h-[480px] rounded-xl overflow-hidden border border-[var(--border-subtle)] hover:border-[var(--red-600)] transition-colors duration-300">
+              <div className="group relative h-[480px] rounded-xl overflow-hidden border border-[var(--border-subtle)] hover:border-[var(--red-primary)] transition-colors duration-300">
                 {/* Image */}
                 <img
                   src={item.image}
@@ -92,7 +92,7 @@ export function FleetGallerySection() {
 
                 {/* Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center px-3 py-1.5 rounded bg-[var(--red-600)] text-[11px] font-medium tracking-[0.14em] uppercase text-white">
+                  <span className="inline-flex items-center px-3 py-1.5 rounded bg-[var(--red-primary)] text-[11px] font-medium tracking-[0.14em] uppercase text-white">
                     {item.type}
                   </span>
                 </div>
@@ -123,7 +123,7 @@ export function FleetGallerySection() {
                   >
                     <Link
                       href="#contacto"
-                      className="inline-flex items-center justify-center h-10 px-5 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-600)] text-white rounded-lg hover:bg-[var(--red-700)] transition-colors"
+                      className="inline-flex items-center justify-center h-10 px-5 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-primary)] text-white rounded-lg hover:bg-[var(--red-dark)] transition-colors"
                     >
                       Solicitar
                     </Link>
@@ -146,11 +146,11 @@ export function FleetGallerySection() {
                 Ver flota completa
               </h3>
               <p className="mt-3 text-base text-[var(--text-muted)]">
-                Más de 50 equipos disponibles para tu proyecto
+                Más de 80 equipos disponibles para tu proyecto en Lima y provincias
               </p>
               <Link
                 href="#contacto"
-                className="group mt-6 inline-flex items-center justify-center h-[52px] px-7 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-600)] text-white rounded-lg hover:bg-[var(--red-700)] hover:glow-red-intense transition-all duration-150"
+                className="group mt-6 inline-flex items-center justify-center h-[52px] px-7 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-primary)] text-white rounded-lg hover:bg-[var(--red-dark)] hover:glow-red-intense transition-all duration-150"
               >
                 Cotizar Ahora
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-150 group-hover:translate-x-1.5" />

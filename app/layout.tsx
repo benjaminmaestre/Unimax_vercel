@@ -17,13 +17,13 @@ const bebasNeue = Bebas_Neue({
 })
 
 export const metadata: Metadata = {
-  title: 'UNIMAXCORP | Concreto Premezclado de Alta Resistencia | Medellín',
-  description: 'Premezclado de alta resistencia, bombeo continuo y maquinaria pesada. Desplegamos logística certificada para obras que no admiten errores. ASTM C94 · NTC 321 · ISO 9001',
-  keywords: ['concreto premezclado', 'Medellín', 'bombeo de concreto', 'mixer truck', 'construcción', 'Antioquia'],
+  title: 'UNIMA Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
+  description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 25 años de experiencia en soluciones de concreto para proyectos de infraestructura.',
+  keywords: ['concreto premezclado', 'Lima', 'Perú', 'bombeo de concreto', 'mixer truck', 'construcción', 'maquinaria pesada', 'plantas de concreto'],
   generator: 'v0.app',
   openGraph: {
-    title: 'UNIMAXCORP | Concreto Premezclado de Alta Resistencia',
-    description: 'Premezclado de alta resistencia, bombeo continuo y maquinaria pesada para obras en Medellín y Antioquia.',
+    title: 'UNIMA Corp | Concreto Premezclado y Maquinarias',
+    description: 'Soluciones integrales de concreto premezclado y maquinaria pesada para proyectos de construcción en Lima y todo el Perú.',
     type: 'website',
   },
   icons: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#050505',
+  themeColor: '#0A0F14',
   width: 'device-width',
   initialScale: 1,
 }
