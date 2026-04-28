@@ -19,8 +19,8 @@ export function ManifestoSection() {
           >
             <div className="relative overflow-hidden rounded-xl aspect-[16/10]">
               <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2076&auto=format&fit=crop"
-                alt="Flota de camiones mixer UNIMA Corp"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FLOTA-DE-MIXE-1-mbwJtyBvhWEEPoA6hNfsEhLyPhYGpZ.webp"
+                alt="Flota de camiones mixer UNIMAXCORP"
                 className="w-full h-full object-cover"
               />
               {/* Floating Badge */}

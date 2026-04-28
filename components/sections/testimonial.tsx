@@ -23,7 +23,7 @@ export function TestimonialSection() {
             {/* Quote Text */}
             <blockquote className="-mt-16 text-2xl lg:text-[32px] font-bold leading-[1.3] tracking-[-0.01em] text-white">
               Necesitábamos un proveedor que garantizara la resistencia estructural 
-              y el vaciado continuo en altura. UNIMA Corp demostró tener la capacidad 
+              y el vaciado continuo en altura. UNIMAXCORP demostró tener la capacidad 
               técnica y logística para cumplir sin retrasos.
             </blockquote>
 
@@ -51,7 +51,7 @@ export function TestimonialSection() {
 
             {/* Project Reference */}
             <p className="mt-6 text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--text-muted)]">
-              Torre Empresarial San Isidro, Lima 2025
+              Pavimentación San Juan de Lurigancho, Lima 2025
             </p>
           </motion.div>
 
@@ -65,8 +65,8 @@ export function TestimonialSection() {
           >
             <div className="relative rounded-xl overflow-hidden h-[400px] lg:h-[520px]">
               <img
-                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop"
-                alt="Torre Empresarial San Isidro"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pavimento-san-juan-de-lurigancho-Unimaxcorp-aFKG9rAwfcI1r2anhItf2YY1uzZyVb.webp"
+                alt="Pavimentación San Juan de Lurigancho"
                 className="w-full h-full object-cover"
               />
               
@@ -79,7 +79,7 @@ export function TestimonialSection() {
                 className="absolute bottom-4 left-4 glass rounded-lg px-4 py-3 border border-[var(--border-subtle)]"
               >
                 <span className="text-sm font-medium text-white">
-                  18.500 m³ vaciados · 14 meses
+                  12.500 m³ vaciados · 8 meses
                 </span>
               </motion.div>
             </div>

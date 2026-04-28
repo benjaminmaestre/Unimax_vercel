@@ -19,7 +19,7 @@ export function HeroSection() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1587582423116-ec07293f0395?q=80&w=2070&auto=format&fit=crop')`,
+            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nosotros-Unimaxcorp-a30tqGJm8W5sqXMOOjT8mDJgEzbwX6.webp')`,
           }}
         />
         {/* Triple gradient overlay */}

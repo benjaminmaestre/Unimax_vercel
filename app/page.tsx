@@ -6,6 +6,7 @@ import { BentoGridSection } from '@/components/sections/bento-grid'
 import { ProcessSection } from '@/components/sections/process'
 import { FleetGallerySection } from '@/components/sections/fleet-gallery'
 import { TestimonialSection } from '@/components/sections/testimonial'
+import { ProjectsGallerySection } from '@/components/sections/projects-gallery'
 import { CertificationsSection } from '@/components/sections/certifications'
 import { CoverageSection } from '@/components/sections/coverage'
 import { ContactSection } from '@/components/sections/contact'
@@ -22,6 +23,7 @@ export default function HomePage() {
       <ProcessSection />
       <FleetGallerySection />
       <TestimonialSection />
+      <ProjectsGallerySection />
       <CertificationsSection />
       <CoverageSection />
       <ContactSection />

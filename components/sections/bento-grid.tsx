@@ -52,7 +52,7 @@ export function BentoGridSection() {
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.04]"
               style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1985&auto=format&fit=crop')`,
+                backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vaciado-Unimaxcorp-002-lCojy5wXyOYj9Fl3zxtJ0S1EpUHHYT.webp')`,
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--black-950)] via-[var(--black-950)]/60 to-transparent" />
@@ -173,7 +173,7 @@ export function BentoGridSection() {
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.04]"
               style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop')`,
+                backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/plnata-dosificadora-1-nBJ3KM7b2wgHOjE006GXWkj4cKEZ5k.webp')`,
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--black-950)] via-[var(--black-950)]/40 to-transparent" />
@@ -186,7 +186,7 @@ export function BentoGridSection() {
             </div>
 
             <div className="relative h-full flex flex-col justify-end p-6 lg:p-8">
-              <p className="text-base text-[var(--text-secondary)]">Nuestras plantas en operación</p>
+              <p className="text-base text-[var(--text-secondary)]">Nuestras plantas dosificadoras en operación</p>
               <div className="mt-3 inline-flex items-center gap-2 glass px-4 py-2 rounded-lg border border-[var(--border-subtle)] w-fit">
                 <span className="w-2 h-2 rounded-full bg-[var(--red-primary)] animate-pulse" />
                 <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-white">

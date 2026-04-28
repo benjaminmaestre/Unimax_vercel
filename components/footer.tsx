@@ -56,7 +56,7 @@ export function Footer() {
         {/* Bottom Row */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-4 text-sm text-[var(--text-muted)]">
           <p>
-            © 2026 UNIMA Corp. Todos los derechos reservados.
+            © 2026 UNIMAXCORP. Todos los derechos reservados.
           </p>
           <p>
             RUC: XXXXXXXXXXX · Lima, Perú
