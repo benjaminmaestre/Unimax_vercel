@@ -1,0 +1,204 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* UNIMAXCORP Design System - Dark Industrial Theme */
+:root {
+  /* Primitivos - Layer 1 */
+  --black-950: #050505;
+  --black-900: #0A0A0C;
+  --black-800: #111318;
+  --black-700: #1A1D24;
+  --black-600: #262A31;
+  --black-500: #363B44;
+  --white-100: #FFFFFF;
+  --white-200: #E8E8E8;
+  --white-300: #BDBDBD;
+  --white-400: #8A8A8A;
+  --red-600: #D71920;
+  --red-700: #B01318;
+  --red-glow: rgba(215, 25, 32, 0.18);
+  --red-ghost: rgba(215, 25, 32, 0.06);
+  --grain-light: rgba(255, 255, 255, 0.04);
+  --grain-dark: rgba(0, 0, 0, 0.25);
+
+  /* Semánticos - Layer 2 */
+  --background: var(--black-950);
+  --foreground: var(--white-100);
+  --card: var(--black-800);
+  --card-foreground: var(--white-100);
+  --popover: var(--black-700);
+  --popover-foreground: var(--white-100);
+  --primary: var(--red-600);
+  --primary-foreground: var(--white-100);
+  --secondary: var(--black-600);
+  --secondary-foreground: var(--white-100);
+  --muted: var(--black-700);
+  --muted-foreground: var(--white-400);
+  --accent: var(--red-600);
+  --accent-foreground: var(--white-100);
+  --destructive: var(--red-700);
+  --destructive-foreground: var(--white-100);
+  --border: var(--black-600);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --input: var(--black-700);
+  --ring: var(--red-600);
+
+  /* Surface tokens */
+  --surface: var(--black-800);
+  --elevated: var(--black-700);
+  --overlay: rgba(5, 5, 5, 0.82);
+
+  /* Text tokens */
+  --text-primary: var(--white-100);
+  --text-secondary: var(--white-200);
+  --text-muted: var(--white-400);
+  --text-accent: var(--red-600);
+
+  /* Interactive tokens */
+  --cta-bg: var(--red-600);
+  --cta-hover: var(--red-700);
+  --cta-glow: var(--red-glow);
+  --ghost-hover: var(--red-ghost);
+
+  /* Radius */
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar: var(--black-900);
+  --sidebar-foreground: var(--white-100);
+  --sidebar-primary: var(--red-600);
+  --sidebar-primary-foreground: var(--white-100);
+  --sidebar-accent: var(--black-700);
+  --sidebar-accent-foreground: var(--white-100);
+  --sidebar-border: var(--black-600);
+  --sidebar-ring: var(--red-600);
+
+  /* Chart colors */
+  --chart-1: var(--red-600);
+  --chart-2: var(--white-300);
+  --chart-3: var(--black-500);
+  --chart-4: var(--red-700);
+  --chart-5: var(--white-400);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-display: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  /* Easing tokens */
+  .ease-smooth {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .ease-cinematic {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .ease-snappy {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .ease-reveal {
+    transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--overlay);
+    backdrop-filter: blur(24px) saturate(1.4);
+  }
+  .glass-intense {
+    background: rgba(5, 5, 5, 0.88);
+    backdrop-filter: blur(28px) saturate(1.6);
+  }
+
+  /* Glow effects */
+  .glow-red {
+    box-shadow: 0 0 28px var(--red-glow);
+  }
+  .glow-red-intense {
+    box-shadow: 0 0 28px rgba(215, 25, 32, 0.35);
+  }
+
+  /* Grain texture overlay */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Text outline for Display headings */
+  .text-outline {
+    -webkit-text-stroke: 1px var(--white-100);
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply mx-auto max-w-[1280px] px-5 md:px-20;
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
