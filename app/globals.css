@@ -3,9 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* UNIMA Corp Design System - Industrial Theme */
+/* UNIMAX Corp Design System - Industrial Theme */
 :root {
-  /* Primitivos - Layer 1 - Based on UNIMA Logo */
+  /* Primitivos - Layer 1 - Based on UNIMAX Logo */
   --black-950: #0A0F14;
   --black-900: #0E1419;
   --black-800: #151C24;
@@ -162,6 +162,10 @@
   .glass-intense {
     background: rgba(10, 15, 20, 0.92);
     backdrop-filter: blur(28px) saturate(1.6);
+  }
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(20px) saturate(1.2);
   }
 
   /* Glow effects */

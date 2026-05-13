@@ -13,112 +13,129 @@ const stats = [
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden grain">
-      {/* Background Image with Overlays - Concrete Plant Image */}
+    <section className="relative h-screen min-h-[700px] overflow-hidden grain">
+      {/* Background Image with Overlays - Cinematic Wide Angle */}
       <div className="absolute inset-0">
-        <div 
+        <motion.div 
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nosotros-Unimaxcorp-a30tqGJm8W5sqXMOOjT8mDJgEzbwX6.webp')`,
+            backgroundImage: `url('/hero-bg.png')`,
           }}
         />
-        {/* Triple gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--black-950)] via-[var(--black-950)]/75 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--black-950)] via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[var(--black-950)]/50" />
+        {/* Cinematic Overlays */}
+        <div className="absolute inset-0 bg-linear-to-r from-(--black-950) via-(--black-950)/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-(--black-950) via-transparent to-(--black-950)/20" />
+        <div className="absolute inset-0 bg-(--black-950)/30" />
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 section-container pt-[180px] pb-[180px] min-h-screen flex flex-col justify-between">
-        <div className="grid lg:grid-cols-[65%_35%] gap-8">
-          {/* Left Column - Content */}
+      <div className="relative z-10 section-container h-full flex flex-col justify-center">
+        <div className="max-w-[1200px]">
+          {/* Content */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col"
           >
             {/* Pre-label */}
-            <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-primary)] mb-3">
-              • CONCRETO PREMEZCLADO · LIMA, PERÚ
-            </span>
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="text-[12px] font-bold tracking-[0.2em] uppercase text-(--red-primary) mb-6 flex items-center gap-3"
+            >
+              <span className="w-12 h-[2px] bg-(--red-primary)" />
+              LÍDERES EN CONCRETO PREMEZCLADO · PERÚ
+            </motion.span>
 
-            {/* Display Headlines */}
+            {/* Monumental Headlines */}
             <h1 className="font-display">
-              <span className="block text-[60px] sm:text-[80px] lg:text-[120px] leading-[0.92] tracking-[-0.02em] text-white">
-                CONCRETO QUE
+              <span className="block text-[70px] sm:text-[100px] lg:text-[150px] leading-[0.85] tracking-[-0.04em] text-white drop-shadow-2xl">
+                SOLUCIONES
               </span>
-              <span className="block text-[60px] sm:text-[80px] lg:text-[120px] leading-[0.92] tracking-[-0.02em] text-outline">
-                CONSTRUYE.
+              <span className="block text-[70px] sm:text-[100px] lg:text-[150px] leading-[0.85] tracking-[-0.04em] text-outline drop-shadow-2xl">
+                QUE TRASCIENDEN.
               </span>
             </h1>
 
             {/* Description */}
-            <p className="mt-6 text-lg leading-[1.7] text-[var(--text-secondary)] max-w-[520px]">
-              Concreto premezclado de alta resistencia, bombeo especializado y maquinaria pesada.
-              Logística certificada para obras que exigen precisión y puntualidad en todo el Perú.
-            </p>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 1 }}
+              className="mt-8 text-xl lg:text-2xl leading-[1.6] text-(--text-secondary) max-w-[650px] font-light"
+            >
+              Potenciamos el desarrollo del país con concreto de alta resistencia y 
+              logística de vanguardia. Más de 25 años construyendo el futuro del Perú.
+            </motion.p>
 
             {/* CTA Stack */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-12 flex flex-col sm:flex-row gap-5">
               <Link
                 href="#contacto"
-                className="group inline-flex items-center justify-center h-[52px] px-7 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-primary)] text-white rounded-lg hover:bg-[var(--red-dark)] hover:glow-red-intense transition-all duration-150 ease-snappy hover:scale-[1.02]"
+                className="group relative inline-flex items-center justify-center h-[60px] px-10 text-[14px] font-bold tracking-[0.15em] uppercase bg-(--red-primary) text-white rounded-md overflow-hidden transition-all duration-300 hover:glow-red-intense"
               >
-                Solicitar Cotización
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-150 group-hover:translate-x-1.5" />
+                <span className="relative z-10 flex items-center">
+                  Cotizar Proyecto
+                  <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
+                </span>
+                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </Link>
               <Link
                 href="#soluciones"
-                className="inline-flex items-center justify-center h-[52px] px-7 text-[13px] font-medium tracking-[0.12em] uppercase bg-transparent text-white border border-[var(--white-300)]/50 rounded-lg hover:bg-[var(--red-ghost)] hover:border-[var(--red-primary)] transition-all duration-200"
+                className="inline-flex items-center justify-center h-[60px] px-10 text-[14px] font-bold tracking-[0.15em] uppercase bg-transparent text-white border-2 border-white/20 rounded-md hover:bg-white/10 hover:border-white/40 transition-all duration-300"
               >
-                Ver Servicios
+                Nuestros Servicios
               </Link>
-            </div>
-
-            {/* Trust Strip */}
-            <div className="mt-12 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--text-muted)]">
-              <span>ASTM C94</span>
-              <span>·</span>
-              <span>NTP 339.114</span>
-              <span>·</span>
-              <span>ISO 9001</span>
-              <span>·</span>
-              <span>+1.200 proyectos entregados</span>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Bottom Stats Strip */}
+      {/* Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+      >
+        <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40">SCROLL</span>
+        <div className="w-px h-12 bg-linear-to-t from-(--red-primary) to-transparent relative overflow-hidden">
+          <motion.div 
+            animate={{ y: [0, 48] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 left-0 w-full h-1/2 bg-white"
+          />
+        </div>
+      </motion.div>
+
+      {/* Bottom Stats Strip - Condensed for better focus on Hero */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute bottom-0 left-0 right-0 glass border-t border-[var(--border-subtle)]"
+        transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute bottom-0 left-0 right-0 glass-dark border-t border-white/10 hidden lg:block"
       >
         <div className="section-container">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[var(--border-subtle)]">
+          <div className="grid grid-cols-4 divide-x divide-white/10">
             {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                className="py-5 lg:py-6 px-4 lg:px-8 text-center lg:text-left"
-              >
-                <div className="flex items-baseline justify-center lg:justify-start gap-1">
-                  <span className="font-display text-2xl lg:text-4xl text-white">
+              <div key={stat.label} className="py-8 px-8 flex flex-col justify-center">
+                <div className="flex items-baseline gap-1">
+                  <span className="font-display text-4xl text-white tracking-tight">
                     {stat.value}
                   </span>
-                  <span className="text-base lg:text-lg font-semibold text-[var(--red-primary)]">
+                  <span className="text-sm font-bold text-(--red-primary) uppercase tracking-tighter">
                     {stat.unit}
                   </span>
                 </div>
-                <p className="mt-1 text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--text-muted)]">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 mt-1">
                   {stat.label}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -126,3 +143,4 @@ export function HeroSection() {
     </section>
   )
 }
+

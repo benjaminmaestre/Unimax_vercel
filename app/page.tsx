@@ -1,6 +1,5 @@
 import { Navigation } from '@/components/navigation'
 import { HeroSection } from '@/components/sections/hero'
-import { StatsSection } from '@/components/sections/stats'
 import { ManifestoSection } from '@/components/sections/manifesto'
 import { BentoGridSection } from '@/components/sections/bento-grid'
 import { ProcessSection } from '@/components/sections/process'
@@ -17,7 +16,6 @@ export default function HomePage() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
-      <StatsSection />
       <ManifestoSection />
       <BentoGridSection />
       <ProcessSection />

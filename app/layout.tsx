@@ -17,12 +17,12 @@ const bebasNeue = Bebas_Neue({
 })
 
 export const metadata: Metadata = {
-  title: 'UNIMA Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
+  title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
   description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 25 años de experiencia en soluciones de concreto para proyectos de infraestructura.',
   keywords: ['concreto premezclado', 'Lima', 'Perú', 'bombeo de concreto', 'mixer truck', 'construcción', 'maquinaria pesada', 'plantas de concreto'],
   generator: 'v0.app',
   openGraph: {
-    title: 'UNIMA Corp | Concreto Premezclado y Maquinarias',
+    title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias',
     description: 'Soluciones integrales de concreto premezclado y maquinaria pesada para proyectos de construcción en Lima y todo el Perú.',
     type: 'website',
   },
