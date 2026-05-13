@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+@variant dark (&:is(.dark *));
 
 /* UNIMAX Corp Design System - Industrial Theme */
 :root {
@@ -87,7 +87,7 @@
   --chart-5: var(--white-400);
 }
 
-@theme inline {
+@theme {
   --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
   --font-display: var(--font-bebas), 'Bebas Neue', sans-serif;
   --font-mono: 'Geist Mono', monospace;
