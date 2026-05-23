@@ -60,7 +60,7 @@ export function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 section-container h-full flex flex-col lg:flex-row items-center justify-between gap-10">
+      <div className="relative z-10 section-container h-full flex flex-col lg:flex-row items-center justify-between gap-10 pb-16 lg:pb-32">
         {/* Left Column: Text Content (moved towards center, controlled max-width) */}
         <div className="max-w-[720px] flex flex-col justify-center">
           <motion.div
@@ -129,7 +129,7 @@ export function HeroSection() {
               </Link>
               <Link
                 href="#soluciones"
-                className="inline-flex items-center justify-center h-[56px] px-9 text-[12px] font-bold tracking-[0.15em] uppercase bg-white/60 dark:bg-white/5 backdrop-blur-sm text-neutral-900 dark:text-white border-2 border-neutral-900/50 dark:border-white/50 hover:border-neutral-900 dark:hover:border-white/80 rounded-md hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-200 active:scale-95"
+                className="inline-flex items-center justify-center h-[56px] px-9 text-[12px] font-bold tracking-[0.15em] uppercase bg-transparent text-neutral-900 dark:text-white border-2 border-neutral-900/60 dark:border-white/50 hover:border-neutral-900 dark:hover:border-white/90 rounded-md hover:bg-neutral-900/5 dark:hover:bg-white/5 transition-all duration-200 active:scale-95"
               >
                 {t('hero.cta.servicios')}
               </Link>
@@ -181,7 +181,7 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex lg:hidden flex-col items-center gap-3 z-10"
+        className="absolute bottom-6 lg:bottom-[130px] left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 z-10"
       >
         <span className="text-[9px] font-bold tracking-[0.3em] uppercase text-neutral-500 dark:text-white/50">{t('hero.scroll')}</span>
         <div className="w-px h-10 bg-linear-to-t from-primary to-transparent relative overflow-hidden">
