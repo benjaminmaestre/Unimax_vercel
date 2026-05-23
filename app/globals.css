@@ -27,7 +27,68 @@
   --grain-light: rgba(255, 255, 255, 0.04);
   --grain-dark: rgba(0, 0, 0, 0.25);
 
-  /* Semánticos - Layer 2 */
+  /* ------------------ LIGHT MODE DEFAULTS ------------------ */
+  --background: #FFFFFF;
+  --foreground: #0A0F14;
+  --card: #F9FAFB;
+  --card-foreground: #0A0F14;
+  --popover: #F3F4F6;
+  --popover-foreground: #0A0F14;
+  --primary: var(--red-primary);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--blue-primary);
+  --secondary-foreground: #FFFFFF;
+  --muted: #F3F4F6;
+  --muted-foreground: #4B5563;
+  --accent: var(--red-primary);
+  --accent-foreground: #FFFFFF;
+  --destructive: var(--red-dark);
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E7EB;
+  --border-subtle: rgba(10, 15, 20, 0.06);
+  --input: #FFFFFF;
+  --ring: var(--red-primary);
+
+  /* Surface tokens */
+  --surface: #F3F4F6;
+  --elevated: #E5E7EB;
+  --overlay: rgba(255, 255, 255, 0.88);
+
+  /* Text tokens */
+  --text-primary: #0A0F14;
+  --text-secondary: #1F2937;
+  --text-muted: #4B5563;
+  --text-accent: var(--red-primary);
+
+  /* Interactive tokens */
+  --cta-bg: var(--red-primary);
+  --cta-hover: var(--red-dark);
+  --cta-glow: rgba(193, 61, 58, 0.1);
+  --ghost-hover: rgba(193, 61, 58, 0.04);
+
+  /* Radius */
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar: #F3F4F6;
+  --sidebar-foreground: #0A0F14;
+  --sidebar-primary: var(--red-primary);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E5E7EB;
+  --sidebar-accent-foreground: #0A0F14;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: var(--red-primary);
+
+  /* Chart colors */
+  --chart-1: var(--red-primary);
+  --chart-2: var(--blue-primary);
+  --chart-3: #4B5563;
+  --chart-4: var(--red-dark);
+  --chart-5: #6B7280;
+}
+
+/* ------------------ DARK MODE OVERRIDES ------------------ */
+.dark {
   --background: var(--black-950);
   --foreground: var(--white-100);
   --card: var(--black-800);
@@ -66,9 +127,6 @@
   --cta-glow: var(--red-glow);
   --ghost-hover: var(--red-ghost);
 
-  /* Radius */
-  --radius: 0.75rem;
-
   /* Sidebar */
   --sidebar: var(--black-900);
   --sidebar-foreground: var(--white-100);
@@ -78,13 +136,6 @@
   --sidebar-accent-foreground: var(--white-100);
   --sidebar-border: var(--black-600);
   --sidebar-ring: var(--red-primary);
-
-  /* Chart colors */
-  --chart-1: var(--red-primary);
-  --chart-2: var(--blue-primary);
-  --chart-3: var(--white-300);
-  --chart-4: var(--red-dark);
-  --chart-5: var(--white-400);
 }
 
 @theme {
@@ -192,7 +243,7 @@
 
   /* Text outline for Display headings */
   .text-outline {
-    -webkit-text-stroke: 1px var(--white-100);
+    -webkit-text-stroke: 1px currentColor;
     -webkit-text-fill-color: transparent;
   }
 

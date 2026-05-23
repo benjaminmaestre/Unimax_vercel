@@ -3,78 +3,90 @@
 import { motion } from 'framer-motion'
 import { MapPin, ArrowRight, Search } from 'lucide-react'
 import { useState } from 'react'
-
-const plants = [
-  {
-    name: 'Planta Lima Norte',
-    location: 'Puente Piedra',
-    radius: 'Radio 35km',
-    hours: 'Lun-Sab 5am-8pm',
-  },
-  {
-    name: 'Planta Lima Este',
-    location: 'Ate Vitarte',
-    radius: 'Radio 30km',
-    hours: 'Lun-Sab 5am-8pm',
-  },
-  {
-    name: 'Planta Lima Sur',
-    location: 'Villa El Salvador',
-    radius: 'Radio 30km',
-    hours: 'Lun-Sab 5am-8pm',
-  },
-  {
-    name: 'Planta Callao',
-    location: 'Ventanilla',
-    radius: 'Radio 25km',
-    hours: 'Lun-Sab 5am-7pm',
-  },
-]
+import { useLanguage } from '@/components/language-provider'
 
 export function CoverageSection() {
+  const { language, t } = useLanguage()
   const [searchValue, setSearchValue] = useState('')
 
+  const translateRadius = (radius: string, lang: 'es' | 'en') => {
+    return lang === 'es' ? radius : radius.replace('Radio', 'Radius')
+  }
+
+  const translateHours = (hours: string, lang: 'es' | 'en') => {
+    return lang === 'es' ? hours : hours.replace('Lun-Sab', 'Mon-Sat')
+  }
+
+  const plants = [
+    {
+      name: language === 'es' ? 'Planta Lima Norte' : 'North Lima Plant',
+      location: 'Puente Piedra',
+      radius: 'Radio 35km',
+      hours: 'Lun-Sab 5am-8pm',
+      coords: { x: '40%', y: '25%' }
+    },
+    {
+      name: language === 'es' ? 'Planta Lima Este' : 'East Lima Plant',
+      location: 'Ate Vitarte',
+      radius: 'Radio 30km',
+      hours: 'Lun-Sab 5am-8pm',
+      coords: { x: '70%', y: '45%' }
+    },
+    {
+      name: language === 'es' ? 'Planta Lima Sur' : 'South Lima Plant',
+      location: 'Villa El Salvador',
+      radius: 'Radio 30km',
+      hours: 'Lun-Sab 5am-8pm',
+      coords: { x: '45%', y: '75%' }
+    },
+    {
+      name: language === 'es' ? 'Planta Callao' : 'Callao Plant',
+      location: 'Ventanilla',
+      radius: 'Radio 25km',
+      hours: 'Lun-Sab 5am-7pm',
+      coords: { x: '25%', y: '40%' }
+    },
+  ]
+
   return (
-    <section className="relative py-24 lg:py-32 bg-[var(--background)] grain" id="plantas">
+    <section className="relative py-24 lg:py-32 bg-background grain" id="plantas">
       <div className="section-container">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-primary)]">
-            • COBERTURA EN LIMA METROPOLITANA
+          <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-primary">
+            {t('coverage.prelabel')}
           </span>
-          <h2 className="mt-3 text-3xl lg:text-[40px] font-bold leading-[1.1] tracking-[-0.02em] text-white text-balance max-w-3xl mx-auto">
-            4 plantas estratégicas para que el concreto llegue en su punto óptimo.
+          <h2 className="mt-3 text-2xl lg:text-3xl font-bold leading-[1.15] tracking-tight text-text-primary text-balance max-w-3xl mx-auto">
+            {t('coverage.title')}
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[55%_45%] gap-12 items-start">
-          {/* Map Side */}
+        <div className="grid lg:grid-cols-[55%_45%] gap-10 items-start">
+          {/* Map Side (Forced dark/technical blueprint look for premium contrast) */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full"
           >
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[var(--black-900)] border border-[var(--border-subtle)]">
+            <div className="relative aspect-4/3 rounded-xl overflow-hidden bg-black/95 border border-border/80 shadow-md">
               {/* Map Background */}
-              <div className="absolute inset-0 opacity-30">
+              <div className="absolute inset-0 opacity-20">
                 <svg viewBox="0 0 400 300" className="w-full h-full">
-                  {/* Simplified map paths representing Lima region */}
                   <path
                     d="M50,150 Q100,50 200,80 Q300,110 350,150 Q300,250 200,280 Q100,260 50,150"
                     fill="none"
-                    stroke="var(--white-400)"
+                    stroke="#ffffff"
                     strokeWidth="0.5"
                     opacity="0.3"
                   />
-                  {/* Grid lines */}
                   {[...Array(10)].map((_, i) => (
                     <line
                       key={`h-${i}`}
@@ -82,9 +94,9 @@ export function CoverageSection() {
                       y1={i * 30}
                       x2="400"
                       y2={i * 30}
-                      stroke="var(--white-400)"
+                      stroke="#ffffff"
                       strokeWidth="0.2"
-                      opacity="0.2"
+                      opacity="0.15"
                     />
                   ))}
                   {[...Array(14)].map((_, i) => (
@@ -94,106 +106,98 @@ export function CoverageSection() {
                       y1="0"
                       x2={i * 30}
                       y2="300"
-                      stroke="var(--white-400)"
+                      stroke="#ffffff"
                       strokeWidth="0.2"
-                      opacity="0.2"
+                      opacity="0.15"
                     />
                   ))}
                 </svg>
               </div>
 
               {/* Plant Markers */}
-              {[
-                { x: '40%', y: '25%', name: 'Puente Piedra' },
-                { x: '70%', y: '45%', name: 'Ate Vitarte' },
-                { x: '45%', y: '75%', name: 'Villa El Salvador' },
-                { x: '25%', y: '40%', name: 'Ventanilla' },
-              ].map((plant, index) => (
+              {plants.map((plant, index) => (
                 <motion.div
                   key={plant.name}
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                   className="absolute"
-                  style={{ left: plant.x, top: plant.y }}
+                  style={{ left: plant.coords.x, top: plant.coords.y }}
                 >
-                  {/* Glow ring */}
-                  <div className="absolute inset-0 w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--red-primary)]/20 animate-ping" />
-                  <div className="absolute inset-0 w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--red-primary)]/30" />
-                  {/* Pin */}
-                  <div className="relative w-4 h-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--red-primary)] border-2 border-white" />
-                  {/* Label */}
-                  <span className="absolute top-4 left-1/2 -translate-x-1/2 text-xs font-medium text-white whitespace-nowrap">
-                    {plant.name}
+                  <div className="absolute inset-0 w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 animate-ping" />
+                  <div className="absolute inset-0 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/35" />
+                  <div className="relative w-3.5 h-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary border-2 border-white" />
+                  <span className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] font-bold text-white whitespace-nowrap bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded border border-white/5 uppercase tracking-wider">
+                    {plant.location}
                   </span>
                 </motion.div>
               ))}
 
               {/* Coverage Circles */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                <circle cx="40%" cy="25%" r="50" fill="var(--red-primary)" fillOpacity="0.1" stroke="var(--red-primary)" strokeWidth="1" strokeOpacity="0.3" />
-                <circle cx="70%" cy="45%" r="45" fill="var(--red-primary)" fillOpacity="0.1" stroke="var(--red-primary)" strokeWidth="1" strokeOpacity="0.3" />
-                <circle cx="45%" cy="75%" r="45" fill="var(--red-primary)" fillOpacity="0.1" stroke="var(--red-primary)" strokeWidth="1" strokeOpacity="0.3" />
-                <circle cx="25%" cy="40%" r="40" fill="var(--red-primary)" fillOpacity="0.1" stroke="var(--red-primary)" strokeWidth="1" strokeOpacity="0.3" />
+                <circle cx="40%" cy="25%" r="48" fill="#C13D3A" fillOpacity="0.08" stroke="#C13D3A" strokeWidth="0.8" strokeOpacity="0.25" />
+                <circle cx="70%" cy="45%" r="44" fill="#C13D3A" fillOpacity="0.08" stroke="#C13D3A" strokeWidth="0.8" strokeOpacity="0.25" />
+                <circle cx="45%" cy="75%" r="44" fill="#C13D3A" fillOpacity="0.08" stroke="#C13D3A" strokeWidth="0.8" strokeOpacity="0.25" />
+                <circle cx="25%" cy="40%" r="38" fill="#C13D3A" fillOpacity="0.08" stroke="#C13D3A" strokeWidth="0.8" strokeOpacity="0.25" />
               </svg>
             </div>
           </motion.div>
 
           {/* Plants List Side */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-4"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-3.5 w-full"
           >
             {plants.map((plant, index) => (
               <motion.div
                 key={plant.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group p-5 rounded-xl bg-[var(--elevated)] border border-[var(--border-subtle)] hover:border-[var(--red-primary)] transition-colors duration-300"
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className="group p-4 rounded-lg bg-surface border border-border/80 hover:border-primary transition-all duration-300 shadow-xs"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[var(--red-ghost)] flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-[var(--red-primary)]" />
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-white">
+                    <h4 className="text-base font-bold text-text-primary leading-tight">
                       {plant.name}
                     </h4>
-                    <p className="mt-1 text-base text-[var(--text-secondary)]">
-                      {plant.location} · {plant.radius}
+                    <p className="mt-1 text-sm text-text-secondary">
+                      {plant.location} · {translateRadius(plant.radius, language)}
                     </p>
-                    <p className="mt-1 text-sm text-[var(--text-muted)]">
-                      {plant.hours}
+                    <p className="mt-0.5 text-xs text-text-muted">
+                      {translateHours(plant.hours, language)}
                     </p>
                   </div>
-                  <button className="group/link flex items-center gap-1 text-[var(--white-300)] hover:text-white transition-colors">
-                    <span className="text-sm font-medium">Cómo llegar</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
+                  <button className="group/link flex items-center gap-1 text-text-muted hover:text-primary transition-colors shrink-0">
+                    <span className="text-xs font-bold tracking-[0.05em] uppercase">{language === 'es' ? 'Cómo llegar' : 'Get Directions'}</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 group-hover/link:translate-x-1" />
                   </button>
                 </div>
               </motion.div>
             ))}
 
-            {/* Search Input */}
-            <div className="mt-6 flex gap-3">
+            {/* Address Search Bar */}
+            <div className="mt-6 flex gap-3 w-full">
               <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--text-muted)]" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
                 <input
                   type="text"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
-                  placeholder="Ingresa la dirección de tu obra"
-                  className="w-full h-[52px] pl-12 pr-4 rounded-lg bg-[var(--elevated)] border border-[var(--border)] text-white placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--red-primary)] transition-colors"
+                  placeholder={language === 'es' ? 'Ingresa la dirección de tu obra' : 'Enter your job site address'}
+                  className="w-full h-12 pl-11 pr-4 rounded-md bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm"
                 />
               </div>
-              <button className="h-[52px] px-6 text-[13px] font-medium tracking-[0.12em] uppercase bg-[var(--red-primary)] text-white rounded-lg hover:bg-[var(--red-dark)] hover:glow-red-intense transition-all duration-150">
-                Buscar
+              <button className="h-12 px-6 text-xs font-bold tracking-[0.1em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all border border-primary hover:border-cta-hover active:scale-95 shadow-sm">
+                {language === 'es' ? 'Buscar' : 'Search'}
               </button>
             </div>
           </motion.div>

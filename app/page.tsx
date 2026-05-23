@@ -1,6 +1,7 @@
 import { Navigation } from '@/components/navigation'
 import { HeroSection } from '@/components/sections/hero'
 import { ManifestoSection } from '@/components/sections/manifesto'
+import { StatsSection } from '@/components/sections/stats'
 import { BentoGridSection } from '@/components/sections/bento-grid'
 import { ProcessSection } from '@/components/sections/process'
 import { FleetGallerySection } from '@/components/sections/fleet-gallery'
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Navigation />
       <HeroSection />
       <ManifestoSection />
+      <StatsSection />
       <BentoGridSection />
       <ProcessSection />
       <FleetGallerySection />

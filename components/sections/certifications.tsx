@@ -1,52 +1,66 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
-const certifications = [
-  { name: 'ASTM C94', description: 'Ready-Mixed Concrete Standard' },
-  { name: 'NTC 321', description: 'Norma Técnica Colombiana' },
-  { name: 'ISO 9001:2015', description: 'Quality Management' },
-  { name: 'ICONTEC', description: 'Certificación Nacional' },
-  { name: 'SENA', description: 'Operadores Certificados' },
-  { name: 'SGC', description: 'Sistema de Gestión Colombia' },
-]
+import { CheckCircle2 } from 'lucide-react'
+import { useLanguage } from '@/components/language-provider'
 
 export function CertificationsSection() {
+  const { t } = useLanguage()
+
+  const certifications = [
+    {
+      name: t('cert.c1.title'),
+      description: t('cert.c1.desc'),
+    },
+    {
+      name: t('cert.c2.title'),
+      description: t('cert.c2.desc'),
+    },
+    {
+      name: t('cert.c3.title'),
+      description: t('cert.c3.desc'),
+    },
+  ]
+
   return (
-    <section className="relative py-10 lg:py-0 bg-[var(--surface)] border-y border-[var(--border-subtle)] grain">
+    <section className="relative py-20 bg-surface border-y border-border/80 grain" id="certificaciones">
       <div className="section-container">
-        {/* Pre-label */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center text-[11px] font-medium tracking-[0.14em] uppercase text-[var(--red-600)] pt-8 lg:pt-10"
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-12"
         >
-          • AVALADOS POR
-        </motion.p>
+          <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-primary">
+            {t('cert.prelabel')}
+          </span>
+          <h2 className="mt-3 text-2xl lg:text-3xl font-bold leading-[1.15] tracking-tight text-text-primary text-balance">
+            {t('cert.title')}
+          </h2>
+        </motion.div>
 
         {/* Certifications Grid */}
-        <div className="mt-6 pb-8 lg:pb-10 flex flex-wrap items-center justify-center gap-6 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group relative flex items-center justify-center px-6 py-4 rounded-lg bg-[var(--elevated)] border border-[var(--border-subtle)] hover:border-[var(--red-600)] transition-colors duration-300 min-w-[140px]"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative flex flex-col p-6 rounded-lg bg-surface border border-border/80 hover:border-primary transition-colors duration-300 shadow-xs"
             >
-              <span className="text-sm font-semibold text-white tracking-wide">
-                {cert.name}
-              </span>
-              
-              {/* Tooltip */}
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                <div className="glass px-3 py-1.5 rounded text-xs text-white whitespace-nowrap border border-[var(--border-subtle)]">
-                  {cert.description}
-                </div>
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                <span className="text-sm lg:text-base font-bold text-text-primary tracking-wide">
+                  {cert.name}
+                </span>
               </div>
+              <p className="mt-3 text-xs lg:text-sm text-text-muted leading-relaxed">
+                {cert.description}
+              </p>
             </motion.div>
           ))}
         </div>

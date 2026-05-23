@@ -45,6 +45,9 @@ export const metadata: Metadata = {
   },
 }
 
+import { ThemeProvider } from '@/components/theme-provider'
+import { LanguageProvider } from '@/components/language-provider'
+
 export const viewport: Viewport = {
   themeColor: '#0A0F14',
   width: 'device-width',
@@ -56,11 +59,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Corporation",
+    "name": "UNIMAX Corp",
+    "url": "https://unimaxcorp.com.pe",
+    "logo": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unima_logo_transparente-9yVMcDbsHGaclLXyjqdkfFccg5Raf9.png",
+    "description": "Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Industrial 450, Urb. Las Praderas",
+      "addressLocality": "Lima",
+      "addressCountry": "PE"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+51-1-604-3900",
+      "contactType": "technical support / sales",
+      "areaServed": "PE",
+      "availableLanguage": ["Spanish", "English"]
+    }
+  }
+
   return (
-    <html lang="es" className={`${inter.variable} ${bebasNeue.variable} bg-background`}>
-      <body className="font-sans antialiased">
-        {children}
+    <html lang="es" className={`${inter.variable} ${bebasNeue.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased bg-background text-foreground transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+        </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   )
