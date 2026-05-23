@@ -54,7 +54,7 @@ export function HeroSection() {
 
       {/* Decorative monumental outline background text (Opacity 10-15%, stroke outline, non-legible) */}
       <div className="absolute right-0 top-1/3 -translate-y-1/2 pointer-events-none select-none overflow-hidden hidden lg:block max-w-full z-0">
-        <span className="font-display text-[180px] font-black leading-none text-neutral-900/4 dark:text-white/12 text-outline tracking-wider block translate-x-16 uppercase">
+        <span className="font-display text-[180px] font-black leading-none text-neutral-900/4 dark:text-white/5 text-outline tracking-wider block translate-x-16 uppercase">
           {t('hero.bg_decor')}
         </span>
       </div>
@@ -181,7 +181,7 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-32 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 z-10"
+        className="absolute bottom-10 lg:bottom-32 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 z-10"
       >
         <span className="text-[9px] font-bold tracking-[0.3em] uppercase text-neutral-500 dark:text-white/50">{t('hero.scroll')}</span>
         <div className="w-px h-10 bg-linear-to-t from-primary to-transparent relative overflow-hidden">
