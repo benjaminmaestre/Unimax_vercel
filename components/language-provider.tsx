@@ -25,11 +25,12 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     'hero.prelabel': 'LÍDERES EN CONCRETO PREMEZCLADO · PERÚ',
-    'hero.title1': 'SOLUCIONES',
-    'hero.title2': 'QUE TRASCIENDEN.',
+    'hero.title1': 'Concreto premezclado de alta resistencia',
+    'hero.title2': 'para los proyectos más exigentes del Perú',
+    'hero.bg_decor': 'QUE TRASCIENDEN.',
     'hero.desc': 'Potenciamos el desarrollo del país con concreto de alta resistencia y logística de vanguardia. Más de 25 años construyendo el futuro del Perú.',
-    'hero.cta.cotizar': 'Cotizar Proyecto',
-    'hero.cta.servicios': 'Nuestros Servicios',
+    'hero.cta.cotizar': 'COTIZAR PROYECTO',
+    'hero.cta.servicios': 'NUESTROS SERVICIOS',
     'hero.scroll': 'SCROLL',
 
     // Hero stats
@@ -174,11 +175,12 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     'hero.prelabel': 'LEADERS IN READY-MIX CONCRETE · PERU',
-    'hero.title1': 'SOLUTIONS',
-    'hero.title2': 'THAT TRANSCEND.',
+    'hero.title1': 'High-resistance ready-mix concrete',
+    'hero.title2': 'for the most demanding projects in Peru',
+    'hero.bg_decor': 'TRANSCEND.',
     'hero.desc': 'We power the country\'s development with high-resistance concrete and cutting-edge logistics. Over 25 years building Peru\'s future.',
-    'hero.cta.cotizar': 'Quote Project',
-    'hero.cta.servicios': 'Our Services',
+    'hero.cta.cotizar': 'QUOTE PROJECT',
+    'hero.cta.servicios': 'OUR SERVICES',
     'hero.scroll': 'SCROLL',
 
     // Hero stats

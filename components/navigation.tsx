@@ -20,6 +20,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [showNavCta, setShowNavCta] = useState(false)
   
   const { theme, setTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
@@ -30,7 +31,29 @@ export function Navigation() {
       setIsScrolled(window.scrollY > 50)
     }
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    const heroElement = document.getElementById('hero')
+    let observer: IntersectionObserver | null = null
+
+    if (heroElement) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          // If hero is NOT intersecting (out of viewport), show the CTA
+          setShowNavCta(!entry.isIntersecting)
+        },
+        { threshold: 0.1 }
+      )
+      observer.observe(heroElement)
+    } else {
+      setShowNavCta(true)
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (observer) {
+        observer.disconnect()
+      }
+    }
   }, [])
 
   return (
@@ -41,7 +64,7 @@ export function Navigation() {
       className={`fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300 ${
         isScrolled 
           ? 'bg-background/95 border-b border-border/80 shadow-md backdrop-blur-md' 
-          : 'bg-background/70 border-b border-border/30 backdrop-blur-sm'
+          : 'bg-transparent border-b border-border/20 dark:border-white/10 backdrop-blur-sm'
       }`}
     >
       <nav className="section-container h-full flex items-center justify-between">
@@ -52,7 +75,9 @@ export function Navigation() {
             alt="UNIMAX Corp"
             width={150}
             height={48}
-            className="h-10 w-auto object-contain brightness-0 dark:brightness-100 transition-all duration-300"
+            className={`h-10 w-auto object-contain transition-all duration-300 ${
+              isScrolled ? 'brightness-0 dark:brightness-100' : 'brightness-100'
+            }`}
             priority
           />
         </Link>
@@ -63,7 +88,9 @@ export function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[11px] font-bold tracking-[0.15em] text-text-secondary hover:text-primary transition-colors duration-200 relative group"
+              className={`text-[11px] font-bold tracking-[0.15em] transition-colors duration-200 relative group ${
+                isScrolled ? 'text-text-secondary dark:text-white/90 hover:text-primary' : 'text-white/90 hover:text-white'
+              }`}
             >
               {t(link.key)}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full" />
@@ -74,17 +101,31 @@ export function Navigation() {
         {/* Global Toolbar Options */}
         <div className="hidden lg:flex items-center gap-5">
           {/* Language Switcher */}
-          <div className="flex items-center gap-2 border-r border-border pr-5 text-[11px] font-bold tracking-[0.1em]">
+          <div className={`flex items-center gap-2 border-r pr-5 text-[11px] font-bold tracking-widest ${
+            isScrolled ? 'border-border dark:border-white/20' : 'border-white/20'
+          }`}>
             <button
               onClick={() => setLanguage('es')}
-              className={`transition-colors cursor-pointer ${language === 'es' ? 'text-primary' : 'text-text-muted hover:text-text-primary'}`}
+              className={`transition-colors cursor-pointer ${
+                language === 'es' 
+                  ? 'text-primary' 
+                  : isScrolled 
+                    ? 'text-text-muted hover:text-text-primary dark:text-white/60 dark:hover:text-white' 
+                    : 'text-white/70 hover:text-white'
+              }`}
             >
               ES
             </button>
-            <span className="text-text-muted">/</span>
+            <span className={isScrolled ? 'text-text-muted dark:text-white/60' : 'text-white/40'}>/</span>
             <button
               onClick={() => setLanguage('en')}
-              className={`transition-colors cursor-pointer ${language === 'en' ? 'text-primary' : 'text-text-muted hover:text-text-primary'}`}
+              className={`transition-colors cursor-pointer ${
+                language === 'en' 
+                  ? 'text-primary' 
+                  : isScrolled 
+                    ? 'text-text-muted hover:text-text-primary dark:text-white/60 dark:hover:text-white' 
+                    : 'text-white/70 hover:text-white'
+              }`}
             >
               EN
             </button>
@@ -94,20 +135,35 @@ export function Navigation() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-lg bg-surface border border-border text-text-primary hover:bg-elevated transition-colors cursor-pointer"
+              className={`p-2 rounded-lg transition-colors cursor-pointer ${
+                isScrolled
+                  ? 'bg-surface dark:bg-white/10 border border-border dark:border-white/20 text-text-primary dark:text-white hover:bg-elevated dark:hover:bg-white/20'
+                  : 'bg-white/10 border border-white/20 text-white hover:bg-white/20'
+              }`}
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
             </button>
           )}
 
-          {/* Direct CTA */}
-          <Link
-            href="#contacto"
-            className="inline-flex items-center justify-center h-10 px-5 text-[11px] font-bold tracking-[0.12em] uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md border border-primary hover:border-cta-hover active:scale-95"
-          >
-            {t('nav.cotizar')}
-          </Link>
+          {/* Direct CTA - Hidden when Hero is in viewport using IntersectionObserver */}
+          <AnimatePresence>
+            {showNavCta && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Link
+                  href="#contacto"
+                  className="inline-flex items-center justify-center h-10 px-5 text-[11px] font-bold tracking-[0.12em] uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md border border-primary hover:border-cta-hover active:scale-95"
+                >
+                  {t('nav.cotizar')}
+                </Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Mobile Actions (Mobile Toolbar + Menu Trigger) */}
@@ -116,7 +172,11 @@ export function Navigation() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-lg bg-surface border border-border text-text-primary"
+              className={`p-2 rounded-lg ${
+                isScrolled
+                  ? 'bg-surface dark:bg-white/10 border border-border dark:border-white/20 text-text-primary dark:text-white'
+                  : 'bg-white/10 border border-white/20 text-white'
+              }`}
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
@@ -135,7 +195,11 @@ export function Navigation() {
           {/* Hamburger trigger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 text-text-primary rounded-lg bg-surface border border-border"
+            className={`p-2 rounded-lg ${
+              isScrolled
+                ? 'bg-surface dark:bg-white/10 border border-border dark:border-white/20 text-text-primary dark:text-white'
+                : 'bg-white/10 border border-white/20 text-white'
+            }`}
             aria-label="Toggle Menu"
           >
             {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -166,7 +230,7 @@ export function Navigation() {
               ))}
               
               {/* Mobile Language Switcher */}
-              <div className="flex items-center gap-4 py-2 text-[12px] font-bold tracking-[0.1em] border-b border-border/40">
+              <div className="flex items-center gap-4 py-2 text-[12px] font-bold tracking-widest border-b border-border/40">
                 <span className="text-text-muted">IDIOMA / LANGUAGE:</span>
                 <button
                   onClick={() => { setLanguage('es'); setIsMobileMenuOpen(false); }}
