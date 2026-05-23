@@ -183,7 +183,6 @@ export function HeroSection() {
         transition={{ delay: 1.2, duration: 1 }}
         className="absolute bottom-6 lg:bottom-[130px] left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 z-10"
       >
-        <span className="text-[9px] font-bold tracking-[0.3em] uppercase text-neutral-500 dark:text-white/50">{t('hero.scroll')}</span>
         <div className="w-px h-10 bg-linear-to-t from-primary to-transparent relative overflow-hidden">
           <motion.div 
             animate={{ y: [0, 40] }}
