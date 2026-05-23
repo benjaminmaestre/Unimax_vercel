@@ -71,13 +71,11 @@ export function Navigation() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unima_logo_transparente-9yVMcDbsHGaclLXyjqdkfFccg5Raf9.png"
+            src="/logo_unimx-removebg-preview.png"
             alt="UNIMAX Corp"
             width={150}
             height={48}
-            className={`h-10 w-auto object-contain transition-all duration-300 ${
-              isScrolled ? 'brightness-0 dark:brightness-100' : 'brightness-100'
-            }`}
+            className="h-10 w-auto object-contain transition-all duration-300 dark:invert dark:hue-rotate-180"
             priority
           />
         </Link>
@@ -88,9 +86,7 @@ export function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[11px] font-bold tracking-[0.15em] transition-colors duration-200 relative group ${
-                isScrolled ? 'text-text-secondary dark:text-white/90 hover:text-primary' : 'text-white/90 hover:text-white'
-              }`}
+              className="text-[11px] font-bold tracking-[0.15em] text-text-secondary dark:text-white/90 hover:text-primary transition-colors duration-200 relative group"
             >
               {t(link.key)}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full" />
@@ -101,30 +97,20 @@ export function Navigation() {
         {/* Global Toolbar Options */}
         <div className="hidden lg:flex items-center gap-5">
           {/* Language Switcher */}
-          <div className={`flex items-center gap-2 border-r pr-5 text-[11px] font-bold tracking-widest ${
-            isScrolled ? 'border-border dark:border-white/20' : 'border-white/20'
-          }`}>
+          <div className="flex items-center gap-2 border-r border-border dark:border-white/20 pr-5 text-[11px] font-bold tracking-widest">
             <button
               onClick={() => setLanguage('es')}
               className={`transition-colors cursor-pointer ${
-                language === 'es' 
-                  ? 'text-primary' 
-                  : isScrolled 
-                    ? 'text-text-muted hover:text-text-primary dark:text-white/60 dark:hover:text-white' 
-                    : 'text-white/70 hover:text-white'
+                language === 'es' ? 'text-primary' : 'text-text-muted hover:text-text-primary dark:text-white/60 dark:hover:text-white'
               }`}
             >
               ES
             </button>
-            <span className={isScrolled ? 'text-text-muted dark:text-white/60' : 'text-white/40'}>/</span>
+            <span className="text-text-muted dark:text-white/60">/</span>
             <button
               onClick={() => setLanguage('en')}
               className={`transition-colors cursor-pointer ${
-                language === 'en' 
-                  ? 'text-primary' 
-                  : isScrolled 
-                    ? 'text-text-muted hover:text-text-primary dark:text-white/60 dark:hover:text-white' 
-                    : 'text-white/70 hover:text-white'
+                language === 'en' ? 'text-primary' : 'text-text-muted hover:text-text-primary dark:text-white/60 dark:hover:text-white'
               }`}
             >
               EN
@@ -135,11 +121,7 @@ export function Navigation() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className={`p-2 rounded-lg transition-colors cursor-pointer ${
-                isScrolled
-                  ? 'bg-surface dark:bg-white/10 border border-border dark:border-white/20 text-text-primary dark:text-white hover:bg-elevated dark:hover:bg-white/20'
-                  : 'bg-white/10 border border-white/20 text-white hover:bg-white/20'
-              }`}
+              className="p-2 rounded-lg bg-surface dark:bg-white/10 border border-border dark:border-white/20 text-text-primary dark:text-white hover:bg-elevated dark:hover:bg-white/20 transition-colors cursor-pointer"
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
@@ -172,11 +154,7 @@ export function Navigation() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className={`p-2 rounded-lg ${
-                isScrolled
-                  ? 'bg-surface dark:bg-white/10 border border-border dark:border-white/20 text-text-primary dark:text-white'
-                  : 'bg-white/10 border border-white/20 text-white'
-              }`}
+              className="p-2 rounded-lg bg-surface dark:bg-white/10 border border-border dark:border-white/20 text-text-primary dark:text-white"
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
@@ -195,11 +173,7 @@ export function Navigation() {
           {/* Hamburger trigger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`p-2 rounded-lg ${
-              isScrolled
-                ? 'bg-surface dark:bg-white/10 border border-border dark:border-white/20 text-text-primary dark:text-white'
-                : 'bg-white/10 border border-white/20 text-white'
-            }`}
+            className="p-2 rounded-lg bg-surface dark:bg-white/10 border border-border dark:border-white/20 text-text-primary dark:text-white"
             aria-label="Toggle Menu"
           >
             {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}

@@ -64,7 +64,7 @@ export default function RootLayout({
     "@type": "Corporation",
     "name": "UNIMAX Corp",
     "url": "https://unimaxcorp.com.pe",
-    "logo": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unima_logo_transparente-9yVMcDbsHGaclLXyjqdkfFccg5Raf9.png",
+    "logo": "https://unimaxcorp.com.pe/logo_unimx-removebg-preview.png",
     "description": "Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú.",
     "address": {
       "@type": "PostalAddress",

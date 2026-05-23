@@ -23,11 +23,11 @@ export function Footer() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unima_logo_transparente-9yVMcDbsHGaclLXyjqdkfFccg5Raf9.png"
+              src="/logo_unimx-removebg-preview.png"
               alt="UNIMAX Corp"
               width={140}
               height={52}
-              className="h-10 w-auto object-contain brightness-0 dark:brightness-100 transition-all duration-300"
+              className="h-10 w-auto object-contain transition-all duration-300 dark:invert dark:hue-rotate-180"
             />
           </Link>
 
