@@ -52,12 +52,7 @@ export function HeroSection() {
         />
       </div>
 
-      {/* Decorative monumental outline background text (Opacity 10-15%, stroke outline, non-legible) */}
-      <div className="absolute right-0 top-1/3 -translate-y-1/2 pointer-events-none select-none overflow-hidden hidden lg:block max-w-full z-0">
-        <span className="font-display text-[180px] font-black leading-none text-neutral-900/4 dark:text-white/5 text-outline tracking-wider block translate-x-16 uppercase">
-          {t('hero.bg_decor')}
-        </span>
-      </div>
+
 
       {/* Main Content */}
       <div className="relative z-10 section-container h-full flex flex-col lg:flex-row items-center justify-between gap-10">
