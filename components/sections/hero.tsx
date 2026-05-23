@@ -60,7 +60,7 @@ export function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 section-container h-full flex flex-col lg:flex-row items-center justify-between gap-10 pb-16 lg:pb-32">
+      <div className="relative z-10 section-container h-full flex flex-col lg:flex-row items-center justify-between gap-10">
         {/* Left Column: Text Content (moved towards center, controlled max-width) */}
         <div className="max-w-[720px] flex flex-col justify-center">
           <motion.div
@@ -129,7 +129,7 @@ export function HeroSection() {
               </Link>
               <Link
                 href="#soluciones"
-                className="inline-flex items-center justify-center h-[56px] px-9 text-[12px] font-bold tracking-[0.15em] uppercase bg-transparent text-neutral-900 dark:text-white border-2 border-neutral-900/60 dark:border-white/50 hover:border-neutral-900 dark:hover:border-white/90 rounded-md hover:bg-neutral-900/5 dark:hover:bg-white/5 transition-all duration-200 active:scale-95"
+                className="inline-flex items-center justify-center h-[56px] px-9 text-[12px] font-bold tracking-[0.15em] uppercase bg-white/48 dark:bg-white/5 backdrop-blur-sm dark:backdrop-blur-md text-neutral-900 dark:text-white border-2 border-neutral-900/40 dark:border-white/50 hover:bg-white/75 dark:hover:bg-white/10 hover:border-neutral-900 dark:hover:border-white rounded-md transition-all duration-200 active:scale-95 shadow-sm"
               >
                 {t('hero.cta.servicios')}
               </Link>
@@ -181,13 +181,13 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-6 lg:bottom-[130px] left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 z-10"
+        className="absolute bottom-6 lg:bottom-[120px] left-1/2 -translate-x-1/2 flex flex-col items-center z-10"
       >
-        <div className="w-px h-10 bg-linear-to-t from-primary to-transparent relative overflow-hidden">
+        <div className="w-[3px] h-12 bg-neutral-300/80 dark:bg-white/20 relative overflow-hidden rounded-full">
           <motion.div 
-            animate={{ y: [0, 40] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-1/2 bg-primary dark:bg-white"
+            animate={{ y: [-18, 48] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 left-0 w-full h-[18px] bg-linear-to-b from-primary to-white"
           />
         </div>
       </motion.div>
