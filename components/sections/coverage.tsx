@@ -161,23 +161,27 @@ export function CoverageSection() {
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className="group p-4 rounded-lg bg-surface border border-border/80 hover:border-primary transition-all duration-300 shadow-xs"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                  {/* Left block: Icon + Content */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                      <MapPin className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-base font-bold text-text-primary leading-tight">
+                        {plant.name}
+                      </h4>
+                      <p className="mt-1 text-sm text-text-secondary">
+                        {plant.location} · {translateRadius(plant.radius, language)}
+                      </p>
+                      <p className="mt-0.5 text-xs text-text-muted">
+                        {translateHours(plant.hours, language)}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-base font-bold text-text-primary leading-tight">
-                      {plant.name}
-                    </h4>
-                    <p className="mt-1 text-sm text-text-secondary">
-                      {plant.location} · {translateRadius(plant.radius, language)}
-                    </p>
-                    <p className="mt-0.5 text-xs text-text-muted">
-                      {translateHours(plant.hours, language)}
-                    </p>
-                  </div>
-                  <button className="group/link flex items-center gap-1 text-text-muted hover:text-primary transition-colors shrink-0">
-                    <span className="text-xs font-bold tracking-[0.05em] uppercase">{language === 'es' ? 'Cómo llegar' : 'Get Directions'}</span>
+                  {/* Right block: Action Button (aligned under the text block on mobile with pl-14, side-by-side on sm+) */}
+                  <button className="group/link flex items-center gap-1 text-text-muted hover:text-primary transition-colors shrink-0 pl-14 sm:pl-0 self-start">
+                    <span className="text-xs font-bold tracking-wider uppercase">{language === 'es' ? 'Cómo llegar' : 'Get Directions'}</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 group-hover/link:translate-x-1" />
                   </button>
                 </div>
@@ -196,7 +200,7 @@ export function CoverageSection() {
                   className="w-full h-12 pl-11 pr-4 rounded-md bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm"
                 />
               </div>
-              <button className="h-12 px-6 text-xs font-bold tracking-[0.1em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all border border-primary hover:border-cta-hover active:scale-95 shadow-sm">
+              <button className="h-12 px-6 text-xs font-bold tracking-widest uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all border border-primary hover:border-cta-hover active:scale-95 shadow-sm">
                 {language === 'es' ? 'Buscar' : 'Search'}
               </button>
             </div>

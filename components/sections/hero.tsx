@@ -16,7 +16,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section id="hero" className="relative h-screen min-h-[680px] overflow-hidden grain bg-white dark:bg-black text-[#0A0F14] dark:text-white transition-colors duration-300">
+    <section id="hero" className="relative h-auto min-h-0 md:h-screen md:min-h-[680px] pt-24 pb-8 md:py-0 overflow-hidden grain bg-white dark:bg-black text-[#0A0F14] dark:text-white transition-colors duration-300">
       {/* Background Image with Overlays - Cinematic Wide Angle */}
       <div className="absolute inset-0">
         <motion.div 
@@ -77,22 +77,28 @@ export function HeroSection() {
 
             {/* Monumental value proposition headline */}
             <h1 className="font-display select-none leading-tight">
-              <span className="block text-[42px] sm:text-[56px] lg:text-[68px] font-extrabold tracking-tight text-[#0A0F14] dark:text-white drop-shadow-2xl">
+              <span className="block text-[32px] sm:text-[56px] lg:text-[68px] font-extrabold tracking-tight text-[#0A0F14] dark:text-white drop-shadow-2xl">
                 {t('hero.title1')}
               </span>
-              <span className="block text-[30px] sm:text-[40px] lg:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-2 drop-shadow-xl font-sans">
+              <span className="block text-[22px] sm:text-[40px] lg:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-2 drop-shadow-xl font-sans">
                 {t('hero.title2')}
               </span>
             </h1>
 
-            {/* Description - sentence case, light gray */}
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
-              className="mt-6 text-base sm:text-lg lg:text-xl leading-[1.65] text-[#374151] dark:text-white/80 max-w-[620px] font-light"
+              className="mt-6 text-base sm:text-lg lg:text-xl leading-[1.65] text-neutral-950 dark:text-neutral-100 max-w-[620px] font-normal"
             >
-              {t('hero.desc')}
+              <span className="inline md:hidden">
+                {language === 'es' 
+                  ? 'Concreto de alta resistencia y logística de vanguardia para tus obras.' 
+                  : 'High-resistance concrete and leading-edge logistics for your projects.'}
+              </span>
+              <span className="hidden md:inline">
+                {t('hero.desc')}
+              </span>
             </motion.p>
 
             {/* Free Inspection Hook — High-impact marketing badge */}
@@ -171,18 +177,18 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Positioned relatively below content on mobile to avoid overlap, absolutely centered on desktop */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-6 lg:bottom-[120px] left-1/2 -translate-x-1/2 flex flex-col items-center z-10"
+        className="relative lg:absolute mt-5 lg:mt-0 bottom-auto lg:bottom-[120px] left-auto lg:left-1/2 translate-x-0 lg:-translate-x-1/2 flex flex-col items-center z-10 mx-auto w-fit"
       >
-        <div className="w-[3px] h-12 bg-neutral-300/80 dark:bg-white/20 relative overflow-hidden rounded-full">
+        <div className="w-[2px] h-10 bg-neutral-300/80 dark:bg-white/20 relative overflow-hidden rounded-full">
           <motion.div 
-            animate={{ y: [-18, 48] }}
+            animate={{ y: [-14, 40] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full h-[18px] bg-linear-to-b from-primary to-white"
+            className="absolute top-0 left-0 w-full h-[14px] bg-linear-to-b from-primary to-white"
           />
         </div>
       </motion.div>
