@@ -69,14 +69,16 @@ export function Navigation() {
     >
       <nav className="section-container h-full flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="#hero" className="flex items-center">
           <Image
-            src="/logo_unimx-removebg-preview.png"
+            src={theme === 'light' && isScrolled ? '/logo_unimx_light.png' : '/logo_unimx-removebg-preview.png'}
             alt="UNIMAX Corp"
             width={150}
             height={48}
-            className="h-10 w-auto object-contain transition-all duration-300 dark:invert dark:hue-rotate-180"
+            className="h-10 w-auto object-contain select-none transition-all duration-300"
             priority
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
           />
         </Link>
 

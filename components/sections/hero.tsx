@@ -100,8 +100,24 @@ export function HeroSection() {
               {t('hero.desc')}
             </motion.p>
 
+            {/* Free Inspection Hook — High-impact marketing badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+              className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-lg bg-primary/8 dark:bg-primary/15 border border-primary/20 dark:border-primary/30 w-fit"
+            >
+              <span className="relative flex h-2.5 w-2.5 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary" />
+              </span>
+              <span className="text-[13px] sm:text-[14px] font-extrabold tracking-wide text-primary uppercase">
+                {t('hero.hook')}
+              </span>
+            </motion.div>
+
             {/* CTA Stack */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row gap-4">
               <Link
                 href="#contacto"
                 className="group relative inline-flex items-center justify-center h-[56px] px-12 text-[13px] sm:text-[14px] font-extrabold tracking-[0.15em] uppercase bg-primary text-white rounded-md overflow-hidden transition-all duration-300 border border-primary hover:bg-cta-hover active:scale-95 shadow-lg hover:shadow-primary/20"
