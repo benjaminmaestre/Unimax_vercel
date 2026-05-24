@@ -91,7 +91,7 @@ export function ProjectsGallerySection() {
         {/* Carousel Container */}
         <div className="relative w-full">
           {/* Mobile View: Classic Embla Carousel */}
-          <div className="block lg:hidden">
+          <div className="block md:hidden">
             <Carousel
               setApi={setApi}
             opts={{
@@ -155,7 +155,7 @@ export function ProjectsGallerySection() {
           </div>
 
           {/* Desktop View: 3D Ring Carousel */}
-          <div className="hidden lg:block py-10">
+          <div className="hidden md:block py-10">
             <RingCarousel3D itemWidth={360} itemHeight={420}>
               {projects.map((project, index) => (
                 <div key={project.id} className="w-full h-full">
