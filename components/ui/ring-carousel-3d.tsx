@@ -13,6 +13,7 @@ export interface RingCarousel3DProps {
   autoplay?: boolean
   autoplayInterval?: number
   visibleCards?: 3 | 5
+  cardSpread?: number
 }
 
 export function RingCarousel3D({ 
@@ -22,7 +23,8 @@ export function RingCarousel3D({
   itemHeight = 460,
   autoplay = true,
   autoplayInterval = 4500,
-  visibleCards = 5
+  visibleCards = 5,
+  cardSpread = 0.60
 }: RingCarousel3DProps) {
   const [isMounted, setIsMounted] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -116,7 +118,7 @@ export function RingCarousel3D({
             
             // Refined Coverflow 3D geometry equations (No shadow, no reflection, high readability)
             const rotateY = offset * -20 // Angled inward (e.g. left cards positive, right cards negative)
-            const translateX = offset * (itemWidth * 0.60) // horizontal shift with perfect overlap
+            const translateX = offset * (itemWidth * cardSpread) // horizontal spread between cards
             const translateZ = absOffset * -150 // cards step backward in 3D depth
             const scale = 1 - absOffset * 0.08 // gradual scale down for side cards
             

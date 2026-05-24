@@ -250,7 +250,7 @@ export function BentoGridSection() {
 
           {/* Desktop View: 3D Ring Carousel */}
           <div className="hidden lg:block py-10">
-            <RingCarousel3D itemWidth={380} itemHeight={480} visibleCards={3}>
+            <RingCarousel3D itemWidth={380} itemHeight={480} visibleCards={3} cardSpread={0.85}>
               {solutions.map((item, index) => (
                 <div key={item.id} className="w-full h-full">
                   {item.type === 'image' && (
