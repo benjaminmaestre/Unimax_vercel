@@ -104,7 +104,7 @@ export function ProjectsGallerySection() {
               {projects.map((project, index) => (
                 <CarouselItem
                   key={project.id}
-                  className="pl-4 basis-full md:basis-1/2 lg:basis-1/3"
+                  className="pl-4 basis-[88%] md:basis-1/2 lg:basis-1/3"
                 >
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}

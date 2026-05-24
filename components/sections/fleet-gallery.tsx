@@ -166,7 +166,7 @@ export function FleetGallerySection() {
               {fleet.map((item, index) => (
                 <CarouselItem
                   key={item.id}
-                  className="pl-4 basis-full md:basis-1/2 lg:basis-1/3"
+                  className="pl-4 basis-[88%] md:basis-1/2 lg:basis-1/3"
                 >
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
