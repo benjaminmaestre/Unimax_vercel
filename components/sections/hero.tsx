@@ -16,7 +16,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section id="hero" className="relative h-auto min-h-0 md:h-screen md:min-h-[680px] pt-24 pb-8 md:py-0 overflow-hidden grain bg-white dark:bg-black text-[#0A0F14] dark:text-white transition-colors duration-300">
+    <section id="hero" className="relative h-auto min-h-0 md:h-screen md:min-h-[680px] pt-28 pb-20 md:py-0 overflow-hidden grain bg-white dark:bg-black text-[#0A0F14] dark:text-white transition-colors duration-300">
       {/* Background Image with Overlays - Cinematic Wide Angle */}
       <div className="absolute inset-0">
         <motion.div 
@@ -69,7 +69,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-[12px] font-extrabold tracking-[0.25em] uppercase text-[#1F2937] dark:text-white/90 mb-5 flex items-center gap-3"
+              className="text-[10px] xs:text-[12px] font-extrabold tracking-[0.25em] uppercase text-[#1F2937] dark:text-white/90 mb-6 sm:mb-5 flex items-center gap-3"
             >
               <span className="w-10 h-[2px] bg-primary" />
               {t('hero.prelabel')}
@@ -77,10 +77,10 @@ export function HeroSection() {
 
             {/* Monumental value proposition headline */}
             <h1 className="font-display select-none leading-tight">
-              <span className="block text-[32px] sm:text-[56px] lg:text-[68px] font-extrabold tracking-tight text-[#0A0F14] dark:text-white drop-shadow-2xl">
+              <span className="block text-[26px] xs:text-[32px] sm:text-[56px] lg:text-[68px] font-extrabold tracking-tight text-[#0A0F14] dark:text-white uppercase sm:normal-case drop-shadow-2xl">
                 {t('hero.title1')}
               </span>
-              <span className="block text-[22px] sm:text-[40px] lg:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-2 drop-shadow-xl font-sans">
+              <span className="block text-[17px] xs:text-[22px] sm:text-[40px] lg:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-3 sm:mt-2 drop-shadow-xl font-sans">
                 {t('hero.title2')}
               </span>
             </h1>
@@ -89,7 +89,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
-              className="mt-6 text-base sm:text-lg lg:text-xl leading-[1.65] text-neutral-950 dark:text-neutral-100 max-w-[620px] font-normal"
+              className="mt-5 sm:mt-6 text-sm sm:text-base lg:text-xl leading-[1.65] text-neutral-950 dark:text-neutral-100 max-w-[620px] font-normal"
             >
               <span className="inline md:hidden">
                 {language === 'es' 
@@ -106,22 +106,22 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-lg bg-primary/8 dark:bg-primary/15 border border-primary/20 dark:border-primary/30 w-fit"
+              className="mt-6 sm:mt-8 inline-flex items-center gap-2.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-lg bg-primary/8 dark:bg-primary/15 border border-primary/20 dark:border-primary/30 w-fit"
             >
               <span className="relative flex h-2.5 w-2.5 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary" />
               </span>
-              <span className="text-[13px] sm:text-[14px] font-extrabold tracking-wide text-primary uppercase">
+              <span className="text-[12px] sm:text-[14px] font-extrabold tracking-wide text-primary uppercase">
                 {t('hero.hook')}
               </span>
             </motion.div>
 
             {/* CTA Stack */}
-            <div className="mt-6 flex flex-col sm:flex-row gap-4">
+            <div className="mt-8 sm:mt-6 flex flex-col sm:flex-row gap-3.5 sm:gap-4 w-full">
               <Link
                 href="#contacto"
-                className="group relative inline-flex items-center justify-center h-[56px] px-12 text-[13px] sm:text-[14px] font-extrabold tracking-[0.15em] uppercase bg-primary text-white rounded-md overflow-hidden transition-all duration-300 border border-primary hover:bg-cta-hover active:scale-95 shadow-lg hover:shadow-primary/20"
+                className="group relative inline-flex items-center justify-center h-[56px] px-12 text-[13px] sm:text-[14px] font-extrabold tracking-[0.15em] uppercase bg-primary text-white rounded-md overflow-hidden transition-all duration-300 border border-primary hover:bg-cta-hover active:scale-95 shadow-lg hover:shadow-primary/20 w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   {t('hero.cta.cotizar')}
@@ -130,7 +130,7 @@ export function HeroSection() {
               </Link>
               <Link
                 href="#soluciones"
-                className="inline-flex items-center justify-center h-[56px] px-9 text-[12px] font-bold tracking-[0.15em] uppercase bg-white/48 dark:bg-white/5 backdrop-blur-sm dark:backdrop-blur-md text-neutral-900 dark:text-white border-2 border-neutral-900/40 dark:border-white/50 hover:bg-white/75 dark:hover:bg-white/10 hover:border-neutral-900 dark:hover:border-white rounded-md transition-all duration-200 active:scale-95 shadow-sm"
+                className="inline-flex items-center justify-center h-[56px] px-9 text-[12px] font-bold tracking-[0.15em] uppercase bg-white/60 dark:bg-white/5 backdrop-blur-md text-neutral-900 dark:text-white border sm:border-2 border-neutral-950/15 sm:border-neutral-900/40 dark:border-white/20 sm:dark:border-white/50 hover:bg-white/80 dark:hover:bg-white/10 hover:border-neutral-900 dark:hover:border-white rounded-md transition-all duration-200 active:scale-95 shadow-sm w-full sm:w-auto"
               >
                 {t('hero.cta.servicios')}
               </Link>

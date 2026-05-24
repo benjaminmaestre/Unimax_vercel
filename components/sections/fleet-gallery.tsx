@@ -120,7 +120,7 @@ export function FleetGallerySection() {
   }, [api])
 
   return (
-    <section className="relative py-24 lg:py-32 bg-background grain overflow-hidden" id="servicios">
+    <section className="relative py-12 lg:py-32 bg-background grain overflow-hidden" id="servicios">
       <div className="section-container">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -181,11 +181,11 @@ export function FleetGallerySection() {
                       />
                       
                       {/* Protection Gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent opacity-85" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black via-black/45 to-transparent opacity-85" />
 
                       {/* Machine Badge */}
                       <div className="absolute top-4 left-4">
-                        <span className="inline-flex items-center px-3 py-1.5 rounded bg-primary text-[10px] font-bold tracking-[0.1em] uppercase text-white shadow-xs">
+                        <span className="inline-flex items-center px-3 py-1.5 rounded bg-primary text-[10px] font-bold tracking-widest uppercase text-white shadow-xs">
                           {translateType(item.type, language)}
                         </span>
                       </div>
@@ -207,7 +207,7 @@ export function FleetGallerySection() {
                         <div className="mt-5">
                           <Link
                             href="#contacto"
-                            className="inline-flex items-center justify-center h-9 px-4 text-xs font-bold tracking-[0.1em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
+                            className="inline-flex items-center justify-center h-9 px-4 text-xs font-bold tracking-widest uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
                           >
                             {t('fleet.cta')}
                           </Link>

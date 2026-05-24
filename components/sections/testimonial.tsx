@@ -29,9 +29,9 @@ export function TestimonialSection() {
   }[language]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-background grain overflow-hidden">
+    <section className="relative py-12 lg:py-32 bg-background grain overflow-hidden">
       <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-0 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-0 items-center">
           {/* Left Side - Quote */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

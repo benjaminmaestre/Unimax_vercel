@@ -38,7 +38,7 @@ export function ProcessSection() {
   ]
 
   return (
-    <section className="relative py-20 lg:py-32 bg-surface grain">
+    <section className="relative py-12 lg:py-32 bg-surface grain">
       <div className="section-container">
         {/* Section Header */}
         <motion.div
@@ -46,7 +46,7 @@ export function ProcessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-12 lg:mb-20"
+          className="text-center mb-10 lg:mb-20"
         >
           <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-primary">
             {t('process.prelabel')}
@@ -59,7 +59,7 @@ export function ProcessSection() {
         {/* Timeline */}
         <div ref={containerRef} className="relative">
           {/* Connector Line - Desktop only */}
-          <div className="hidden lg:block absolute top-[50px] left-[12.5%] right-[12.5%] h-[1px] bg-border">
+          <div className="hidden lg:block absolute top-[50px] left-[12.5%] right-[12.5%] h-px bg-border">
             <motion.div
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}

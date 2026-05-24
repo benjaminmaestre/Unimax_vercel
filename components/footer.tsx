@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
 import { useTheme } from 'next-themes'
 
@@ -15,7 +16,15 @@ const navLinks = [
 
 export function Footer() {
   const { t, language } = useLanguage()
-  const { theme } = useTheme()
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Use resolvedTheme if available (handles 'system' properly), otherwise fallback to theme
+  const currentTheme = resolvedTheme || theme
 
   return (
     <footer className="relative w-full">
@@ -42,16 +51,16 @@ export function Footer() {
           </div>
 
           {/* Action buttons */}
-          <div className="flex flex-row flex-wrap gap-4 shrink-0 w-full lg:w-auto">
+          <div className="flex flex-row gap-3 w-full lg:w-auto shrink-0">
             <Link
               href="#contacto"
-              className="inline-flex items-center justify-center h-12 px-6 text-[11px] font-extrabold tracking-widest uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md active:scale-95 shadow-md text-center"
+              className="inline-flex items-center justify-center h-12 px-6 text-[11px] font-extrabold tracking-widest uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md active:scale-95 shadow-md text-center flex-1 lg:flex-none lg:px-8"
             >
               {language === 'es' ? 'COTIZAR PROYECTO' : 'QUOTE PROJECT'}
             </Link>
             <Link
               href="#soluciones"
-              className="inline-flex items-center justify-center h-12 px-6 text-[11px] font-extrabold tracking-widest uppercase bg-transparent text-neutral-900 dark:text-white border border-neutral-900/20 dark:border-white/20 hover:bg-neutral-900/5 dark:hover:bg-white/5 hover:border-neutral-900/40 dark:hover:border-white/45 transition-all duration-200 rounded-md active:scale-95 text-center"
+              className="inline-flex items-center justify-center h-12 px-6 text-[11px] font-extrabold tracking-widest uppercase bg-transparent text-neutral-900 dark:text-white border border-neutral-900/20 dark:border-white/20 hover:bg-neutral-900/5 dark:hover:bg-white/5 hover:border-neutral-900/40 dark:hover:border-white/45 transition-all duration-200 rounded-md active:scale-95 text-center flex-1 lg:flex-none lg:px-8"
             >
               {language === 'es' ? 'VER SERVICIOS' : 'VIEW SERVICES'}
             </Link>
@@ -63,13 +72,13 @@ export function Footer() {
       <div className="bg-[#FBFBFA] dark:bg-[#080C10] text-[#0A0F14] dark:text-white py-16 border-t border-black/5 dark:border-white/5 relative z-10 transition-colors duration-300">
         <div className="section-container">
           {/* Main Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+          <div className="grid grid-cols-2 md:grid-cols-12 gap-10 items-start">
             
             {/* Column 1: Logo & Slogan + Direct Contact */}
-            <div className="md:col-span-12 lg:col-span-4 flex flex-col items-start gap-4">
+            <div className="col-span-2 md:col-span-12 lg:col-span-4 flex flex-col items-start gap-4">
               <Link href="#hero" className="inline-flex items-center">
                 <Image
-                  src={theme === 'light' ? '/logo_unimx_light.png' : '/logo_unimx-removebg-preview.png'}
+                  src={mounted && currentTheme === 'dark' ? '/logo_unimx-removebg-preview.png' : '/logo_unimx_light.png'}
                   alt="UNIMAX Corp"
                   width={140}
                   height={52}
@@ -101,7 +110,7 @@ export function Footer() {
             </div>
 
             {/* Column 2: Navigation Links */}
-            <div className="col-span-6 md:col-span-4 lg:col-span-2 flex flex-col items-start gap-4 lg:pl-6">
+            <div className="col-span-1 md:col-span-6 lg:col-span-2 flex flex-col items-start gap-4 lg:pl-6">
               <h4 className="text-xs font-extrabold tracking-widest text-neutral-900 dark:text-white uppercase mb-2 border-l-2 border-primary pl-3">
                 {language === 'es' ? 'Navegación' : 'Navigation'}
               </h4>
@@ -120,7 +129,7 @@ export function Footer() {
             </div>
 
             {/* Column 3: Solutions Grid */}
-            <div className="col-span-6 md:col-span-4 lg:col-span-3 flex flex-col items-start gap-4">
+            <div className="col-span-1 md:col-span-6 lg:col-span-3 flex flex-col items-start gap-4">
               <h4 className="text-xs font-extrabold tracking-widest text-neutral-900 dark:text-white uppercase mb-2 border-l-2 border-primary pl-3">
                 {language === 'es' ? 'Soluciones' : 'Solutions'}
               </h4>
@@ -149,7 +158,7 @@ export function Footer() {
             </div>
 
             {/* Column 4: Calidad & Garantía */}
-            <div className="md:col-span-12 lg:col-span-3 flex flex-col items-start gap-4">
+            <div className="col-span-2 md:col-span-12 lg:col-span-3 flex flex-col items-start gap-4">
               <h4 className="text-xs font-extrabold tracking-widest text-neutral-900 dark:text-white uppercase mb-2 border-l-2 border-primary pl-3">
                 {language === 'es' ? 'Garantía & Confianza' : 'Warranty & Trust'}
               </h4>

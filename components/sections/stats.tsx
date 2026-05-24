@@ -66,7 +66,7 @@ export function StatsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="py-8 lg:py-10 px-4 lg:px-6 text-center flex flex-col justify-center"
+              className="py-5 lg:py-10 px-4 lg:px-6 text-center flex flex-col justify-center"
             >
               <div className="flex items-baseline justify-center gap-1">
                 <span className="font-display text-4xl lg:text-6xl text-text-primary">

@@ -9,9 +9,9 @@ export function ManifestoSection() {
   const { t } = useLanguage()
 
   return (
-    <section className="relative py-20 lg:py-32 bg-background grain" id="soluciones">
+    <section className="relative py-12 lg:py-32 bg-background grain" id="soluciones">
       <div className="section-container">
-        <div className="grid lg:grid-cols-[55%_45%] gap-10 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[55%_45%] gap-6 lg:gap-16 items-center">
           {/* Image Side - Mixer Truck Fleet */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -71,10 +71,9 @@ export function ManifestoSection() {
               {t('manifesto.sub')}
             </p>
 
-            {/* CTA - Matte outline shape */}
             <Link
               href="#contacto"
-              className="group mt-8 inline-flex items-center justify-center h-12 px-6 text-xs font-bold tracking-[0.1em] uppercase bg-transparent text-text-primary border border-border rounded-md hover:bg-primary hover:text-white hover:border-primary transition-all duration-200"
+              className="group mt-8 inline-flex items-center justify-center h-12 px-6 text-xs font-bold tracking-widest uppercase bg-transparent text-text-primary border border-border rounded-md hover:bg-primary hover:text-white hover:border-primary transition-all duration-200"
             >
               {t('manifesto.cta')}
               <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />

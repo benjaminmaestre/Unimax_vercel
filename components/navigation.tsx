@@ -21,9 +21,11 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [showNavCta, setShowNavCta] = useState(false)
-  
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
+
+  // Use resolvedTheme if available (handles 'system' properly), otherwise fallback to theme
+  const currentTheme = resolvedTheme || theme
 
   useEffect(() => {
     setMounted(true)
@@ -83,7 +85,7 @@ export function Navigation() {
         {/* Logo */}
         <Link href="#hero" className="flex items-center">
           <Image
-            src={theme === 'light' && isScrolled ? '/logo_unimx_light.png' : '/logo_unimx-removebg-preview.png'}
+            src={mounted && currentTheme === 'dark' ? '/logo_unimx-removebg-preview.png' : '/logo_unimx_light.png'}
             alt="UNIMAX Corp"
             width={150}
             height={48}

@@ -41,7 +41,7 @@ export function ContactSection() {
   }
 
   return (
-    <section className="relative py-24 lg:py-32 bg-surface grain" id="contacto">
+    <section className="relative py-12 lg:py-32 bg-surface grain" id="contacto">
       <div className="section-container">
         {/* Section Header */}
         <motion.div
@@ -49,7 +49,7 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-10 lg:mb-16"
         >
           <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-primary">
             {t('contact.prelabel')}

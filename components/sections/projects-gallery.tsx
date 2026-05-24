@@ -2,6 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/components/language-provider'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
 
 export function ProjectsGallerySection() {
   const { language, t } = useLanguage()
@@ -13,8 +20,6 @@ export function ProjectsGallerySection() {
       location: 'San Juan de Lurigancho',
       image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pavimento-san-juan-de-lurigancho-Unimaxcorp-aFKG9rAwfcI1r2anhItf2YY1uzZyVb.webp',
       volume: '12,500 m³',
-      colSpan: 'lg:col-span-2',
-      rowSpan: 'lg:row-span-2',
     },
     {
       id: 2,
@@ -22,8 +27,6 @@ export function ProjectsGallerySection() {
       location: 'Puente Piedra, Lima',
       image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/obra-por-civil-Puente-piedra-Unimaxcorp-SEgI9lVQ2mXkeHi3EHHH68UkJ8uWgO.webp',
       volume: '8,200 m³',
-      colSpan: 'lg:col-span-1',
-      rowSpan: 'lg:row-span-1',
     },
     {
       id: 3,
@@ -31,8 +34,6 @@ export function ProjectsGallerySection() {
       location: 'Cieneguilla, Lima',
       image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/obra-Cieneguilla-Unimaxcorp-VaH4EoUIyk4zxpVdU3aC9APxQZNMZ0.webp',
       volume: '5,400 m³',
-      colSpan: 'lg:col-span-1',
-      rowSpan: 'lg:row-span-1',
     },
     {
       id: 4,
@@ -40,8 +41,6 @@ export function ProjectsGallerySection() {
       location: 'San Miguel, Lima',
       image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/veredad-parque-San-Miguel-Unimaxcorp-FnZoYVtHlbvGitU4SKYXKxGbqjGkrH.webp',
       volume: '1,800 m³',
-      colSpan: 'lg:col-span-1',
-      rowSpan: 'lg:row-span-1',
     },
     {
       id: 5,
@@ -49,13 +48,11 @@ export function ProjectsGallerySection() {
       location: language === 'es' ? 'Lima Metropolitana' : 'Metropolitan Lima',
       image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/personal-aten-0022-4x47XtoV1Wnj6vpeNYUz6iSMkCrHpS.webp',
       volume: '3,200 m³',
-      colSpan: 'lg:col-span-1',
-      rowSpan: 'lg:row-span-1',
     },
   ]
 
   return (
-    <section className="relative py-24 lg:py-32 bg-surface grain" id="proyectos">
+    <section className="relative py-12 lg:py-32 bg-surface grain" id="proyectos">
       <div className="section-container">
         {/* Section Header */}
         <motion.div
@@ -63,7 +60,7 @@ export function ProjectsGallerySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-10 lg:mb-16"
         >
           <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-primary">
             {t('projects.prelabel')}
@@ -76,47 +73,67 @@ export function ProjectsGallerySection() {
           </p>
         </motion.div>
 
-        {/* Masonry Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className={`group relative overflow-hidden rounded-xl ${project.colSpan} ${project.rowSpan} ${
-                project.rowSpan === 'lg:row-span-2' ? 'min-h-[360px] lg:min-h-[540px]' : 'min-h-[250px]'
-              } border border-border/80 hover:border-primary transition-colors duration-300 shadow-xs`}
-            >
-              {/* Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 pointer-events-none"
-              />
-              
-              {/* Protection Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent opacity-85" />
+        {/* Carousel Container */}
+        <div className="relative w-full">
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {projects.map((project, index) => (
+                <CarouselItem
+                  key={project.id}
+                  className="pl-4 basis-full md:basis-1/2 lg:basis-1/3"
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                    className="h-full"
+                  >
+                    <div className="group relative h-[360px] rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
+                      {/* Image */}
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 pointer-events-none"
+                      />
+                      
+                      {/* Protection Dark Gradient Overlay */}
+                      <div className="absolute inset-0 bg-linear-to-t from-black via-black/35 to-transparent opacity-85" />
 
-              {/* Content - Forced light text for visibility against dark image overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <div className="flex items-end justify-between gap-3">
-                  <div>
-                    <h3 className="text-base lg:text-lg font-bold text-white leading-snug">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs text-white/70 mt-0.5">
-                      {project.location}
-                    </p>
-                  </div>
-                  <span className="text-xs font-bold text-primary bg-black/40 backdrop-blur-md px-2.5 py-1 rounded border border-white/5 shrink-0 uppercase tracking-wider">
-                    {project.volume}
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                      {/* Content - Forced light text for visibility against dark image overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                        <div className="flex items-end justify-between gap-3">
+                          <div>
+                            <h3 className="text-base lg:text-lg font-bold text-white leading-snug">
+                              {project.title}
+                            </h3>
+                            <p className="text-xs text-white/70 mt-0.5">
+                              {project.location}
+                            </p>
+                          </div>
+                          <span className="text-xs font-bold text-primary bg-black/40 backdrop-blur-md px-2.5 py-1 rounded border border-white/5 shrink-0 uppercase tracking-wider">
+                            {project.volume}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            {/* Industrial Navigation Controls */}
+            <div className="flex justify-end gap-3 mt-6 select-none">
+              <CarouselPrevious className="static translate-y-0 border border-border hover:bg-primary hover:text-white" />
+              <CarouselNext className="static translate-y-0 border border-border hover:bg-primary hover:text-white" />
+            </div>
+          </Carousel>
         </div>
 
         {/* Logo Watermark */}
