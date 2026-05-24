@@ -1,17 +1,32 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
+import { RingCarousel3D } from '@/components/ui/ring-carousel-3d'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel'
 
 export function ProjectsGallerySection() {
   const { language, t } = useLanguage()
+  const [api, setApi] = useState<CarouselApi>()
+
+  // Premium Custom Autoplay loop using native Embla API hooks
+  useEffect(() => {
+    if (!api) return
+
+    const intervalId = setInterval(() => {
+      api.scrollNext()
+    }, 4500) // Cycles cards smoothly every 4.5 seconds
+
+    return () => clearInterval(intervalId)
+  }, [api])
 
   const projects = [
     {
@@ -75,7 +90,10 @@ export function ProjectsGallerySection() {
 
         {/* Carousel Container */}
         <div className="relative w-full">
-          <Carousel
+          {/* Mobile View: Classic Embla Carousel */}
+          <div className="block lg:hidden">
+            <Carousel
+              setApi={setApi}
             opts={{
               align: 'start',
               loop: true,
@@ -134,6 +152,45 @@ export function ProjectsGallerySection() {
               <CarouselNext className="static translate-y-0 border border-border hover:bg-primary hover:text-white" />
             </div>
           </Carousel>
+          </div>
+
+          {/* Desktop View: 3D Ring Carousel */}
+          <div className="hidden lg:block py-10">
+            <RingCarousel3D itemWidth={360} itemHeight={420}>
+              {projects.map((project, index) => (
+                <div key={project.id} className="w-full h-full">
+                  <div className="group relative h-full rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
+                    {/* Image */}
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 pointer-events-none"
+                    />
+                    
+                    {/* Protection Dark Gradient Overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/35 to-transparent opacity-85" />
+
+                    {/* Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                      <div className="flex items-end justify-between gap-3">
+                        <div>
+                          <h3 className="text-base lg:text-lg font-bold text-white leading-snug">
+                            {project.title}
+                          </h3>
+                          <p className="text-xs text-white/70 mt-0.5">
+                            {project.location}
+                          </p>
+                        </div>
+                        <span className="text-xs font-bold text-primary bg-black/40 backdrop-blur-md px-2.5 py-1 rounded border border-white/5 shrink-0 uppercase tracking-wider">
+                          {project.volume}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </RingCarousel3D>
+          </div>
         </div>
 
         {/* Logo Watermark */}

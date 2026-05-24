@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
+import { RingCarousel3D } from '@/components/ui/ring-carousel-3d'
 import {
   Carousel,
   CarouselContent,
@@ -151,8 +152,10 @@ export function FleetGallerySection() {
 
         {/* Carousel Container */}
         <div className="relative w-full">
-          <Carousel
-            setApi={setApi}
+          {/* Mobile View: Classic Embla Carousel */}
+          <div className="block lg:hidden">
+            <Carousel
+              setApi={setApi}
             opts={{
               align: 'start',
               loop: true,
@@ -252,6 +255,78 @@ export function FleetGallerySection() {
               <CarouselNext className="static translate-y-0 border border-border hover:bg-primary hover:text-white" />
             </div>
           </Carousel>
+          </div>
+
+          {/* Desktop View: 3D Ring Carousel */}
+          <div className="hidden lg:block py-10">
+            <RingCarousel3D itemWidth={380} itemHeight={480}>
+              {fleet.map((item, index) => (
+                <div key={item.id} className="w-full h-full">
+                  <div className="group relative h-full rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
+                    {/* Image */}
+                    <img
+                      src={item.image}
+                      alt={item.model}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 pointer-events-none"
+                    />
+                    
+                    {/* Protection Gradient */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/45 to-transparent opacity-85" />
+
+                    {/* Machine Badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className="inline-flex items-center px-3 py-1.5 rounded bg-primary text-[10px] font-bold tracking-widest uppercase text-white shadow-xs">
+                        {translateType(item.type, language)}
+                      </span>
+                    </div>
+
+                    {/* Content Card */}
+                    <div className="relative p-5 lg:p-6 z-10">
+                      <h3 className="text-xl lg:text-2xl font-bold text-white leading-tight">
+                        {item.model}
+                      </h3>
+                      
+                      <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-xs text-white/70">
+                        {item.specs.map((spec, i) => (
+                          <span key={spec}>
+                            {translateSpec(spec, language)}{i < item.specs.length - 1 ? '  ·' : ''}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-5">
+                        <Link
+                          href="#contacto"
+                          className="inline-flex items-center justify-center h-9 px-4 text-xs font-bold tracking-widest uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
+                        >
+                          {t('fleet.cta')}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Symmetrical CTA Slide */}
+              <div className="w-full h-full">
+                <div className="h-full rounded-xl overflow-hidden bg-surface border border-border/80 flex flex-col items-center justify-center text-center p-6 lg:p-8 shadow-xs">
+                  <h3 className="text-xl lg:text-2xl font-bold text-text-primary">
+                    {t('fleet.more.title')}
+                  </h3>
+                  <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-[240px]">
+                    {t('fleet.more.desc')}
+                  </p>
+                  <Link
+                    href="#contacto"
+                    className="group mt-6 inline-flex items-center justify-center h-[50px] px-6 text-xs font-bold tracking-[0.12em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
+                  >
+                    {t('fleet.more.cta')}
+                    <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </RingCarousel3D>
+          </div>
         </div>
       </div>
     </section>
