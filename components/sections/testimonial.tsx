@@ -108,6 +108,84 @@ export function TestimonialSection() {
             </div>
           </motion.div>
         </div>
+
+        {/* Infinite Logo Marquee */}
+        <div className="mt-16 lg:mt-24 border-t border-border/40 pt-12 lg:pt-16 overflow-hidden relative w-full">
+          {/* Title */}
+          <span className="block text-center text-[11px] font-bold tracking-[0.15em] uppercase text-primary mb-10 select-none">
+            {language === 'es' ? '• EMPRESAS QUE CONFÍAN EN NUESTRA CALIDAD' : '• COMPANIES THAT TRUST OUR QUALITY'}
+          </span>
+
+          {/* Gradient Masks */}
+          <div className="absolute inset-y-0 left-0 w-16 lg:w-32 bg-linear-to-r from-background via-background/40 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-16 lg:w-32 bg-linear-to-l from-background via-background/40 to-transparent z-10 pointer-events-none" />
+
+          {/* Scrolling Track */}
+          <div className="flex overflow-hidden select-none py-2">
+            <motion.div
+              animate={{ x: [0, '-33.33%'] }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+              className="flex gap-4 lg:gap-6 whitespace-nowrap min-w-max"
+            >
+              {[
+                { type: 'image', src: '/muni-surqu.webp', alt: 'Municipalidad de Surquillo' },
+                { type: 'image', src: '/sg-inmob.webp', alt: 'SG Grupo Inmobiliario' },
+                { type: 'image', src: '/textil-santa-ca.webp', alt: 'Intexsa S.A.C.' },
+                { type: 'image', src: '/g-e-m.png', alt: 'E&M Metal Industry' },
+                { type: 'text', name: 'Consorcio Santa Catalina' },
+                { type: 'text', name: 'Molm Grupo Inmobiliario' },
+                { type: 'text', name: 'Joco Design' }
+              ].concat([
+                { type: 'image', src: '/muni-surqu.webp', alt: 'Municipalidad de Surquillo' },
+                { type: 'image', src: '/sg-inmob.webp', alt: 'SG Grupo Inmobiliario' },
+                { type: 'image', src: '/textil-santa-ca.webp', alt: 'Intexsa S.A.C.' },
+                { type: 'image', src: '/g-e-m.png', alt: 'E&M Metal Industry' },
+                { type: 'text', name: 'Consorcio Santa Catalina' },
+                { type: 'text', name: 'Molm Grupo Inmobiliario' },
+                { type: 'text', name: 'Joco Design' }
+              ], [
+                { type: 'image', src: '/muni-surqu.webp', alt: 'Municipalidad de Surquillo' },
+                { type: 'image', src: '/sg-inmob.webp', alt: 'SG Grupo Inmobiliario' },
+                { type: 'image', src: '/textil-santa-ca.webp', alt: 'Intexsa S.A.C.' },
+                { type: 'image', src: '/g-e-m.png', alt: 'E&M Metal Industry' },
+                { type: 'text', name: 'Consorcio Santa Catalina' },
+                { type: 'text', name: 'Molm Grupo Inmobiliario' },
+                { type: 'text', name: 'Joco Design' }
+              ]).map((item, i) => {
+                let logoHeightClass = 'h-10 lg:h-12'
+                if (item.type === 'image' && item.src) {
+                  if (item.src === '/muni-surqu.webp') logoHeightClass = 'h-10 lg:h-12'
+                  else if (item.src === '/sg-inmob.webp') logoHeightClass = 'h-9 lg:h-11'
+                  else if (item.src === '/textil-santa-ca.webp') logoHeightClass = 'h-6 lg:h-8'
+                  else if (item.src === '/g-e-m.png') logoHeightClass = 'h-10 lg:h-12'
+                }
+
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center justify-center px-8 py-4 rounded-xl bg-surface border border-border/60 backdrop-blur-md shadow-2xs h-16 lg:h-20 min-w-[200px] lg:min-w-[240px] transition-all duration-300 hover:border-primary/40 hover:bg-surface/90 cursor-default select-none group shrink-0"
+                  >
+                    {item.type === 'image' && item.src ? (
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        className={`${logoHeightClass} w-auto object-contain opacity-75 dark:opacity-50 group-hover:opacity-100 dark:group-hover:opacity-100 transition-all duration-300 dark:invert`}
+                      />
+                    ) : (
+                      <span className="text-xs lg:text-sm font-extrabold tracking-widest uppercase font-display text-text-muted group-hover:text-text-primary transition-colors text-center whitespace-normal leading-tight">
+                        {item.name}
+                      </span>
+                    )}
+                  </div>
+                )
+              })}
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )

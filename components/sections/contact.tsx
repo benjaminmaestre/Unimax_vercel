@@ -18,19 +18,14 @@ export function ContactSection() {
 
   const contactLines = [
     {
-      title: language === 'es' ? 'Concreto Premezclado' : 'Ready-Mix Concrete',
-      phones: ['+51 1 604-3901', '+51 999 123 456'],
-      hours: language === 'es' ? 'Lun–Sáb: 5:00 am – 8:00 pm' : 'Mon–Sat: 5:00 am – 8:00 pm',
+      title: language === 'es' ? 'Central Comercial' : 'Commercial Central',
+      phones: ['+51 (01) 555-0199', '+51 999 888 777 (WhatsApp)'],
+      hours: language === 'es' ? 'Lun–Vie: 8:00 am – 6:00 pm | Sáb: 8:00 am – 1:00 pm' : 'Mon–Fri: 8:00 am – 6:00 pm | Sat: 8:00 am – 1:00 pm',
     },
     {
-      title: language === 'es' ? 'Bombeo y Maquinaria' : 'Pumping & Machinery',
-      phones: ['+51 1 604-3902', '+51 998 123 456'],
-      hours: language === 'es' ? 'Lun–Sáb: 5:00 am – 8:00 pm' : 'Mon–Sat: 5:00 am – 8:00 pm',
-    },
-    {
-      title: language === 'es' ? 'Soporte Técnico' : 'Technical Support',
-      phones: ['+51 1 604-3903'],
-      hours: language === 'es' ? 'Emergencias: 24/7' : 'Emergencies: 24/7',
+      title: language === 'es' ? 'Área de Calidad y Consultas' : 'Quality & Inquiries Department',
+      phones: ['area.calidad@unimaxcorp.com', 'consultas@unimaxcorp.com'],
+      hours: language === 'es' ? 'Soporte de laboratorio y dosificación técnica' : 'Laboratory support and technical dosage',
     },
   ]
 
@@ -214,7 +209,7 @@ export function ContactSection() {
                   <Instagram className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://wa.me/51999123456"
+                  href="https://wa.me/51999888777"
                   className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-xs"
                   aria-label="WhatsApp"
                 >
@@ -228,7 +223,7 @@ export function ContactSection() {
 
       {/* WhatsApp FAB - Premium Authentic Green Floating Button */}
       <motion.a
-        href="https://wa.me/51999123456"
+        href="https://wa.me/51999888777"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, scale: 0.8 }}

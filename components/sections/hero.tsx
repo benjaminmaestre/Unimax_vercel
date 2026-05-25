@@ -16,7 +16,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section id="hero" className="relative h-auto min-h-0 md:h-screen md:min-h-[680px] pt-28 pb-20 md:py-0 overflow-hidden grain bg-white dark:bg-black text-[#0A0F14] dark:text-white transition-colors duration-300">
+    <section id="hero" className="relative h-auto min-h-0 lg:h-screen lg:min-h-[680px] pt-32 pb-20 md:pt-40 md:pb-24 lg:py-0 overflow-hidden grain bg-white dark:bg-black text-[#0A0F14] dark:text-white transition-colors duration-300">
       {/* Background Image with Overlays - Cinematic Wide Angle */}
       <div className="absolute inset-0">
         <motion.div 
@@ -55,9 +55,9 @@ export function HeroSection() {
 
 
       {/* Main Content */}
-      <div className="relative z-10 section-container h-full flex flex-col lg:flex-row items-center justify-between gap-10">
+      <div className="relative z-10 mx-auto max-w-[1280px] px-5 md:px-10 lg:px-16 xl:px-20 h-full flex flex-col lg:flex-row items-center justify-between gap-10">
         {/* Left Column: Text Content (moved towards center, controlled max-width) */}
-        <div className="max-w-[720px] flex flex-col justify-center">
+        <div className="max-w-[720px] lg:max-w-[540px] xl:max-w-[720px] flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,10 +77,10 @@ export function HeroSection() {
 
             {/* Monumental value proposition headline */}
             <h1 className="font-display select-none leading-tight">
-              <span className="block text-[26px] xs:text-[32px] sm:text-[56px] lg:text-[68px] font-extrabold tracking-tight text-[#0A0F14] dark:text-white uppercase sm:normal-case drop-shadow-2xl">
+              <span className="block text-[26px] xs:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[68px] font-extrabold tracking-tight text-[#0A0F14] dark:text-white uppercase sm:normal-case drop-shadow-2xl">
                 {t('hero.title1')}
               </span>
-              <span className="block text-[17px] xs:text-[22px] sm:text-[40px] lg:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-3 sm:mt-2 drop-shadow-xl font-sans">
+              <span className="block text-[17px] xs:text-[22px] sm:text-[30px] md:text-[36px] lg:text-[38px] xl:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-3 sm:mt-2 drop-shadow-xl font-sans">
                 {t('hero.title2')}
               </span>
             </h1>
@@ -89,7 +89,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
-              className="mt-5 sm:mt-6 text-sm sm:text-base lg:text-xl leading-[1.65] text-neutral-950 dark:text-neutral-100 max-w-[620px] font-normal"
+              className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg xl:text-xl leading-[1.65] text-neutral-950 dark:text-neutral-100 max-w-[620px] font-normal"
             >
               <span className="inline md:hidden">
                 {language === 'es' 
