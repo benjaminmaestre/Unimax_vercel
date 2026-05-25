@@ -112,9 +112,20 @@ export function TestimonialSection() {
         {/* Infinite Logo Marquee */}
         <div className="mt-16 lg:mt-24 border-t border-border/40 pt-12 lg:pt-16 overflow-hidden relative w-full">
           {/* Title */}
-          <span className="block text-center text-[11px] font-bold tracking-[0.15em] uppercase text-primary mb-10 select-none">
-            {language === 'es' ? '• EMPRESAS QUE CONFÍAN EN NUESTRA CALIDAD' : '• COMPANIES THAT TRUST OUR QUALITY'}
-          </span>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-10 lg:mb-16"
+          >
+            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-primary">
+              {language === 'es' ? '• NUESTROS ALIADOS' : '• OUR PARTNERS'}
+            </span>
+            <h2 className="mt-3 text-2xl lg:text-4xl font-bold leading-[1.15] tracking-tight text-text-primary text-balance">
+              {language === 'es' ? 'Empresas que confían en nuestra calidad.' : 'Companies that trust our quality.'}
+            </h2>
+          </motion.div>
 
           {/* Gradient Masks */}
           <div className="absolute inset-y-0 left-0 w-16 lg:w-32 bg-linear-to-r from-background via-background/40 to-transparent z-10 pointer-events-none" />
@@ -156,24 +167,24 @@ export function TestimonialSection() {
                 { type: 'text', name: 'Molm Grupo Inmobiliario' },
                 { type: 'text', name: 'Joco Design' }
               ]).map((item, i) => {
-                let logoHeightClass = 'h-10 lg:h-12'
+                let logoHeightClass = 'h-12 lg:h-16'
                 if (item.type === 'image' && item.src) {
-                  if (item.src === '/muni-surqu.webp') logoHeightClass = 'h-10 lg:h-12'
-                  else if (item.src === '/sg-inmob.webp') logoHeightClass = 'h-9 lg:h-11'
-                  else if (item.src === '/textil-santa-ca.webp') logoHeightClass = 'h-6 lg:h-8'
-                  else if (item.src === '/g-e-m.png') logoHeightClass = 'h-10 lg:h-12'
+                  if (item.src === '/muni-surqu.webp') logoHeightClass = 'h-12 lg:h-16'
+                  else if (item.src === '/sg-inmob.webp') logoHeightClass = 'h-10 lg:h-14'
+                  else if (item.src === '/textil-santa-ca.webp') logoHeightClass = 'h-8 lg:h-10'
+                  else if (item.src === '/g-e-m.png') logoHeightClass = 'h-12 lg:h-16'
                 }
 
                 return (
                   <div
                     key={i}
-                    className="flex items-center justify-center px-8 py-4 rounded-xl bg-surface border border-border/60 backdrop-blur-md shadow-2xs h-16 lg:h-20 min-w-[200px] lg:min-w-[240px] transition-all duration-300 hover:border-primary/40 hover:bg-surface/90 cursor-default select-none group shrink-0"
+                    className="flex items-center justify-center px-8 py-4 rounded-xl bg-surface border border-border/60 backdrop-blur-md shadow-2xs h-20 lg:h-24 min-w-[240px] lg:min-w-[280px] transition-all duration-300 hover:border-primary/40 hover:bg-surface/90 cursor-default select-none group shrink-0"
                   >
                     {item.type === 'image' && item.src ? (
                       <img
                         src={item.src}
                         alt={item.alt}
-                        className={`${logoHeightClass} w-auto object-contain opacity-75 dark:opacity-50 group-hover:opacity-100 dark:group-hover:opacity-100 transition-all duration-300 dark:invert`}
+                        className={`${logoHeightClass} w-auto object-contain opacity-75 group-hover:opacity-100 transition-all duration-300`}
                       />
                     ) : (
                       <span className="text-xs lg:text-sm font-extrabold tracking-widest uppercase font-display text-text-muted group-hover:text-text-primary transition-colors text-center whitespace-normal leading-tight">

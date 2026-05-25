@@ -198,7 +198,7 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute bottom-0 left-0 right-0 bg-neutral-100/80 dark:bg-black/75 border-t border-neutral-200 dark:border-white/15 backdrop-blur-md hidden lg:block z-20 transition-all duration-300"
+        className="absolute bottom-0 left-0 right-0 bg-neutral-100/80 dark:bg-black/75 border-t border-neutral-200 dark:border-white/15 backdrop-blur-md hidden md:block z-20 transition-all duration-300"
       >
         <div className="section-container">
           <div className="grid grid-cols-4 divide-x divide-neutral-200 dark:divide-white/10">

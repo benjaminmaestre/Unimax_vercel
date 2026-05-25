@@ -28,7 +28,7 @@ export function ManifestoSection() {
   ]
 
   return (
-    <section className="relative py-12 lg:py-32 bg-background grain overflow-hidden" id="soluciones">
+    <section className="relative py-12 lg:py-32 bg-background grain overflow-hidden" id="nosotros">
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 lg:mb-16">

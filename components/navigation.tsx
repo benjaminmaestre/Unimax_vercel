@@ -9,7 +9,7 @@ import { useTheme } from 'next-themes'
 import { useLanguage } from '@/components/language-provider'
 
 const navLinks = [
-  { href: '#soluciones', key: 'nav.soluciones' },
+  { href: '#nosotros', key: 'nav.nosotros' },
   { href: '#productos', key: 'nav.productos' },
   { href: '#servicios', key: 'nav.servicios' },
   { href: '#plantas', key: 'nav.plantas' },
@@ -21,6 +21,7 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [showNavCta, setShowNavCta] = useState(false)
+  const [activeSection, setActiveSection] = useState<string>('')
   const { theme, setTheme, resolvedTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
 
@@ -35,26 +36,46 @@ export function Navigation() {
     window.addEventListener('scroll', handleScroll)
 
     const heroElement = document.getElementById('hero')
-    let observer: IntersectionObserver | null = null
+    let ctaObserver: IntersectionObserver | null = null
 
     if (heroElement) {
-      observer = new IntersectionObserver(
+      ctaObserver = new IntersectionObserver(
         ([entry]) => {
           // If hero is NOT intersecting (out of viewport), show the CTA
           setShowNavCta(!entry.isIntersecting)
         },
         { threshold: 0.1 }
       )
-      observer.observe(heroElement)
+      ctaObserver.observe(heroElement)
     } else {
       setShowNavCta(true)
     }
 
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { threshold: 0.3, rootMargin: '-10% 0px -50% 0px' }
+    )
+
+    navLinks.forEach((link) => {
+      const el = document.getElementById(link.href.replace('#', ''))
+      if (el) sectionObserver.observe(el)
+    })
+    
+    // Also observe hero to clear active state when scrolled to top
+    if (heroElement) {
+      sectionObserver.observe(heroElement)
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      if (observer) {
-        observer.disconnect()
-      }
+      if (ctaObserver) ctaObserver.disconnect()
+      sectionObserver.disconnect()
     }
   }, [])
 
@@ -102,10 +123,16 @@ export function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[11px] font-bold tracking-[0.15em] text-text-secondary dark:text-white/90 hover:text-primary transition-colors duration-200 relative group"
+              className={`text-[11px] font-bold tracking-[0.15em] transition-colors duration-200 relative group ${
+                activeSection === link.href.replace('#', '') 
+                  ? 'text-primary' 
+                  : 'text-text-secondary dark:text-white/90 hover:text-primary'
+              }`}
             >
               {t(link.key)}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full" />
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-200 ${
+                activeSection === link.href.replace('#', '') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`} />
             </Link>
           ))}
         </div>
@@ -213,7 +240,9 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-[12px] font-bold tracking-[0.15em] text-text-secondary hover:text-primary transition-colors py-2 border-b border-border/40"
+                  className={`text-[12px] font-bold tracking-[0.15em] transition-colors py-2 border-b border-border/40 ${
+                    activeSection === link.href.replace('#', '') ? 'text-primary' : 'text-text-secondary hover:text-primary'
+                  }`}
                 >
                   {t(link.key)}
                 </Link>

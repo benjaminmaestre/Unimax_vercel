@@ -15,6 +15,11 @@ export function ContactSection() {
     address: '',
     message: '',
   })
+  const [touched, setTouched] = useState<Record<string, boolean>>({})
+
+  const handleBlur = (field: string) => {
+    setTouched(prev => ({ ...prev, [field]: true }))
+  }
 
   const contactLines = [
     {
@@ -73,7 +78,10 @@ export function ContactSection() {
                   value={formData.name}
                   required
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="h-12 px-4 rounded-md bg-background border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm"
+                  onBlur={() => handleBlur('name')}
+                  className={`h-12 px-4 rounded-md bg-background border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm ${
+                    touched.name && !formData.name ? 'border-red-500 bg-red-500/5' : 'border-border'
+                  }`}
                 />
                 <input
                   type="text"
@@ -89,7 +97,10 @@ export function ContactSection() {
                   value={formData.type}
                   required
                   onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                  className="h-12 px-4 rounded-md bg-background border border-border text-text-primary focus:outline-none focus:border-primary transition-colors text-sm appearance-none cursor-pointer"
+                  onBlur={() => handleBlur('type')}
+                  className={`h-12 px-4 rounded-md bg-background border text-text-primary focus:outline-none focus:border-primary transition-colors text-sm appearance-none cursor-pointer ${
+                    touched.type && !formData.type ? 'border-red-500 bg-red-500/5' : 'border-border'
+                  }`}
                 >
                   <option value="">{t('contact.form.service.placeholder')}</option>
                   <option value="concreto">{t('contact.form.service.opt1')}</option>
@@ -102,7 +113,10 @@ export function ContactSection() {
                   value={formData.volume}
                   required
                   onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
-                  className="h-12 px-4 rounded-md bg-background border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm"
+                  onBlur={() => handleBlur('volume')}
+                  className={`h-12 px-4 rounded-md bg-background border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm ${
+                    touched.volume && !formData.volume ? 'border-red-500 bg-red-500/5' : 'border-border'
+                  }`}
                 />
               </div>
 
@@ -112,7 +126,10 @@ export function ContactSection() {
                 value={formData.address}
                 required
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                className="w-full h-12 px-4 rounded-md bg-background border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm"
+                onBlur={() => handleBlur('address')}
+                className={`w-full h-12 px-4 rounded-md bg-background border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm ${
+                  touched.address && !formData.address ? 'border-red-500 bg-red-500/5' : 'border-border'
+                }`}
               />
 
               <textarea

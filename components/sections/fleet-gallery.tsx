@@ -152,8 +152,8 @@ export function FleetGallerySection() {
 
         {/* Carousel Container */}
         <div className="relative w-full">
-          {/* Mobile View: Classic Embla Carousel */}
-          <div className="block md:hidden">
+          {/* Mobile and Tablet View: Classic Embla Carousel */}
+          <div className="block lg:hidden">
             <Carousel
               setApi={setApi}
             opts={{
@@ -257,8 +257,8 @@ export function FleetGallerySection() {
           </Carousel>
           </div>
 
-          {/* Desktop View: 3D Ring Carousel */}
-          <div className="hidden md:block py-10">
+          {/* Desktop View: 3D Ring Carousel (Large screens only) */}
+          <div className="hidden lg:block py-10">
             <RingCarousel3D itemWidth={380} itemHeight={480}>
               {fleet.map((item, index) => (
                 <div key={item.id} className="w-full h-full">

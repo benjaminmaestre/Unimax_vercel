@@ -181,8 +181,8 @@ export function BentoGridSection() {
 
         {/* Carousel Container */}
         <div className="relative w-full">
-          {/* Mobile View: Classic Embla Carousel */}
-          <div className="block md:hidden">
+          {/* Mobile and Tablet View: Classic Embla Carousel */}
+          <div className="block lg:hidden">
             <Carousel
               setApi={setApi}
               opts={{
@@ -324,8 +324,8 @@ export function BentoGridSection() {
             </Carousel>
           </div>
 
-          {/* Desktop View: 3D Ring Carousel */}
-          <div className="hidden md:block py-10">
+          {/* Desktop View: 3D Ring Carousel (Large screens only) */}
+          <div className="hidden lg:block py-10">
             <RingCarousel3D itemWidth={380} itemHeight={480} visibleCards={3} cardSpread={0.85}>
               {solutions.map((item) => (
                 <div key={item.id} className="w-full h-full bg-surface rounded-xl overflow-hidden shadow-xs border border-border/80 hover:border-primary transition-colors duration-300">

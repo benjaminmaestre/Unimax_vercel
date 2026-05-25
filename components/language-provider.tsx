@@ -15,6 +15,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 // Definición de las traducciones compartidas del sistemaconst translations: Record<Language, Record<string, string>> = {
   es: {
     // Navigation
+    'nav.nosotros': 'NOSOTROS',
     'nav.soluciones': 'SOLUCIONES',
     'nav.productos': 'PRODUCTOS',
     'nav.servicios': 'SERVICIOS',
@@ -187,6 +188,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
   },
   en: {
     // Navigation
+    'nav.nosotros': 'ABOUT US',
     'nav.soluciones': 'SOLUTIONS',
     'nav.productos': 'PRODUCTS',
     'nav.servicios': 'SERVICES',
