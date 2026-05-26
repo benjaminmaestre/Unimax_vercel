@@ -182,7 +182,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
     // Footer
     'footer.slogan': 'Soluciones integrales de concreto premezclado y maquinaria pesada para la construcción en todo el Perú.',
-    'footer.rights': '© 2026 UNIMAX Corp. Todos los derechos reservados. Planta de Abastecimiento: Cono Norte - Cono Este - Cono Sur.',
+    'footer.rights': '© 2026 UNIMAX Corp. Todos los derechos reservados.',
     'footer.privacy': 'Políticas de Privacidad',
     'footer.terms': 'Términos de Servicio',
   },
@@ -355,7 +355,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
     // Footer
     'footer.slogan': 'Comprehensive ready-mix concrete and heavy machinery rental solutions for construction projects throughout Peru.',
-    'footer.rights': '© 2026 UNIMAX Corp. All rights reserved. Supply Plants: North Cono - East Cono - South Cono.',
+    'footer.rights': '© 2026 UNIMAX Corp. All rights reserved.',
     'footer.privacy': 'Privacy Policies',
     'footer.terms': 'Terms of Service',
   }

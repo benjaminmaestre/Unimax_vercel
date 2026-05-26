@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
 import { useTheme } from 'next-themes'
+import { Facebook, Instagram, Linkedin } from 'lucide-react'
 
 const navLinks = [
   { href: '#soluciones', key: 'nav.soluciones' },
@@ -193,17 +194,37 @@ export function Footer() {
           </div>
 
           {/* LEVEL 3: Legal Bottom Bar */}
-          <div className="mt-16 pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-500 dark:text-white/40">
+          <div className="mt-16 pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 text-xs text-neutral-500 dark:text-white/40">
             <p className="text-center md:text-left">
               {t('footer.rights')}
             </p>
-            <div className="flex items-center gap-6">
-              <Link href="#" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
-                {t('footer.privacy')}
-              </Link>
-              <Link href="#" className="hover:text-white transition-colors duration-200">
-                {t('footer.terms')}
-              </Link>
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+              {/* Minimal Social Icons */}
+              <div className="flex items-center gap-5">
+                <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                  <Facebook className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                  <span className="sr-only">Facebook</span>
+                </Link>
+                <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                  <Instagram className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                  <span className="sr-only">Instagram</span>
+                </Link>
+                <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                  <Linkedin className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                  <span className="sr-only">LinkedIn</span>
+                </Link>
+              </div>
+              
+              <div className="hidden md:block w-px h-3 bg-neutral-300 dark:bg-white/20" />
+
+              <div className="flex items-center gap-6">
+                <Link href="#" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                  {t('footer.privacy')}
+                </Link>
+                <Link href="#" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                  {t('footer.terms')}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
