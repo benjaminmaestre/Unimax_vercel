@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useLanguage } from '@/components/language-provider'
 
 export function HeroSection() {
@@ -23,11 +24,18 @@ export function HeroSection() {
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.8, ease: "easeOut" }}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/hero-bg.png')`,
-          }}
-        />
+          className="absolute inset-0"
+        >
+          <Image
+            src="/hero-bg.png"
+            alt="Fondo Unimax Corp"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+            quality={90}
+          />
+        </motion.div>
         
         {/* Cinematic Overlays - Light Mode (Warm, bright, golden-hour industrial look) */}
         <div 

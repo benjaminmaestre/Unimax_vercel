@@ -1,16 +1,18 @@
+import dynamic from 'next/dynamic'
 import { Navigation } from '@/components/navigation'
 import { HeroSection } from '@/components/sections/hero'
-import { ManifestoSection } from '@/components/sections/manifesto'
-import { StatsSection } from '@/components/sections/stats'
-import { BentoGridSection } from '@/components/sections/bento-grid'
-import { ProcessSection } from '@/components/sections/process'
-import { FleetGallerySection } from '@/components/sections/fleet-gallery'
-import { TestimonialSection } from '@/components/sections/testimonial'
-import { ProjectsGallerySection } from '@/components/sections/projects-gallery'
-import { CertificationsSection } from '@/components/sections/certifications'
-import { CoverageSection } from '@/components/sections/coverage'
-import { ContactSection } from '@/components/sections/contact'
-import { Footer } from '@/components/footer'
+
+const ManifestoSection = dynamic(() => import('@/components/sections/manifesto').then(mod => mod.ManifestoSection))
+const StatsSection = dynamic(() => import('@/components/sections/stats').then(mod => mod.StatsSection))
+const BentoGridSection = dynamic(() => import('@/components/sections/bento-grid').then(mod => mod.BentoGridSection))
+const ProcessSection = dynamic(() => import('@/components/sections/process').then(mod => mod.ProcessSection))
+const FleetGallerySection = dynamic(() => import('@/components/sections/fleet-gallery').then(mod => mod.FleetGallerySection))
+const TestimonialSection = dynamic(() => import('@/components/sections/testimonial').then(mod => mod.TestimonialSection))
+const ProjectsGallerySection = dynamic(() => import('@/components/sections/projects-gallery').then(mod => mod.ProjectsGallerySection))
+const CertificationsSection = dynamic(() => import('@/components/sections/certifications').then(mod => mod.CertificationsSection))
+const CoverageSection = dynamic(() => import('@/components/sections/coverage').then(mod => mod.CoverageSection))
+const ContactSection = dynamic(() => import('@/components/sections/contact').then(mod => mod.ContactSection))
+const Footer = dynamic(() => import('@/components/footer').then(mod => mod.Footer))
 
 export default function HomePage() {
   return (
