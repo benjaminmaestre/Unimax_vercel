@@ -231,23 +231,13 @@ export function BentoGridSection() {
                               ))}
                             </ul>
                             
-                            {item.id === 1 ? (
-                              <button
-                                onClick={() => setIsModalOpen(true)}
-                                className="group/link mt-6 inline-flex items-center gap-2 text-white/95 hover:text-primary transition-colors cursor-pointer text-left bg-transparent border-none p-0"
-                              >
-                                <span className="text-xs font-bold tracking-widest uppercase">{item.link}</span>
-                                <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
-                              </button>
-                            ) : (
-                              <Link
-                                href="#contacto"
-                                className="group/link mt-6 inline-flex items-center gap-2 text-white/95 hover:text-primary transition-colors"
-                              >
-                                <span className="text-xs font-bold tracking-widest uppercase">{item.link}</span>
-                                <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
-                              </Link>
-                            )}
+                            <Link
+                              href="/servicios/concreto-premezclado"
+                              className="group/link mt-6 inline-flex items-center gap-2 text-white/95 hover:text-primary transition-colors"
+                            >
+                              <span className="text-xs font-bold tracking-widest uppercase">{item.link}</span>
+                              <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
+                            </Link>
                           </div>
                         </div>
                       )}
@@ -275,7 +265,7 @@ export function BentoGridSection() {
                             </ul>
                           </div>
                           <Link
-                            href="#contacto"
+                            href={item.id === 3 ? "/servicios/bomba-de-concreto" : "#contacto"}
                             className="group/link inline-flex items-center gap-2 text-text-primary hover:text-primary transition-colors"
                           >
                             <span className="text-xs font-bold tracking-widest uppercase">{item.link}</span>
@@ -353,20 +343,10 @@ export function BentoGridSection() {
                           ))}
                         </ul>
                         
-                        {item.id === 1 ? (
-                          <button
-                            onClick={() => setIsModalOpen(true)}
-                            className="group/link mt-6 inline-flex items-center gap-2 text-white/95 hover:text-primary transition-colors cursor-pointer bg-transparent border-none p-0 text-left"
-                          >
-                            <span className="text-xs font-bold tracking-widest uppercase">{item.link}</span>
-                            <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
-                          </button>
-                        ) : (
-                          <Link href="#contacto" className="group/link mt-6 inline-flex items-center gap-2 text-white/95 hover:text-primary transition-colors">
+                          <Link href="/servicios/concreto-premezclado" className="group/link mt-6 inline-flex items-center gap-2 text-white/95 hover:text-primary transition-colors">
                             <span className="text-xs font-bold tracking-widest uppercase">{item.link}</span>
                             <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
                           </Link>
-                        )}
                       </div>
                     </div>
                   )}
@@ -392,7 +372,7 @@ export function BentoGridSection() {
                           ))}
                         </ul>
                       </div>
-                      <Link href="#contacto" className="group/link inline-flex items-center gap-2 text-text-primary hover:text-primary transition-colors">
+                      <Link href={item.id === 3 ? "/servicios/bomba-de-concreto" : "#contacto"} className="group/link inline-flex items-center gap-2 text-text-primary hover:text-primary transition-colors">
                         <span className="text-xs font-bold tracking-widest uppercase">{item.link}</span>
                         <ArrowRight className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
                       </Link>

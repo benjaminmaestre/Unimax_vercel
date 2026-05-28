@@ -3,22 +3,39 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon, Phone } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useLanguage } from '@/components/language-provider'
 
-const navLinks = [
+interface NavLinkItem {
+  href?: string
+  key: string
+  items?: { href: string; labelEs: string; labelEn: string }[]
+}
+
+const navLinks: NavLinkItem[] = [
   { href: '#nosotros', key: 'nav.nosotros' },
-  { href: '#productos', key: 'nav.productos' },
-  { href: '#servicios', key: 'nav.servicios' },
+  { href: '/nosotros/proyectos', key: 'nav.proyectos' },
+  { 
+    key: 'nav.servicios',
+    items: [
+      { href: '/servicios/concreto-premezclado', labelEs: 'Concreto Premezclado', labelEn: 'Ready-Mix Concrete' },
+      { href: '/servicios/bomba-de-concreto', labelEs: 'Bomba de Concreto', labelEn: 'Concrete Pumping' }
+    ]
+  },
   { href: '#plantas', key: 'nav.plantas' },
   { href: '#contacto', key: 'nav.contacto' },
 ]
 
 export function Navigation() {
+  const pathname = usePathname()
+  const isHome = pathname === '/'
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false)
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [showNavCta, setShowNavCta] = useState(false)
   const [activeSection, setActiveSection] = useState<string>('')
@@ -63,8 +80,10 @@ export function Navigation() {
     )
 
     navLinks.forEach((link) => {
-      const el = document.getElementById(link.href.replace('#', ''))
-      if (el) sectionObserver.observe(el)
+      if (link.href) {
+        const el = document.getElementById(link.href.replace('#', ''))
+        if (el) sectionObserver.observe(el)
+      }
     })
     
     // Also observe hero to clear active state when scrolled to top
@@ -104,7 +123,7 @@ export function Navigation() {
     >
       <nav className="section-container h-full flex items-center justify-between">
         {/* Logo */}
-        <Link href="#hero" className="flex items-center">
+        <Link href={isHome ? '#hero' : '/'} className="flex items-center">
           <Image
             src={mounted && currentTheme === 'dark' ? '/logo_unimx-removebg-preview.png' : '/logo_unimx_light.png'}
             alt="UNIMAX Corp"
@@ -119,22 +138,74 @@ export function Navigation() {
 
         {/* Desktop Navigation Links */}
         <div className="hidden lg:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-[11px] font-bold tracking-[0.15em] transition-colors duration-200 relative group ${
-                activeSection === link.href.replace('#', '') 
-                  ? 'text-primary' 
-                  : 'text-text-secondary dark:text-white/90 hover:text-primary'
-              }`}
-            >
-              {t(link.key)}
-              <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-200 ${
-                activeSection === link.href.replace('#', '') ? 'w-full' : 'w-0 group-hover:w-full'
-              }`} />
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            if (link.items) {
+              return (
+                <div 
+                  key={link.key}
+                  className="relative"
+                  onMouseEnter={() => setIsServicesDropdownOpen(true)}
+                  onMouseLeave={() => setIsServicesDropdownOpen(false)}
+                >
+                  <button
+                    className={`text-[11px] font-bold tracking-[0.15em] transition-colors duration-200 uppercase flex items-center gap-1.5 cursor-pointer bg-transparent border-none p-0 select-none ${
+                      pathname.startsWith('/servicios')
+                        ? 'text-primary' 
+                        : 'text-text-secondary dark:text-white/90 hover:text-primary'
+                    }`}
+                  >
+                    {t(link.key)}
+                    <span className="text-[8px] opacity-70">▼</span>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {isServicesDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{ duration: 0.15, ease: 'easeOut' }}
+                        className="absolute left-0 mt-2 w-52 rounded-lg bg-surface border border-border/85 dark:border-white/10 p-2 shadow-lg backdrop-blur-md z-50 glass"
+                      >
+                        {link.items.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            className="block px-3 py-2 text-[10px] font-bold tracking-wider uppercase text-text-secondary dark:text-white/80 hover:text-primary hover:bg-primary/5 rounded-md transition-colors"
+                          >
+                            {language === 'es' ? sub.labelEs : sub.labelEn}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            }
+
+            const finalHref = link.href!.startsWith('/') 
+              ? link.href! 
+              : (isHome ? link.href! : `/${link.href!}`)
+            
+            const isActive = (isHome && activeSection === link.href!.replace('#', '')) || pathname === link.href
+
+            return (
+              <Link
+                key={link.href}
+                href={finalHref}
+                className={`text-[11px] font-bold tracking-[0.15em] transition-colors duration-200 relative group ${
+                  isActive 
+                    ? 'text-primary' 
+                    : 'text-text-secondary dark:text-white/90 hover:text-primary'
+                }`}
+              >
+                {t(link.key)}
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-200 ${
+                  isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                }`} />
+              </Link>
+            )
+          })}
         </div>
 
         {/* Global Toolbar Options */}
@@ -143,17 +214,21 @@ export function Navigation() {
           <div className="flex items-center gap-2 border-r border-border dark:border-white/20 pr-5 text-[11px] font-bold tracking-widest">
             <button
               onClick={() => setLanguage('es')}
-              className={`transition-colors cursor-pointer ${
-                language === 'es' ? 'text-primary' : 'text-text-muted hover:text-text-primary dark:text-white/60 dark:hover:text-white'
+              className={`transition-all duration-200 cursor-pointer ${
+                language === 'es' 
+                  ? 'text-primary text-[13px] font-extrabold' 
+                  : 'text-text-muted text-[10px] font-normal hover:text-text-primary dark:text-white/60 dark:hover:text-white'
               }`}
             >
               ES
             </button>
-            <span className="text-text-muted dark:text-white/60">/</span>
+            <span className="text-text-muted dark:text-white/60 text-[10px] font-normal">/</span>
             <button
               onClick={() => setLanguage('en')}
-              className={`transition-colors cursor-pointer ${
-                language === 'en' ? 'text-primary' : 'text-text-muted hover:text-text-primary dark:text-white/60 dark:hover:text-white'
+              className={`transition-all duration-200 cursor-pointer ${
+                language === 'en' 
+                  ? 'text-primary text-[13px] font-extrabold' 
+                  : 'text-text-muted text-[10px] font-normal hover:text-text-primary dark:text-white/60 dark:hover:text-white'
               }`}
             >
               EN
@@ -181,7 +256,7 @@ export function Navigation() {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href="#contacto"
+                  href={isHome ? '#contacto' : '/#contacto'}
                   className="inline-flex items-center justify-center h-10 px-5 text-[11px] font-bold tracking-[0.12em] uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md border border-primary hover:border-cta-hover active:scale-95"
                 >
                   {t('nav.cotizar')}
@@ -235,31 +310,87 @@ export function Navigation() {
             className="lg:hidden bg-background border-b border-border shadow-lg overflow-hidden"
           >
             <div className="section-container py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-[12px] font-bold tracking-[0.15em] transition-colors py-2 border-b border-border/40 ${
-                    activeSection === link.href.replace('#', '') ? 'text-primary' : 'text-text-secondary hover:text-primary'
-                  }`}
-                >
-                  {t(link.key)}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                if (link.items) {
+                  return (
+                    <div key={link.key} className="flex flex-col border-b border-border/40 py-1">
+                      <button
+                        onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                        className="w-full flex items-center justify-between text-[12px] font-bold tracking-[0.15em] text-text-secondary dark:text-white/90 hover:text-primary transition-colors py-2.5 cursor-pointer uppercase bg-transparent border-none text-left select-none"
+                      >
+                        <span>{t(link.key)}</span>
+                        <span className={`text-[8px] transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`}>▼</span>
+                      </button>
+                      
+                      <AnimatePresence>
+                        {isMobileServicesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="flex flex-col pl-4 gap-2 overflow-hidden mt-1 pb-2"
+                          >
+                            {link.items.map((sub) => (
+                              <Link
+                                key={sub.href}
+                                href={sub.href}
+                                onClick={() => {
+                                  setIsMobileMenuOpen(false)
+                                  setIsMobileServicesOpen(false)
+                                }}
+                                className="text-[11px] font-bold tracking-wider uppercase text-text-muted dark:text-white/60 hover:text-primary py-1.5 border-l-2 border-border/50 pl-3 hover:border-primary transition-colors"
+                              >
+                                {language === 'es' ? sub.labelEs : sub.labelEn}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )
+                }
+
+                const finalHref = link.href!.startsWith('/') 
+                  ? link.href! 
+                  : (isHome ? link.href! : `/${link.href!}`)
+                
+                const isActive = (isHome && activeSection === link.href!.replace('#', '')) || pathname === link.href
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={finalHref}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-[12px] font-bold tracking-[0.15em] transition-colors py-2.5 border-b border-border/40 ${
+                      isActive ? 'text-primary' : 'text-text-secondary dark:text-white/90 hover:text-primary'
+                    }`}
+                  >
+                    {t(link.key)}
+                  </Link>
+                )
+              })}
               
               {/* Mobile Language Switcher */}
               <div className="flex items-center gap-4 py-2 text-[12px] font-bold tracking-widest border-b border-border/40">
                 <span className="text-text-muted">IDIOMA / LANGUAGE:</span>
                 <button
                   onClick={() => { setLanguage('es'); setIsMobileMenuOpen(false); }}
-                  className={`px-3 py-1 rounded border ${language === 'es' ? 'border-primary text-primary bg-primary/5' : 'border-border text-text-muted'}`}
+                  className={`px-3 py-1 rounded border transition-all duration-200 ${
+                    language === 'es' 
+                      ? 'border-primary text-primary text-[13px] font-extrabold bg-primary/5' 
+                      : 'border-border text-text-muted text-[10px] font-normal'
+                  }`}
                 >
                   ESPAÑOL
                 </button>
                 <button
                   onClick={() => { setLanguage('en'); setIsMobileMenuOpen(false); }}
-                  className={`px-3 py-1 rounded border ${language === 'en' ? 'border-primary text-primary bg-primary/5' : 'border-border text-text-muted'}`}
+                  className={`px-3 py-1 rounded border transition-all duration-200 ${
+                    language === 'en' 
+                      ? 'border-primary text-primary text-[13px] font-extrabold bg-primary/5' 
+                      : 'border-border text-text-muted text-[10px] font-normal'
+                  }`}
                 >
                   ENGLISH
                 </button>
@@ -267,7 +398,7 @@ export function Navigation() {
 
               {/* Mobile Quote CTA */}
               <Link
-                href="#contacto"
+                href={isHome ? '#contacto' : '/#contacto'}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="inline-flex items-center justify-center h-12 text-[12px] font-bold tracking-[0.15em] uppercase bg-primary text-white hover:bg-cta-hover transition-colors rounded-md mt-2 w-full"
               >

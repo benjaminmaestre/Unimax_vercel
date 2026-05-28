@@ -1,0 +1,101 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { useLanguage } from '@/components/language-provider'
+import { ArrowRight, Phone } from 'lucide-react'
+
+interface ServiceHeroProps {
+  titleKey: string
+  descKey: string
+  bgImage: string
+}
+
+export function ServiceHero({ titleKey, descKey, bgImage }: ServiceHeroProps) {
+  const { t, language } = useLanguage()
+
+  return (
+    <section className="relative w-full h-[60vh] min-h-[460px] md:h-[65vh] flex items-center justify-center overflow-hidden bg-black select-none">
+      {/* Background Image with Parallax-like scale entry */}
+      <motion.div
+        initial={{ scale: 1.08, opacity: 0 }}
+        animate={{ scale: 1, opacity: 0.55 }}
+        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+        style={{ backgroundImage: `url('${bgImage}')` }}
+      />
+
+      {/* Industrial Dark Gradients for Content Legibility (WCAG AA Compliance) */}
+      <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-black/50 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-r from-background/70 via-transparent to-transparent md:from-background/90 md:via-background/30 md:to-transparent pointer-events-none" />
+
+      {/* Content Container */}
+      <div className="relative z-10 section-container w-full pt-20">
+        <div className="max-w-3xl flex flex-col items-start text-left">
+          {/* Tagline / Navigation Indicator */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex items-center gap-2 mb-4"
+          >
+            <Link 
+              href="/" 
+              className="text-[10px] md:text-[11px] font-extrabold tracking-[0.15em] text-text-muted hover:text-primary uppercase transition-colors"
+            >
+              {language === 'es' ? 'INICIO' : 'HOME'}
+            </Link>
+            <span className="text-text-muted text-[10px] opacity-50">/</span>
+            <span className="text-[10px] md:text-[11px] font-extrabold tracking-[0.15em] text-primary uppercase">
+              {language === 'es' ? 'SERVICIOS' : 'SERVICES'}
+            </span>
+          </motion.div>
+
+          {/* Bebas Neue Bold Display Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold tracking-wide text-white leading-tight uppercase"
+          >
+            {t(titleKey)}
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-4 md:mt-6 text-sm md:text-lg text-white/80 leading-relaxed max-w-2xl font-sans"
+          >
+            {t(descKey)}
+          </motion.p>
+
+          {/* Quick CTA Actions */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-8 flex flex-wrap gap-4 w-full sm:w-auto"
+          >
+            <Link
+              href="#contacto-directo"
+              className="inline-flex items-center justify-center gap-2.5 h-12 px-6 md:px-8 text-[11px] font-extrabold tracking-widest uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md active:scale-95 shadow-md flex-1 sm:flex-none"
+            >
+              {language === 'es' ? 'COTIZAR AHORA' : 'QUOTE NOW'}
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+            
+            <a
+              href="tel:+5116043900"
+              className="inline-flex items-center justify-center gap-2.5 h-12 px-6 md:px-8 text-[11px] font-extrabold tracking-widest uppercase bg-surface/80 dark:bg-white/10 text-text-primary dark:text-white border border-border/80 dark:border-white/15 hover:bg-elevated dark:hover:bg-white/20 transition-all duration-200 rounded-md active:scale-95 flex-1 sm:flex-none"
+            >
+              <Phone size={13} />
+              {language === 'es' ? 'LLAMAR ASESOR' : 'CALL SALES'}
+            </a>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}

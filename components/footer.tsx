@@ -8,11 +8,11 @@ import { useTheme } from 'next-themes'
 import { Facebook, Instagram, Linkedin } from 'lucide-react'
 
 const navLinks = [
-  { href: '#soluciones', key: 'nav.soluciones' },
-  { href: '#productos', key: 'nav.productos' },
-  { href: '#servicios', key: 'nav.servicios' },
-  { href: '#plantas', key: 'nav.plantas' },
-  { href: '#contacto', key: 'nav.contacto' },
+  { href: '/#soluciones', key: 'nav.soluciones' },
+  { href: '/nosotros/proyectos', key: 'nav.proyectos' },
+  { href: '/#servicios', key: 'nav.servicios' },
+  { href: '/#plantas', key: 'nav.plantas' },
+  { href: '/#contacto', key: 'nav.contacto' },
 ]
 
 export function Footer() {
@@ -54,13 +54,13 @@ export function Footer() {
           {/* Action buttons */}
           <div className="flex flex-row gap-3 w-full lg:w-auto shrink-0">
             <Link
-              href="#contacto"
+              href="/#contacto"
               className="inline-flex items-center justify-center h-12 px-6 text-[11px] font-extrabold tracking-widest uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md active:scale-95 shadow-md text-center flex-1 lg:flex-none lg:px-8"
             >
               {language === 'es' ? 'COTIZAR PROYECTO' : 'QUOTE PROJECT'}
             </Link>
             <Link
-              href="#soluciones"
+              href="/#soluciones"
               className="inline-flex items-center justify-center h-12 px-6 text-[11px] font-extrabold tracking-widest uppercase bg-transparent text-neutral-900 dark:text-white border border-neutral-900/20 dark:border-white/20 hover:bg-neutral-900/5 dark:hover:bg-white/5 hover:border-neutral-900/40 dark:hover:border-white/45 transition-all duration-200 rounded-md active:scale-95 text-center flex-1 lg:flex-none lg:px-8"
             >
               {language === 'es' ? 'VER SERVICIOS' : 'VIEW SERVICES'}
@@ -77,7 +77,7 @@ export function Footer() {
             
             {/* Column 1: Logo & Slogan + Direct Contact */}
             <div className="col-span-2 md:col-span-12 lg:col-span-4 flex flex-col items-start gap-4">
-              <Link href="#hero" className="inline-flex items-center">
+              <Link href="/" className="inline-flex items-center">
                 <Image
                   src={mounted && currentTheme === 'dark' ? '/logo_unimx-removebg-preview.png' : '/logo_unimx_light.png'}
                   alt="UNIMAX Corp"
@@ -136,22 +136,22 @@ export function Footer() {
               </h4>
               <ul className="flex flex-col gap-3 text-xs text-neutral-600 dark:text-white/50">
                 <li>
-                  <Link href="#soluciones" className="hover:text-primary transition-colors duration-200">
+                  <Link href="/servicios/concreto-premezclado" className="hover:text-primary transition-colors duration-200">
                     {language === 'es' ? 'Concreto Premezclado' : 'Ready-Mix Concrete'}
                   </Link>
                 </li>
                 <li>
-                  <Link href="#servicios" className="hover:text-primary transition-colors duration-200">
+                  <Link href="/servicios/bomba-de-concreto" className="hover:text-primary transition-colors duration-200">
                     {language === 'es' ? 'Alquiler de Bomba y Maquinaria' : 'Pump & Heavy Machinery Rental'}
                   </Link>
                 </li>
                 <li>
-                  <Link href="#soluciones" className="hover:text-primary transition-colors duration-200">
+                  <Link href="/#soluciones" className="hover:text-primary transition-colors duration-200">
                     {language === 'es' ? 'Diseño de Mezcla / Laboratorio' : 'Mix Design / Laboratory Service'}
                   </Link>
                 </li>
                 <li>
-                  <Link href="#servicios" className="hover:text-primary transition-colors duration-200">
+                  <Link href="/#servicios" className="hover:text-primary transition-colors duration-200">
                     {language === 'es' ? 'Logística Inteligente' : 'Smart Logistics'}
                   </Link>
                 </li>

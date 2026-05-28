@@ -17,7 +17,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section id="hero" className="relative h-auto min-h-0 lg:h-screen lg:min-h-[680px] pt-32 pb-20 md:pt-40 md:pb-24 lg:py-0 overflow-hidden grain bg-white dark:bg-black text-[#0A0F14] dark:text-white transition-colors duration-300">
+    <section id="hero" className="relative flex flex-col justify-center min-h-svh pt-32 pb-20 md:pt-40 md:pb-32 lg:pt-32 lg:pb-[150px] overflow-hidden grain bg-white dark:bg-black text-[#0A0F14] dark:text-white transition-colors duration-300">
       {/* Background Image with Overlays - Cinematic Wide Angle */}
       <div className="absolute inset-0">
         <motion.div 
@@ -63,7 +63,7 @@ export function HeroSection() {
 
 
       {/* Main Content */}
-      <div className="relative z-10 mx-auto max-w-[1280px] px-5 md:px-10 lg:px-16 xl:px-20 h-full flex flex-col lg:flex-row items-center justify-between gap-10">
+      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-5 md:px-10 lg:px-16 xl:px-20 flex flex-col lg:flex-row items-center justify-between gap-10 mt-8 lg:mt-0">
         {/* Left Column: Text Content (moved towards center, controlled max-width) */}
         <div className="max-w-[720px] lg:max-w-[540px] xl:max-w-[720px] flex flex-col justify-center">
           <motion.div
