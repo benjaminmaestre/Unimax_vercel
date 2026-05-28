@@ -15,19 +15,52 @@ export function ServiceHero({ titleKey, descKey, bgImage }: ServiceHeroProps) {
   const { t, language } = useLanguage()
 
   return (
-    <section className="relative w-full h-[60vh] min-h-[460px] md:h-[65vh] flex items-center justify-center overflow-hidden bg-black select-none">
-      {/* Background Image with Parallax-like scale entry */}
+    <section className="relative w-full h-[60vh] min-h-[460px] md:h-[65vh] flex items-center justify-center overflow-hidden bg-background text-text-primary transition-colors duration-300 select-none">
+      {/* Background Image with Parallax-like scale entry - Light Mode */}
       <motion.div
         initial={{ scale: 1.08, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.55 }}
+        animate={{ scale: 1, opacity: 0.65 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none block dark:hidden"
         style={{ backgroundImage: `url('${bgImage}')` }}
       />
 
-      {/* Industrial Dark Gradients for Content Legibility (WCAG AA Compliance) */}
-      <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-black/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-linear-to-r from-background/70 via-transparent to-transparent md:from-background/90 md:via-background/30 md:to-transparent pointer-events-none" />
+      {/* Background Image with Parallax-like scale entry - Dark Mode */}
+      <motion.div
+        initial={{ scale: 1.08, opacity: 0 }}
+        animate={{ scale: 1, opacity: 0.45 }}
+        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none hidden dark:block"
+        style={{ backgroundImage: `url('${bgImage}')` }}
+      />
+
+      {/* Cinematic Overlays - Light Mode */}
+      <div 
+        className="absolute inset-0 block dark:hidden pointer-events-none"
+        style={{
+          background: 'linear-gradient(to right, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.2) 100%)'
+        }}
+      />
+      <div 
+        className="absolute inset-0 block dark:hidden pointer-events-none"
+        style={{
+          background: 'linear-gradient(to top, var(--background) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 100%)'
+        }}
+      />
+
+      {/* Cinematic Overlays - Dark Mode */}
+      <div 
+        className="absolute inset-0 hidden dark:block pointer-events-none"
+        style={{
+          background: 'linear-gradient(to right, rgba(10, 15, 20, 0.92) 0%, rgba(10, 15, 20, 0.65) 60%, rgba(10, 15, 20, 0.3) 100%)'
+        }}
+      />
+      <div 
+        className="absolute inset-0 hidden dark:block pointer-events-none"
+        style={{
+          background: 'linear-gradient(to top, var(--background) 0%, rgba(10, 15, 20, 0.4) 40%, transparent 100%)'
+        }}
+      />
 
       {/* Content Container */}
       <div className="relative z-10 section-container w-full pt-20">
@@ -41,11 +74,11 @@ export function ServiceHero({ titleKey, descKey, bgImage }: ServiceHeroProps) {
           >
             <Link 
               href="/" 
-              className="text-[10px] md:text-[11px] font-extrabold tracking-[0.15em] text-text-muted hover:text-primary uppercase transition-colors"
+              className="text-[10px] md:text-[11px] font-extrabold tracking-[0.15em] text-[#4B5563] dark:text-[#C8CED4] hover:text-primary dark:hover:text-primary uppercase transition-colors"
             >
               {language === 'es' ? 'INICIO' : 'HOME'}
             </Link>
-            <span className="text-text-muted text-[10px] opacity-50">/</span>
+            <span className="text-[#9CA3AF] dark:text-[#525252] text-[10px] opacity-70">/</span>
             <span className="text-[10px] md:text-[11px] font-extrabold tracking-[0.15em] text-primary uppercase">
               {language === 'es' ? 'SERVICIOS' : 'SERVICES'}
             </span>
@@ -56,7 +89,7 @@ export function ServiceHero({ titleKey, descKey, bgImage }: ServiceHeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold tracking-wide text-white leading-tight uppercase"
+            className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold tracking-wide text-[#0A0F14] dark:text-white leading-tight uppercase"
           >
             {t(titleKey)}
           </motion.h1>
@@ -66,7 +99,7 @@ export function ServiceHero({ titleKey, descKey, bgImage }: ServiceHeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 md:mt-6 text-sm md:text-lg text-white/80 leading-relaxed max-w-2xl font-sans"
+            className="mt-4 md:mt-6 text-sm md:text-lg text-neutral-800 dark:text-white/80 leading-relaxed max-w-2xl font-sans"
           >
             {t(descKey)}
           </motion.p>

@@ -41,7 +41,7 @@ export function HeroSection() {
         <div 
           className="absolute inset-0 block dark:hidden"
           style={{
-            background: 'linear-gradient(to right, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0.42) 52%, rgba(255, 255, 255, 0.10) 100%)'
+            background: 'linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.15) 100%)'
           }}
         />
         <div 
