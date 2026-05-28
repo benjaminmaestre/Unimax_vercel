@@ -186,19 +186,22 @@ export function ProjectsDetails() {
 
       {/* Direct Call-to-Action Section */}
       <section className="section-container relative z-10" id="contacto-directo">
-        <div className="relative bg-[#0E1419] rounded-2xl overflow-hidden border border-primary/20 dark:border-primary/30 p-8 md:p-12 lg:p-16 select-none shadow-2xl">
+        <div className="relative bg-primary text-white rounded-2xl overflow-hidden p-8 md:p-12 lg:p-16 select-none shadow-2xl">
           {/* Subtle warmth background light */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(193,61,58,0.14),transparent_40%)] pointer-events-none" />
+          <div 
+            className="absolute inset-0 pointer-events-none" 
+            style={{ backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.12), transparent 45%)' }}
+          />
           
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
             <div className="max-w-2xl text-left">
-              <span className="text-[10px] md:text-[11px] font-extrabold tracking-[0.2em] text-primary uppercase block mb-3">
+              <span className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-white/70 uppercase block mb-3">
                 • {language === 'es' ? 'ASESORÍA SIN COSTO' : 'FREE ADVISORY'}
               </span>
               <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white tracking-wide uppercase leading-tight">
                 {t('projects.cta.title')}
               </h3>
-              <p className="mt-3 text-xs md:text-sm text-white/70 leading-relaxed">
+              <p className="mt-3 text-xs md:text-sm text-white/90 leading-relaxed font-light">
                 {t('projects.cta.desc')}
               </p>
             </div>
@@ -208,15 +211,16 @@ export function ProjectsDetails() {
                 href="https://wa.me/51900000000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 h-12 px-6 md:px-8 text-[11px] font-extrabold tracking-widest uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md active:scale-95 shadow-md flex-1 sm:flex-none text-center"
+                className="group flex items-center justify-center gap-2 bg-white text-primary px-8 h-12 rounded-md text-[11px] font-extrabold tracking-widest uppercase hover:bg-black hover:text-white transition-all duration-200 active:scale-95 shadow-md flex-1 sm:flex-none text-center"
               >
-                <MessageSquare size={13} />
+                <MessageSquare size={13} className="shrink-0" />
                 {t('projects.cta.whatsapp')}
+                <ArrowRight size={13} className="group-hover:translate-x-1.5 transition-transform shrink-0" />
               </a>
               
               <Link
                 href="/#contacto"
-                className="inline-flex items-center justify-center gap-2.5 h-12 px-6 md:px-8 text-[11px] font-extrabold tracking-widest uppercase bg-transparent text-white border border-white/20 hover:bg-white/5 hover:border-white/40 transition-all duration-200 rounded-md active:scale-95 flex-1 sm:flex-none text-center"
+                className="inline-flex items-center justify-center gap-2.5 h-12 px-6 md:px-8 text-[11px] font-extrabold tracking-widest uppercase bg-transparent text-white border-2 border-white/40 hover:bg-white/10 hover:border-white transition-all duration-200 rounded-md active:scale-95 flex-1 sm:flex-none text-center"
               >
                 {t('projects.cta.quote')}
                 <ArrowRight size={13} />
