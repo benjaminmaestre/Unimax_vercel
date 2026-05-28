@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon, Phone } from 'lucide-react'
+import { Menu, X, Sun, Moon, Phone, ChevronDown, Layers, Cpu } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useLanguage } from '@/components/language-provider'
 
@@ -155,27 +155,51 @@ export function Navigation() {
                     }`}
                   >
                     {t(link.key)}
-                    <span className="text-[8px] opacity-70">▼</span>
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
                   
                   <AnimatePresence>
                     {isServicesDropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        initial={{ opacity: 0, y: 15, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.15, ease: 'easeOut' }}
-                        className="absolute left-0 mt-2 w-52 rounded-lg bg-surface border border-border/85 dark:border-white/10 p-2 shadow-lg backdrop-blur-md z-50 glass"
+                        exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute left-0 mt-3 w-64 rounded-xl bg-white dark:bg-[#0E1419] border border-neutral-200/80 dark:border-white/10 p-2 shadow-[0_10px_40px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.02)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.3)] backdrop-blur-xl z-50 transition-colors duration-300"
                       >
-                        {link.items.map((sub) => (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            className="block px-3 py-2 text-[10px] font-bold tracking-wider uppercase text-text-secondary dark:text-white/80 hover:text-primary hover:bg-primary/5 rounded-md transition-colors"
-                          >
-                            {language === 'es' ? sub.labelEs : sub.labelEn}
-                          </Link>
-                        ))}
+                        <div className="flex flex-col gap-1">
+                          {link.items.map((sub) => {
+                            const isConcrete = sub.href.includes('concreto-premezclado')
+                            const title = language === 'es' ? sub.labelEs : sub.labelEn
+                            return (
+                              <Link
+                                key={sub.href}
+                                href={sub.href}
+                                onClick={() => setIsServicesDropdownOpen(false)}
+                                className="group flex items-center gap-3 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-white/5 transition-all duration-200"
+                              >
+                                {/* Icon Box */}
+                                <div className="w-8 h-8 rounded-lg bg-neutral-100 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-white/70 group-hover:bg-primary/10 group-hover:text-primary dark:group-hover:bg-primary/20 dark:group-hover:text-primary group-hover:border-primary/20 transition-all duration-200 shrink-0 shadow-3xs">
+                                  {isConcrete ? (
+                                    <Layers className="w-3.5 h-3.5" strokeWidth={2} />
+                                  ) : (
+                                    <Cpu className="w-3.5 h-3.5" strokeWidth={2} />
+                                  )}
+                                </div>
+
+                                {/* Text content */}
+                                <div className="flex-1 min-w-0">
+                                  <h5 className="text-[10px] font-extrabold uppercase tracking-wider text-text-primary dark:text-white group-hover:text-primary transition-colors flex items-center justify-between">
+                                    <span>{title}</span>
+                                    <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[10px] text-primary">
+                                      →
+                                    </span>
+                                  </h5>
+                                </div>
+                              </Link>
+                            )
+                          })}
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
