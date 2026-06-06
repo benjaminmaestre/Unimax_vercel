@@ -94,10 +94,10 @@ async function getRoute(lat1: number, lng1: number, lat2: number, lng2: number):
   // Fallback: Haversine distance with 30% winding factor
   const distanceKm = getDistance(lat1, lng1, lat2, lng2) * 1.3
   const durationMin = (distanceKm / 35) * 60 + 10 // 35 km/h + 10 mins buffer
-  const routeCoords: [number, number][] = [
+  const routeCoords: [number, number][] = ([
     [lat1, lng1],
     [lat2, lng2]
-  ].filter((c) => typeof c[0] === 'number' && !isNaN(c[0]) && typeof c[1] === 'number' && !isNaN(c[1]))
+  ] as [number, number][]).filter((c) => typeof c[0] === 'number' && !isNaN(c[0]) && typeof c[1] === 'number' && !isNaN(c[1]))
   
   return { distanceKm, durationMin, routeCoords }
 }

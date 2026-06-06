@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/favicon.png',
-        width: 400,
-        height: 400,
+        url: '/og-logo.png',
+        width: 1200,
+        height: 630,
         alt: 'UNIMAX Corp Logo',
       },
     ],
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
     description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú.',
-    images: ['/favicon.png'],
+    images: ['/og-logo.png'],
   },
   icons: {
     icon: '/favicon.png',
