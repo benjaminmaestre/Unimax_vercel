@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Concreto Premezclado de Alta Resistencia | UNIMAX Corp | Lima',
   description: 'Suministro de concreto premezclado dosificado electrónicamente bajo normas técnicas RNE E.060 y ASTM C94. Laboratorio de control y despacho continuo 24/7 en Lima.',
   alternates: {
-    canonical: 'https://unimaxcorp.com.pe/servicios/concreto-premezclado',
+    canonical: '/servicios/concreto-premezclado',
   },
 }
 

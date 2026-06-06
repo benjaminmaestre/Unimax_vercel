@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Políticas de Privacidad | UNIMAX Corp',
   description: 'Políticas de privacidad y protección de datos personales de UNIMAX Corp conforme a la Ley N.º 29733 del Perú.',
   alternates: {
-    canonical: 'https://unimaxcorp.com.pe/politica-de-privacidad',
+    canonical: '/politica-de-privacidad',
   },
 }
 

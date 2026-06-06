@@ -184,11 +184,12 @@ export default function MapComponent({
 
     // Set tiles
     const tileUrl = isDarkRef.current
-      ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-      : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+      ? 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+      : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
 
     tileLayerRef.current = L.tileLayer(tileUrl, {
-      attribution: '&copy; CARTO'
+      attribution: isDarkRef.current ? '&copy; OpenStreetMap' : '&copy; CARTO',
+      className: isDarkRef.current ? 'dark-map-filter' : ''
     }).addTo(map)
 
     // Custom pulsing marker icon for plants
@@ -390,10 +391,16 @@ export default function MapComponent({
     if (!L) return
 
     const tileUrl = isDark
-      ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-      : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+      ? 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+      : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
 
     tileLayerRef.current.setUrl(tileUrl)
+    
+    const container = tileLayerRef.current.getContainer()
+    if (container) {
+      if (isDark) container.classList.add('dark-map-filter')
+      else container.classList.remove('dark-map-filter')
+    }
   }, [isDark])
 
   // Handle address geocode search
@@ -564,6 +571,11 @@ export default function MapComponent({
         </div>
       )}
       <div ref={mapContainerRef} className="w-full h-full rounded-xl border border-border/80 shadow-md overflow-hidden bg-black" />
+      <style jsx global>{`
+        .dark-map-filter {
+          filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(110%) saturate(80%);
+        }
+      `}</style>
     </div>
   )
 }

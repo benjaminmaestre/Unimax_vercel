@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, CheckCircle, Shield, Heart, Handshake, Award, Target, Leaf } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { useLanguage } from '@/components/language-provider'
 
@@ -92,10 +93,12 @@ export function ManifestoSection() {
                 {/* Left Side: Fleet image with floating badge */}
                 <div className="relative">
                   <div className="relative overflow-hidden rounded-xl aspect-16/10 shadow-md">
-                    <img
+                    <Image
                       src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FLOTA-DE-MIXE-1-mbwJtyBvhWEEPoA6hNfsEhLyPhYGpZ.webp"
                       alt="Flota de camiones mixer UNIMAXCORP"
-                      className="w-full h-full object-cover select-none animate-fade-in"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover select-none animate-fade-in"
                     />
                     <motion.div
                       initial={{ opacity: 0, y: 15 }}
@@ -136,10 +139,12 @@ export function ManifestoSection() {
                 {/* Left Side: Industrial Image */}
                 <div className="relative">
                   <div className="relative overflow-hidden rounded-xl aspect-16/10 shadow-md">
-                    <img
+                    <Image
                       src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/plnata-dosificadora-1-nBJ3KM7b2wgHOjE006GXWkj4cKEZ5k.webp"
                       alt="Operación planta dosificadora Unimaxcorp"
-                      className="w-full h-full object-cover select-none"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover select-none"
                     />
                   </div>
                 </div>

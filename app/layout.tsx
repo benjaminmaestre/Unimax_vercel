@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Bebas_Neue } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({ 
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-logo.png',
+        url: '/og-logo-dark.png',
         width: 1200,
         height: 630,
         alt: 'UNIMAX Corp Logo',
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
     description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú.',
-    images: ['/og-logo.png'],
+    images: ['/og-logo-dark.png'],
   },
   icons: {
     icon: '/favicon.png',
@@ -94,9 +95,11 @@ export default function RootLayout({
           </LanguageProvider>
         </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
-        <script
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          strategy="beforeInteractive"
         />
       </body>
     </html>

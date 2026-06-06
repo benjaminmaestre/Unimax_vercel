@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@/components/language-provider'
 import { MessageSquare, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface ProjectItem {
   id: number
@@ -142,10 +143,12 @@ export function ProjectsDetails() {
                   className="group relative h-[380px] rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-md flex flex-col justify-end"
                 >
                   {/* Image */}
-                  <img
+                  <Image
                     src={project.image}
                     alt={displayTitle}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                   />
                   
                   {/* Protection Dark Gradient Overlay */}

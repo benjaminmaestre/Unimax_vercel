@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Alquiler de Bomba de Concreto y Maquinarias | UNIMAX Corp | Lima',
   description: 'Servicios de bombeo de concreto premezclado de alta presión y precisión en Lima. Alquiler de bomba estacionaria y pluma telescópica con operadores certificados.',
   alternates: {
-    canonical: 'https://unimaxcorp.com.pe/servicios/bomba-de-concreto',
+    canonical: '/servicios/bomba-de-concreto',
   },
 }
 

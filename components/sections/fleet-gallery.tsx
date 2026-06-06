@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
 import { RingCarousel3D } from '@/components/ui/ring-carousel-3d'
@@ -177,10 +178,12 @@ export function FleetGallerySection() {
                   >
                     <div className="group relative h-[440px] rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
                       {/* Image */}
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.model}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 pointer-events-none"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 pointer-events-none"
                       />
                       
                       {/* Protection Gradient */}
@@ -264,10 +267,12 @@ export function FleetGallerySection() {
                 <div key={item.id} className="w-full h-full">
                   <div className="group relative h-full rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
                     {/* Image */}
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.model}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 pointer-events-none"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 pointer-events-none"
                     />
                     
                     {/* Protection Gradient */}

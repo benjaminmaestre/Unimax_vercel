@@ -3,6 +3,7 @@ import { Navigation } from '@/components/navigation'
 import { HeroSection } from '@/components/sections/hero'
 
 const ManifestoSection = dynamic(() => import('@/components/sections/manifesto').then(mod => mod.ManifestoSection))
+const PartnersSection = dynamic(() => import('@/components/sections/partners').then(mod => mod.PartnersSection))
 const StatsSection = dynamic(() => import('@/components/sections/stats').then(mod => mod.StatsSection))
 const BentoGridSection = dynamic(() => import('@/components/sections/bento-grid').then(mod => mod.BentoGridSection))
 const ProcessSection = dynamic(() => import('@/components/sections/process').then(mod => mod.ProcessSection))
@@ -19,6 +20,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
+      <PartnersSection />
       <ManifestoSection />
       <StatsSection />
       <BentoGridSection />

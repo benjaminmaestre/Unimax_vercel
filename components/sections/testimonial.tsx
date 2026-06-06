@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { useLanguage } from '@/components/language-provider'
 
 export function TestimonialSection() {
@@ -55,11 +56,13 @@ export function TestimonialSection() {
 
             {/* Author */}
             <div className="mt-6 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-elevated overflow-hidden shadow-xs shrink-0">
-                <img
+              <div className="relative w-12 h-12 rounded-full bg-elevated overflow-hidden shadow-xs shrink-0">
+                <Image
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2187&auto=format&fit=crop"
                   alt={t.author}
-                  className="w-full h-full object-cover select-none"
+                  fill
+                  sizes="48px"
+                  className="object-cover select-none"
                 />
               </div>
               <div>
@@ -87,10 +90,12 @@ export function TestimonialSection() {
             className="lg:pl-16"
           >
             <div className="relative rounded-xl overflow-hidden h-[300px] lg:h-[480px] shadow-md">
-              <img
+              <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pavimento-san-juan-de-lurigancho-Unimaxcorp-aFKG9rAwfcI1r2anhItf2YY1uzZyVb.webp"
                 alt="Pavimentación San Juan de Lurigancho"
-                className="w-full h-full object-cover select-none"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover select-none"
               />
               
               {/* Floating Badge (Forced dark backdrop for perfect readability) */}
@@ -181,9 +186,11 @@ export function TestimonialSection() {
                     className="flex items-center justify-center px-8 py-4 rounded-xl bg-surface border border-border/60 backdrop-blur-md shadow-2xs h-20 lg:h-24 min-w-[240px] lg:min-w-[280px] transition-all duration-300 hover:border-primary/40 hover:bg-surface/90 cursor-default select-none group shrink-0"
                   >
                     {item.type === 'image' && item.src ? (
-                      <img
+                      <Image
                         src={item.src}
-                        alt={item.alt}
+                        alt={item.alt!}
+                        width={180}
+                        height={96}
                         className={`${logoHeightClass} w-auto object-contain opacity-75 group-hover:opacity-100 transition-all duration-300`}
                       />
                     ) : (

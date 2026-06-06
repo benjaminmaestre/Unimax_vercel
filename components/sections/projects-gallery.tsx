@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
 import { RingCarousel3D } from '@/components/ui/ring-carousel-3d'
@@ -122,10 +123,12 @@ export function ProjectsGallerySection() {
                   >
                     <div className="group relative h-[360px] rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
                       {/* Image */}
-                      <img
+                      <Image
                         src={project.image}
                         alt={project.title}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 pointer-events-none"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 pointer-events-none"
                       />
                       
                       {/* Protection Dark Gradient Overlay */}
@@ -168,10 +171,12 @@ export function ProjectsGallerySection() {
                 <div key={project.id} className="w-full h-full">
                   <div className="group relative h-full rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
                     {/* Image */}
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 pointer-events-none"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 pointer-events-none"
                     />
                     
                     {/* Protection Dark Gradient Overlay */}
@@ -208,9 +213,11 @@ export function ProjectsGallerySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <img
+            <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/icon-unimax-300x300-s5KeGrqqEC0e2lsvK7WzQjKISeIKMB.png"
               alt="UNIMAXCORP Icon"
+              width={80}
+              height={80}
               className="w-20 h-20 object-contain select-none dark:invert-0 invert"
             />
           </motion.div>
