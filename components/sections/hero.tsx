@@ -31,7 +31,7 @@ export function HeroSection() {
             alt="Fondo Unimax Corp"
             fill
             priority
-            className="object-cover object-[center_70%] lg:object-center"
+            className="object-cover object-center max-lg:object-[center_70%]"
             sizes="100vw"
             quality={90}
           />
@@ -96,10 +96,7 @@ export function HeroSection() {
               <span className="block text-[26px] xs:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[68px] font-extrabold tracking-tight text-[#0A0F14] dark:text-white uppercase sm:normal-case drop-shadow-2xl">
                 {t('hero.title1')}
               </span>
-              <span 
-                className="block text-[17px] xs:text-[22px] sm:text-[30px] md:text-[36px] lg:text-[38px] xl:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-3 sm:mt-2 drop-shadow-xl font-sans"
-                style={{ textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4)' }}
-              >
+              <span className="block text-[17px] xs:text-[22px] sm:text-[30px] md:text-[36px] lg:text-[38px] xl:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-3 sm:mt-2 drop-shadow-xl font-sans">
                 {t('hero.title2')}
               </span>
             </h1>
@@ -109,7 +106,6 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
               className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg xl:text-xl leading-[1.65] text-neutral-950 dark:text-neutral-100 max-w-[620px] font-normal"
-              style={{ textShadow: '0 0 15px rgba(255,255,255,0.7), 0 0 30px rgba(255,255,255,0.3)' }}
             >
               <span className="inline md:hidden">
                 {language === 'es' 
