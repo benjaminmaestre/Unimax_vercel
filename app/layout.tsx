@@ -26,23 +26,24 @@ export const metadata: Metadata = {
     title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias',
     description: 'Soluciones integrales de concreto premezclado y maquinaria pesada para proyectos de construcción en Lima y todo el Perú.',
     type: 'website',
-  },
-  icons: {
-    icon: [
+    images: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/favicon.png',
+        width: 400,
+        height: 400,
+        alt: 'UNIMAX Corp Logo',
       },
     ],
-    apple: '/apple-icon.png',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
+    description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú.',
+    images: ['/favicon.png'],
+  },
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
 }
 
@@ -69,7 +70,7 @@ export default function RootLayout({
     "description": "Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Av. Industrial 450, Urb. Las Praderas",
+      "streetAddress": "Calle Carrozable Lote 4, Lurigancho",
       "addressLocality": "Lima",
       "addressCountry": "PE"
     },
