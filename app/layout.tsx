@@ -16,8 +16,10 @@ const bebasNeue = Bebas_Neue({
   display: 'swap',
 })
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://unimax-vercel.vercel.app'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://unimaxcorp.com.pe'),
+  metadataBase: new URL(baseUrl),
   title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
   description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 25 años de experiencia en soluciones de concreto para proyectos de infraestructura.',
   keywords: ['concreto premezclado', 'Lima', 'Perú', 'bombeo de concreto', 'mixer truck', 'construcción', 'maquinaria pesada', 'plantas de concreto'],
@@ -65,8 +67,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Corporation",
     "name": "UNIMAX Corp",
-    "url": "https://unimaxcorp.com.pe",
-    "logo": "https://unimaxcorp.com.pe/logo_unimx-removebg-preview.png",
+    "url": baseUrl,
+    "logo": `${baseUrl}/logo_unimx-removebg-preview.png`,
     "description": "Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú.",
     "address": {
       "@type": "PostalAddress",

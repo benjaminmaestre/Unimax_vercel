@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://unimaxcorp.com.pe'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://unimax-vercel.vercel.app'
   
   return [
     {
