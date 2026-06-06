@@ -52,6 +52,7 @@ export const metadata: Metadata = {
 
 import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/components/language-provider'
+import { AiChat } from '@/components/ai-chat'
 
 export const viewport: Viewport = {
   themeColor: '#0A0F14',
@@ -92,6 +93,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <LanguageProvider>
             {children}
+            <AiChat />
           </LanguageProvider>
         </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
