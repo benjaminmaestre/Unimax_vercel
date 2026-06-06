@@ -19,7 +19,7 @@ export default function PumpServicePage() {
       <ServiceHero
         titleKey="pump.hero.title"
         descKey="pump.hero.desc"
-        bgImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/plnata-dosificadora-1-nBJ3KM7b2wgHOjE006GXWkj4cKEZ5k.webp"
+        bgImage="/unimax%20bomba.jpg"
       />
       <PumpDetails />
       <Footer />

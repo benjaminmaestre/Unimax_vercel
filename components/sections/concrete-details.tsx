@@ -142,28 +142,35 @@ export function ConcreteDetails() {
         <section className="mb-20 lg:mb-32 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             {/* Left Box: Info Card */}
-            <div className={`lg:col-span-4 ${card} p-8 flex flex-col justify-between`}>
+            <div className={`lg:col-span-4 ${card} p-8 flex flex-col justify-between overflow-hidden`}>
+              
+              {/* Background Image & Overlay */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: "url('/DOSIFICACION-CONTROLADA-CEL-UNIMAXCORP.webp')" }}
+              />
+              <div className="absolute inset-0 bg-black/60 dark:bg-black/80" />
               
               <div className="relative z-10">
                 <span className="text-[10px] font-bold tracking-widest text-primary mb-4 block uppercase">
                   {language === 'es' ? 'Ficha de Diseño' : 'Design Sheet'}
                 </span>
-                <h3 className="text-xl md:text-2xl font-bold uppercase leading-snug mb-4 text-text-primary">
+                <h3 className="text-xl md:text-2xl font-bold uppercase leading-snug mb-4 text-white">
                   {t('concrete.versatility.title')}
                 </h3>
-                <p className="text-xs text-text-secondary leading-relaxed mb-8">
+                <p className="text-xs text-white/80 leading-relaxed mb-8">
                   {t('concrete.versatility.desc')}
                 </p>
               </div>
               
-              <div className={`relative z-10 ${cardInner} p-5 mt-4`}>
-                <div className="w-10 h-10 rounded-lg bg-white dark:bg-white/10 border border-neutral-200/70 dark:border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm mb-4">
+              <div className="relative z-10 rounded-lg bg-black/40 backdrop-blur-md border border-white/10 p-5 mt-4">
+                <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 shadow-sm mb-4">
                   <Settings className="w-5 h-5" strokeWidth={1.5} />
                 </div>
-                <h4 className="text-xs font-bold tracking-wider uppercase mb-2 text-text-primary">
+                <h4 className="text-xs font-bold tracking-wider uppercase mb-2 text-white">
                   {t('concrete.versatility.dosificacion.title')}
                 </h4>
-                <p className="text-[11px] text-text-muted leading-relaxed">
+                <p className="text-[11px] text-white/60 leading-relaxed">
                   {t('concrete.versatility.dosificacion.desc')}
                 </p>
               </div>
@@ -295,18 +302,26 @@ export function ConcreteDetails() {
         {/* SECTION 4: AGGREGATE GAUGES                                               */}
         {/* ========================================================================= */}
         <section className="mb-20 lg:mb-32 relative z-10 border-t border-border/40 pt-16">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
             <div className="max-w-2xl">
               <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase block mb-3">
                 {language === 'es' ? 'Análisis de Malla' : 'Sieve Analysis'}
               </span>
-              <h3 className="text-2xl md:text-3xl font-bold uppercase leading-tight text-text-primary">
+              <h3 className="text-2xl md:text-3xl font-bold uppercase leading-tight text-text-primary mb-4">
                 {t('concrete.agregados.title')}
               </h3>
+              <p className="text-xs text-text-muted font-light max-w-sm">
+                {t('concrete.agregados.desc')}
+              </p>
             </div>
-            <p className="text-xs text-text-muted font-light max-w-sm md:text-right">
-              {t('concrete.agregados.desc')}
-            </p>
+            
+            <div className="hidden lg:block w-64 h-32 rounded-xl overflow-hidden relative shrink-0 shadow-sm border border-border/40">
+              <div 
+                className="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-700" 
+                style={{ backgroundImage: "url('/materia-calidad.webp')" }}
+              />
+              <div className="absolute inset-0 bg-black/10" />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -362,22 +377,42 @@ export function ConcreteDetails() {
             {t('concrete.applications.banner')}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {apps.map((app) => (
-              <div 
-                key={app.tag} 
-                className={`${card} p-6 flex flex-col h-full`}
-              >
-                <span className="text-3xl font-bold text-neutral-200 dark:text-white/10 group-hover:text-neutral-300 dark:group-hover:text-white/20 transition-colors mb-4 block relative z-10">
-                  {app.tag}
-                </span>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-primary mb-3 relative z-10">
-                  {app.title}
-                </h4>
-                <p className="text-xs text-text-secondary leading-relaxed relative z-10 mt-auto">
-                  {app.desc}
-                </p>
-              </div>
-            ))}
+            {apps.map((app, idx) => {
+              const bgImages = [
+                '/obra-civil-SJL-Unimaxcorp.webp',
+                '/estructura.webp',
+                '/vaciado-de-losa-aligerada-Unimax-corp.webp',
+                '/veredas-Unimaxcorp.webp'
+              ];
+              const bgImg = bgImages[idx];
+              
+              return (
+                <div 
+                  key={app.tag} 
+                  className={`${card} p-6 flex flex-col h-full min-h-[280px] overflow-hidden`}
+                >
+                  {/* Background Image & Overlay */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style={{ backgroundImage: `url('${bgImg}')` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30 group-hover:via-black/60 transition-colors duration-500" />
+                  
+                  {/* Content */}
+                  <span className="text-3xl font-bold text-white/20 group-hover:text-white/40 transition-colors mb-4 block relative z-10">
+                    {app.tag}
+                  </span>
+                  <div className="mt-auto relative z-10">
+                    <h4 className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+                      {app.title}
+                    </h4>
+                    <p className="text-xs text-white/80 leading-relaxed">
+                      {app.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
@@ -385,11 +420,14 @@ export function ConcreteDetails() {
         {/* SECTION 6: CONVERSION CTA                                                 */}
         {/* ========================================================================= */}
         <section className="relative z-10" id="contacto-directo">
-          <div className="rounded-xl bg-primary text-white p-8 md:p-14 lg:p-16 flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-12 relative overflow-hidden">
+          <div className="rounded-xl bg-black text-white p-8 md:p-14 lg:p-16 flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-12 relative overflow-hidden shadow-xl">
+            {/* Background Image */}
             <div 
-              className="absolute inset-0 pointer-events-none" 
-              style={{ backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.12), transparent 45%)' }}
+              className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay" 
+              style={{ backgroundImage: "url('/PERSONAL-CALIFICADO.webp')" }}
             />
+            {/* Gradient to smooth edges */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-black/60 pointer-events-none" />
             
             <div className="max-w-2xl relative z-10 text-center lg:text-left">
               <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase block mb-3">

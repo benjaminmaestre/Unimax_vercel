@@ -19,7 +19,7 @@ export default function ConcreteServicePage() {
       <ServiceHero
         titleKey="concrete.hero.title"
         descKey="concrete.hero.desc"
-        bgImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vaciado-Unimaxcorp-002-lCojy5wXyOYj9Fl3zxtJ0S1EpUHHYT.webp"
+        bgImage="/Concreto%20Premezclado.jpg"
       />
       <ConcreteDetails />
       <Footer />

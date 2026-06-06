@@ -102,7 +102,7 @@ export function PumpDetails() {
             <div className="h-[240px] md:h-[280px] w-full relative overflow-hidden bg-surface">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-103"
-                style={{ backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/plnata-dosificadora-1-nBJ3KM7b2wgHOjE006GXWkj4cKEZ5k.webp')" }}
+                style={{ backgroundImage: "url('/pluma%20en%20vereda%20unimax.jpg')" }}
               />
               <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent" />
             </div>

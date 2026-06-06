@@ -12,7 +12,7 @@ export function ProjectsHero() {
       {/* Background Image with Parallax-like scale entry - Light Mode */}
       <motion.div
         initial={{ scale: 1.08, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.65 }}
+        animate={{ scale: 1, opacity: 0.9 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none block dark:hidden"
         style={{ backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pavimento-san-juan-de-lurigancho-Unimaxcorp-aFKG9rAwfcI1r2anhItf2YY1uzZyVb.webp')` }}
@@ -21,7 +21,7 @@ export function ProjectsHero() {
       {/* Background Image with Parallax-like scale entry - Dark Mode */}
       <motion.div
         initial={{ scale: 1.08, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.45 }}
+        animate={{ scale: 1, opacity: 0.75 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none hidden dark:block"
         style={{ backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pavimento-san-juan-de-lurigancho-Unimaxcorp-aFKG9rAwfcI1r2anhItf2YY1uzZyVb.webp')` }}
@@ -31,13 +31,13 @@ export function ProjectsHero() {
       <div 
         className="absolute inset-0 block dark:hidden pointer-events-none"
         style={{
-          background: 'linear-gradient(to right, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.2) 100%)'
+          background: 'linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.55) 45%, rgba(255, 255, 255, 0) 80%)'
         }}
       />
       <div 
         className="absolute inset-0 block dark:hidden pointer-events-none"
         style={{
-          background: 'linear-gradient(to top, var(--background) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 100%)'
+          background: 'linear-gradient(to top, var(--background) 0%, rgba(255, 255, 255, 0.2) 30%, transparent 80%)'
         }}
       />
 
@@ -45,13 +45,13 @@ export function ProjectsHero() {
       <div 
         className="absolute inset-0 hidden dark:block pointer-events-none"
         style={{
-          background: 'linear-gradient(to right, rgba(10, 15, 20, 0.92) 0%, rgba(10, 15, 20, 0.65) 60%, rgba(10, 15, 20, 0.3) 100%)'
+          background: 'linear-gradient(to right, rgba(10, 15, 20, 0.85) 0%, rgba(10, 15, 20, 0.45) 45%, rgba(10, 15, 20, 0) 80%)'
         }}
       />
       <div 
         className="absolute inset-0 hidden dark:block pointer-events-none"
         style={{
-          background: 'linear-gradient(to top, var(--background) 0%, rgba(10, 15, 20, 0.4) 40%, transparent 100%)'
+          background: 'linear-gradient(to top, var(--background) 0%, rgba(10, 15, 20, 0.2) 30%, transparent 80%)'
         }}
       />
 

@@ -23,28 +23,34 @@ export function CoverageSection() {
       location: 'Puente Piedra',
       radius: 'Radio 35km',
       hours: 'Lun-Sab 5am-8pm',
-      coords: { x: '40%', y: '25%' }
+      coords: { x: '40%', y: '25%' },
+      googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Planta+Unimaxcorp+Puente+Piedra'
     },
     {
       name: language === 'es' ? 'Planta Lima Este' : 'East Lima Plant',
-      location: 'Ate Vitarte',
+      location: 'Lurigancho',
+      address: 'Calle Carrozable Lote 4, Lurigancho, Lima',
       radius: 'Radio 30km',
       hours: 'Lun-Sab 5am-8pm',
-      coords: { x: '70%', y: '45%' }
+      coords: { x: '70%', y: '45%' },
+      googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Calle+Carrozable+Lote+4%2C+Lurigancho%2C+Lima'
     },
     {
       name: language === 'es' ? 'Planta Lima Sur' : 'South Lima Plant',
       location: 'Villa El Salvador',
+      address: 'Calle 13 Mz. S Lote 16 Coop. Las Vertientes, Villa el salvador, Lima',
       radius: 'Radio 30km',
       hours: 'Lun-Sab 5am-8pm',
-      coords: { x: '45%', y: '75%' }
+      coords: { x: '45%', y: '75%' },
+      googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Calle+13+Mz.+S+Lote+16+Coop.+Las+Vertientes%2C+Villa+el+salvador%2C+Lima'
     },
     {
       name: language === 'es' ? 'Planta Callao' : 'Callao Plant',
       location: 'Ventanilla',
       radius: 'Radio 25km',
       hours: 'Lun-Sab 5am-7pm',
-      coords: { x: '25%', y: '40%' }
+      coords: { x: '25%', y: '40%' },
+      googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Planta+Unimaxcorp+Ventanilla'
     },
   ]
 
@@ -125,12 +131,20 @@ export function CoverageSection() {
                   className="absolute"
                   style={{ left: plant.coords.x, top: plant.coords.y }}
                 >
-                  <div className="absolute inset-0 w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 animate-ping" />
-                  <div className="absolute inset-0 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/35" />
-                  <div className="relative w-3.5 h-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary border-2 border-white" />
-                  <span className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] font-bold text-white whitespace-nowrap bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded border border-white/5 uppercase tracking-wider">
-                    {plant.location}
-                  </span>
+                  <a
+                    href={plant.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative group/marker cursor-pointer"
+                    title={plant.address || plant.name}
+                  >
+                    <div className="absolute inset-0 w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 animate-ping" />
+                    <div className="absolute inset-0 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/35 group-hover/marker:bg-primary/50 transition-colors" />
+                    <div className="relative w-3.5 h-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary border-2 border-white group-hover/marker:scale-110 transition-transform" />
+                    <span className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] font-bold text-white whitespace-nowrap bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded border border-white/5 uppercase tracking-wider group-hover/marker:bg-primary/80 transition-colors">
+                      {plant.location}
+                    </span>
+                  </a>
                 </motion.div>
               ))}
 
@@ -174,16 +188,26 @@ export function CoverageSection() {
                       <p className="mt-1 text-sm text-text-secondary">
                         {plant.location} · {translateRadius(plant.radius, language)}
                       </p>
+                      {plant.address && (
+                        <p className="mt-1 text-xs text-text-muted select-all">
+                          {plant.address}
+                        </p>
+                      )}
                       <p className="mt-0.5 text-xs text-text-muted">
                         {translateHours(plant.hours, language)}
                       </p>
                     </div>
                   </div>
                   {/* Right block: Action Button (aligned under the text block on mobile with pl-14, side-by-side on sm+) */}
-                  <button className="group/link flex items-center gap-1 text-text-muted hover:text-primary transition-colors shrink-0 pl-14 sm:pl-0 self-start">
+                  <a
+                    href={plant.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/link flex items-center gap-1 text-text-muted hover:text-primary transition-colors shrink-0 pl-14 sm:pl-0 self-start"
+                  >
                     <span className="text-xs font-bold tracking-wider uppercase">{language === 'es' ? 'Cómo llegar' : 'Get Directions'}</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 group-hover/link:translate-x-1" />
-                  </button>
+                  </a>
                 </div>
               </motion.div>
             ))}

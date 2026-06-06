@@ -39,13 +39,13 @@ export function HeroSection() {
         
         {/* Cinematic Overlays - Light Mode (Warm, bright, golden-hour industrial look) */}
         <div 
-          className="absolute inset-0 block dark:hidden"
+          className="absolute inset-0 block dark:hidden pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.15) 100%)'
+            background: 'linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.55) 45%, rgba(255, 255, 255, 0) 80%)'
           }}
         />
         <div 
-          className="absolute inset-0 block dark:hidden"
+          className="absolute inset-0 block dark:hidden pointer-events-none"
           style={{
             background: 'radial-gradient(circle at 70% 30%, rgba(193, 61, 58, 0.10), transparent 35%)'
           }}
