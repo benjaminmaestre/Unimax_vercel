@@ -75,7 +75,7 @@ export default function RootLayout({
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+51-1-604-3900",
+      "telephone": "+51-959-345-117",
       "contactType": "technical support / sales",
       "areaServed": "PE",
       "availableLanguage": ["Spanish", "English"]

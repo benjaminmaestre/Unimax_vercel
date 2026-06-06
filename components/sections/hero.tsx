@@ -12,7 +12,7 @@ export function HeroSection() {
   const stats = [
     { value: '+85,000', unit: t('hero.stats.despacho.unit'), label: t('hero.stats.despacho.label') },
     { value: '25', unit: t('hero.stats.trayectoria.unit'), label: t('hero.stats.trayectoria.label') },
-    { value: '4', unit: t('hero.stats.plantas.unit'), label: t('hero.stats.plantas.label') },
+    { value: '2', unit: t('hero.stats.plantas.unit'), label: t('hero.stats.plantas.label') },
     { value: '<60', unit: t('hero.stats.entrega.unit'), label: t('hero.stats.entrega.label') },
   ]
 
@@ -167,7 +167,7 @@ export function HeroSection() {
           </div>
           
           <h3 className="font-display text-xl text-[#0A0F14] dark:text-white mt-1 leading-tight tracking-wide">
-            {language === 'es' ? '4 PLANTAS DOSIFICADORAS DESPACHANDO 24/7' : '4 BATCHING PLANTS DISPATCHING 24/7'}
+            {language === 'es' ? '2 PLANTAS DOSIFICADORAS DESPACHANDO 24/7' : '2 BATCHING PLANTS DISPATCHING 24/7'}
           </h3>
           
           <p className="text-[11px] text-[#374151] dark:text-white/70 leading-relaxed font-light mt-1">

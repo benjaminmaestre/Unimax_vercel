@@ -6,7 +6,7 @@ import { FileText, FlaskConical, Truck, HardHat } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 
 export function ProcessSection() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const containerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
 
@@ -100,6 +100,19 @@ export function ProcessSection() {
             ))}
           </div>
         </div>
+
+        {/* Footnote */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.75 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-12 text-[10px] text-text-muted text-center max-w-lg mx-auto leading-relaxed select-none"
+        >
+          {language === 'es'
+            ? '* El tiempo estimado de entrega de 90 minutos está sujeto a la fluidez del tráfico vehicular y a la accesibilidad del sector de la obra.'
+            : '* The estimated 90-minute delivery time is subject to vehicular traffic flow and job site accessibility.'}
+        </motion.p>
       </div>
     </section>
   )

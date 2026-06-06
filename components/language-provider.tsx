@@ -102,7 +102,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
     // Process
     'process.prelabel': '• NUESTRO PROCESO',
-    'process.title': 'Del pedido a tu obra en menos de 90 minutos.',
+    'process.title': 'Del pedido a tu obra en menos de 90 minutos*.',
     'process.s1.title': 'Solicitud',
     'process.s1.desc': 'Formulario o llamada, confirmación en 10 min',
     'process.s2.title': 'Diseño',
@@ -146,7 +146,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     // Coverage
     'coverage.prelabel': '• NUESTRA COBERTURA',
     'coverage.title': 'Abastecimiento estratégico en Lima Metropolitana.',
-    'coverage.desc': 'Operamos con 4 plantas dosificadoras estratégicamente ubicadas para asegurar el tiempo de entrega y la consistencia del concreto en tu obra.',
+    'coverage.desc': 'Operamos con 2 plantas dosificadoras estratégicamente ubicadas para asegurar el tiempo de entrega y la consistencia del concreto en tu obra.',
     'coverage.p1.title': 'Planta Norte (Puente Piedra)',
     'coverage.p1.desc': 'Abastecimiento para Lima Norte y proyectos viales.',
     'coverage.p2.title': 'Planta Centro (Cercado)',
@@ -163,8 +163,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'contact.info.title': 'Atención Inmediata',
     'contact.info.address.title': 'Oficina Principal',
     'contact.info.address.desc': 'Av. Industrial 450, Urb. Las Praderas, Lima',
-    'contact.info.phone.title': 'Central Telefónica',
-    'contact.info.phone.desc': '+51 (01) 555-0199',
+    'contact.info.phone.title': 'Celular / WhatsApp',
+    'contact.info.phone.desc': '+51 959 345 117',
     'contact.info.email.title': 'Correo Técnico',
     'contact.info.email.desc': 'area.comercial@unimaxcorp.com',
     'contact.form.name': 'Nombre y Apellidos',
@@ -371,7 +371,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
     // Process
     'process.prelabel': '• OUR PROCESS',
-    'process.title': 'From order to your job site in under 90 minutes.',
+    'process.title': 'From order to your job site in under 90 minutes*.',
     'process.s1.title': 'Request',
     'process.s1.desc': 'Form or phone call, confirmation in 10 mins',
     'process.s2.title': 'Design',
@@ -415,7 +415,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     // Coverage
     'coverage.prelabel': '• OUR COVERAGE',
     'coverage.title': 'Strategic supply across Metropolitan Lima.',
-    'coverage.desc': 'We operate with 4 strategically located batching plants to ensure delivery times and ready-mix consistency at your job site.',
+    'coverage.desc': 'We operate with 2 strategically located batching plants to ensure delivery times and ready-mix consistency at your job site.',
     'coverage.p1.title': 'North Plant (Puente Piedra)',
     'coverage.p1.desc': 'Supply for North Lima and roadway infrastructure projects.',
     'coverage.p2.title': 'Central Plant (Cercado)',
@@ -432,8 +432,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'contact.info.title': 'Immediate Attention',
     'contact.info.address.title': 'Headquarters',
     'contact.info.address.desc': 'Av. Industrial 450, Urb. Las Praderas, Lima',
-    'contact.info.phone.title': 'Telephone Central',
-    'contact.info.phone.desc': '+51 (01) 555-0199',
+    'contact.info.phone.title': 'Mobile / WhatsApp',
+    'contact.info.phone.desc': '+51 959 345 117',
     'contact.info.email.title': 'Technical Mail',
     'contact.info.email.desc': 'area.comercial@unimaxcorp.com',
     'contact.form.name': 'Full Name',

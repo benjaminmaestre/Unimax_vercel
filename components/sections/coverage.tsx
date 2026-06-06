@@ -4,10 +4,77 @@ import { motion } from 'framer-motion'
 import { MapPin, ArrowRight, Search } from 'lucide-react'
 import { useState } from 'react'
 import { useLanguage } from '@/components/language-provider'
+import dynamic from 'next/dynamic'
+
+const MapComponent = dynamic(() => import('./map-component'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full min-h-[350px] lg:min-h-[400px] rounded-xl bg-neutral-950/90 flex flex-col items-center justify-center gap-3 border border-border/80 shadow-md">
+      <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+    </div>
+  )
+})
 
 export function CoverageSection() {
   const { language, t } = useLanguage()
   const [searchValue, setSearchValue] = useState('')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchTrigger, setSearchTrigger] = useState(0)
+  const [searchResult, setSearchResult] = useState<{
+    lat: number
+    lng: number
+    label: string
+    closestPlant: string
+    distance: number
+    durationMin: number
+    inRadius: boolean
+    error?: string
+  } | null>(null)
+  const [isSearching, setIsSearching] = useState(false)
+
+  const handleSearch = () => {
+    if (!searchValue.trim()) return
+    setIsSearching(true)
+    setSearchQuery(searchValue)
+    setSearchTrigger(prev => prev + 1)
+  }
+
+  const handleSearchResolved = (result: any) => {
+    setSearchResult(result)
+    setIsSearching(false)
+  }
+
+  const handleSearchStart = () => {
+    setIsSearching(true)
+  }
+
+  const handleMapClickAddress = (address: string) => {
+    setSearchValue(address)
+  }
+
+  const handleQuoteClick = () => {
+    if (!searchResult) return
+    
+    // Dispatch custom event to autofill contact form
+    const messageText = language === 'es'
+      ? `Hola, deseo cotizar concreto premezclado para mi obra en: ${searchResult.label}. \n\nDatos de ruta calculados:\n- Planta de despacho: ${searchResult.closestPlant}\n- Distancia de ruta: ${searchResult.distance.toFixed(1)} km\n- Tiempo estimado: ${Math.round(searchResult.durationMin)} min`
+      : `Hello, I would like to get a quote for ready-mix concrete for my job site at: ${searchResult.label}. \n\nCalculated route data:\n- Dispatch plant: ${searchResult.closestPlant}\n- Route distance: ${searchResult.distance.toFixed(1)} km\n- Estimated travel time: ${Math.round(searchResult.durationMin)} min`
+
+    const event = new CustomEvent('autofill-contact', {
+      detail: {
+        address: searchResult.label,
+        message: messageText,
+        service: 'concreto'
+      }
+    })
+    window.dispatchEvent(event)
+
+    // Scroll to contact form
+    const contactSection = document.getElementById('contacto')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   const translateRadius = (radius: string, lang: 'es' | 'en') => {
     return lang === 'es' ? radius : radius.replace('Radio', 'Radius')
@@ -18,14 +85,6 @@ export function CoverageSection() {
   }
 
   const plants = [
-    {
-      name: language === 'es' ? 'Planta Lima Norte' : 'North Lima Plant',
-      location: 'Puente Piedra',
-      radius: 'Radio 35km',
-      hours: 'Lun-Sab 5am-8pm',
-      coords: { x: '40%', y: '25%' },
-      googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Planta+Unimaxcorp+Puente+Piedra'
-    },
     {
       name: language === 'es' ? 'Planta Lima Este' : 'East Lima Plant',
       location: 'Lurigancho',
@@ -43,14 +102,6 @@ export function CoverageSection() {
       hours: 'Lun-Sab 5am-8pm',
       coords: { x: '45%', y: '75%' },
       googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Calle+13+Mz.+S+Lote+16+Coop.+Las+Vertientes%2C+Villa+el+salvador%2C+Lima'
-    },
-    {
-      name: language === 'es' ? 'Planta Callao' : 'Callao Plant',
-      location: 'Ventanilla',
-      radius: 'Radio 25km',
-      hours: 'Lun-Sab 5am-7pm',
-      coords: { x: '25%', y: '40%' },
-      googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Planta+Unimaxcorp+Ventanilla'
     },
   ]
 
@@ -74,88 +125,22 @@ export function CoverageSection() {
         </motion.div>
 
         <div className="grid lg:grid-cols-[55%_45%] gap-10 items-start">
-          {/* Map Side (Forced dark/technical blueprint look for premium contrast) */}
+          {/* Map Side (Premium Interactive Map) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full"
+            className="relative w-full h-full min-h-[350px] lg:min-h-[400px]"
           >
-            <div className="relative aspect-4/3 rounded-xl overflow-hidden bg-black/95 border border-border/80 shadow-md">
-              {/* Map Background */}
-              <div className="absolute inset-0 opacity-20">
-                <svg viewBox="0 0 400 300" className="w-full h-full">
-                  <path
-                    d="M50,150 Q100,50 200,80 Q300,110 350,150 Q300,250 200,280 Q100,260 50,150"
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeWidth="0.5"
-                    opacity="0.3"
-                  />
-                  {[...Array(10)].map((_, i) => (
-                    <line
-                      key={`h-${i}`}
-                      x1="0"
-                      y1={i * 30}
-                      x2="400"
-                      y2={i * 30}
-                      stroke="#ffffff"
-                      strokeWidth="0.2"
-                      opacity="0.15"
-                    />
-                  ))}
-                  {[...Array(14)].map((_, i) => (
-                    <line
-                      key={`v-${i}`}
-                      x1={i * 30}
-                      y1="0"
-                      x2={i * 30}
-                      y2="300"
-                      stroke="#ffffff"
-                      strokeWidth="0.2"
-                      opacity="0.15"
-                    />
-                  ))}
-                </svg>
-              </div>
-
-              {/* Plant Markers */}
-              {plants.map((plant, index) => (
-                <motion.div
-                  key={plant.name}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                  className="absolute"
-                  style={{ left: plant.coords.x, top: plant.coords.y }}
-                >
-                  <a
-                    href={plant.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block relative group/marker cursor-pointer"
-                    title={plant.address || plant.name}
-                  >
-                    <div className="absolute inset-0 w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 animate-ping" />
-                    <div className="absolute inset-0 w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/35 group-hover/marker:bg-primary/50 transition-colors" />
-                    <div className="relative w-3.5 h-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary border-2 border-white group-hover/marker:scale-110 transition-transform" />
-                    <span className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] font-bold text-white whitespace-nowrap bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded border border-white/5 uppercase tracking-wider group-hover/marker:bg-primary/80 transition-colors">
-                      {plant.location}
-                    </span>
-                  </a>
-                </motion.div>
-              ))}
-
-              {/* Coverage Circles */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                <circle cx="40%" cy="25%" r="48" fill="#C13D3A" fillOpacity="0.08" stroke="#C13D3A" strokeWidth="0.8" strokeOpacity="0.25" />
-                <circle cx="70%" cy="45%" r="44" fill="#C13D3A" fillOpacity="0.08" stroke="#C13D3A" strokeWidth="0.8" strokeOpacity="0.25" />
-                <circle cx="45%" cy="75%" r="44" fill="#C13D3A" fillOpacity="0.08" stroke="#C13D3A" strokeWidth="0.8" strokeOpacity="0.25" />
-                <circle cx="25%" cy="40%" r="38" fill="#C13D3A" fillOpacity="0.08" stroke="#C13D3A" strokeWidth="0.8" strokeOpacity="0.25" />
-              </svg>
-            </div>
+            <MapComponent
+              language={language}
+              searchQuery={searchQuery}
+              searchTrigger={searchTrigger}
+              onSearchResolved={handleSearchResolved}
+              onSearchStart={handleSearchStart}
+              onMapClickAddress={handleMapClickAddress}
+            />
           </motion.div>
 
           {/* Plants List Side */}
@@ -198,7 +183,7 @@ export function CoverageSection() {
                       </p>
                     </div>
                   </div>
-                  {/* Right block: Action Button (aligned under the text block on mobile with pl-14, side-by-side on sm+) */}
+                  {/* Right block: Action Button */}
                   <a
                     href={plant.googleMapsUrl}
                     target="_blank"
@@ -220,14 +205,143 @@ export function CoverageSection() {
                   type="text"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                   placeholder={language === 'es' ? 'Ingresa la dirección de tu obra' : 'Enter your job site address'}
                   className="w-full h-12 pl-11 pr-4 rounded-md bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm"
                 />
               </div>
-              <button className="h-12 px-6 text-xs font-bold tracking-widest uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all border border-primary hover:border-cta-hover active:scale-95 shadow-sm">
-                {language === 'es' ? 'Buscar' : 'Search'}
+              <button 
+                onClick={handleSearch}
+                disabled={isSearching}
+                className="h-12 px-6 text-xs font-bold tracking-widest uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all border border-primary hover:border-cta-hover active:scale-95 shadow-sm disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
+              >
+                {isSearching ? (
+                  <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  language === 'es' ? 'Buscar' : 'Search'
+                )}
               </button>
             </div>
+
+            {/* Tip text */}
+            <p className="mt-2 text-[11px] text-text-muted/80 pl-1 italic">
+              {language === 'es' 
+                ? '💡 Consejo: También puedes hacer clic directamente en el mapa para marcar tu obra.' 
+                : '💡 Tip: You can also click directly on the map to pinpoint your job site.'}
+            </p>
+
+            {/* Search Result Feedback Card */}
+            {searchResult && (
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-6 w-full"
+              >
+                {searchResult.error ? (
+                  <div className="p-4 rounded-lg border border-red-500/20 bg-red-500/5 text-red-400 text-xs flex flex-col gap-1 shadow-xs">
+                    <span className="font-bold uppercase tracking-wider">
+                      {language === 'es' ? 'Dirección no encontrada' : 'Address Not Found'}
+                    </span>
+                    <p className="text-text-muted/90">{searchResult.error}</p>
+                  </div>
+                ) : (
+                  <div className="relative overflow-hidden p-5 rounded-xl border border-border/80 bg-surface shadow-md flex flex-col gap-5">
+                    {/* Glowing Accent Ring */}
+                    <div className={`absolute top-0 left-0 w-1.5 h-full ${
+                      searchResult.inRadius 
+                        ? 'bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.5)]' 
+                        : searchResult.distance <= 50
+                          ? 'bg-amber-500 shadow-[0_0_12px_rgba(245,158,11,0.5)]'
+                          : 'bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.5)]'
+                    }`} />
+
+                    {/* Header: Title and Status Badge */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pl-2">
+                      <div className="min-w-0 flex-1">
+                        <span className="text-[10px] font-bold text-text-muted tracking-wider uppercase block">
+                          {language === 'es' ? 'Resultado del Análisis de Ruta' : 'Route Analysis Result'}
+                        </span>
+                        <h4 className="text-sm font-bold text-text-primary mt-1 truncate">
+                          {searchResult.label.split(',')[0]}
+                        </h4>
+                      </div>
+
+                      {/* Status Badge */}
+                      <span className={`px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full shrink-0 self-start sm:self-center ${
+                        searchResult.inRadius
+                          ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'
+                          : searchResult.distance <= 50
+                            ? 'bg-amber-500/10 text-amber-500 border border-amber-500/20'
+                            : 'bg-red-500/10 text-red-500 border border-red-500/20'
+                      }`}>
+                        {searchResult.inRadius
+                          ? (language === 'es' ? '✓ Cobertura Completa' : '✓ Full Coverage')
+                          : searchResult.distance <= 50
+                            ? (language === 'es' ? '⚠ Cobertura Especial' : '⚠ Extended Coverage')
+                            : (language === 'es' ? '✘ Fuera de Rango' : '✘ Out of Range')}
+                      </span>
+                    </div>
+
+                    {/* Stats Dashboard Grid */}
+                    <div className="grid grid-cols-3 gap-3 pl-2">
+                      <div className="p-3 rounded-lg bg-background border border-border/40 flex flex-col items-center justify-center text-center shadow-xs">
+                        <span className="text-[9px] font-bold text-text-muted tracking-wider uppercase block text-center">
+                          {language === 'es' ? 'DISTANCIA' : 'DISTANCE'}
+                        </span>
+                        <span className="mt-1.5 text-base md:text-lg font-black font-mono text-text-primary tracking-tight">
+                          {searchResult.distance.toFixed(1)} <span className="text-xs font-normal">km</span>
+                        </span>
+                      </div>
+
+                      <div className="p-3 rounded-lg bg-background border border-border/40 flex flex-col items-center justify-center text-center shadow-xs">
+                        <span className="text-[9px] font-bold text-text-muted tracking-wider uppercase block text-center">
+                          {language === 'es' ? 'TIEMPO VIAJE' : 'TRANSIT TIME'}
+                        </span>
+                        <span className="mt-1.5 text-base md:text-lg font-black font-mono text-text-primary tracking-tight">
+                          {Math.round(searchResult.durationMin)} <span className="text-xs font-normal">min</span>
+                        </span>
+                      </div>
+
+                      <div className="p-3 rounded-lg bg-background border border-border/40 flex flex-col items-center justify-center text-center shadow-xs">
+                        <span className="text-[9px] font-bold text-text-muted tracking-wider uppercase block text-center">
+                          {language === 'es' ? 'DESPACHO DESDE' : 'DISPATCH FROM'}
+                        </span>
+                        <span className="mt-1.5 text-[10px] font-bold text-primary tracking-wide text-center uppercase wrap-break-word line-clamp-2 leading-tight">
+                          {searchResult.closestPlant.replace('Planta ', '').replace(' Plant', '')}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Description Text */}
+                    <p className="text-xs text-text-muted leading-relaxed pl-2">
+                      {searchResult.inRadius
+                        ? (language === 'es' 
+                          ? `Tu proyecto está dentro del radio operativo de 30 km. La entrega se realiza desde la planta de ${searchResult.closestPlant} con un tiempo estimado de ${Math.round(searchResult.durationMin)} minutos en ruta.`
+                          : `Your project is within the 30 km operational radius. Supply will be dispatched from ${searchResult.closestPlant} with an estimated transit duration of ${Math.round(searchResult.durationMin)} minutes.`)
+                        : searchResult.distance <= 50
+                          ? (language === 'es'
+                            ? `Tu proyecto está a ${searchResult.distance.toFixed(1)} km, requiriendo cobertura logística especial. Comunícate para coordinar viabilidad y tarifas adicionales.`
+                            : `Your project is at ${searchResult.distance.toFixed(1)} km, requiring special logistics coverage. Contact us to coordinate route viability and extra fees.`)
+                          : (language === 'es'
+                            ? `Tu ubicación supera los 50 km de distancia operativa. Se requiere una evaluación técnica individual por parte de nuestros ingenieros de ruta.`
+                            : `Your location exceeds the 50 km standard operating distance. An individual technical route assessment is required by our traffic engineers.`)}
+                    </p>
+
+                    {/* Action button */}
+                    <div className="pl-2 pt-1">
+                      <button
+                        onClick={handleQuoteClick}
+                        className="group flex items-center justify-center gap-2 w-full h-11 text-[11px] font-bold tracking-widest uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover cursor-pointer"
+                      >
+                        {language === 'es' ? 'Cotizar Despacho a esta Ubicación' : 'Quote Dispatch to this Location'}
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 group-hover:translate-x-1" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </div>

@@ -176,8 +176,8 @@ export function Footer() {
                   <span className="text-primary mt-0.5">✓</span>
                   <span>
                     {language === 'es' 
-                      ? '4 plantas dosificadoras estratégicamente ubicadas.' 
-                      : '4 strategically located batching plants.'}
+                      ? '2 plantas dosificadoras estratégicamente ubicadas.' 
+                      : '2 strategically located batching plants.'}
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
@@ -218,10 +218,10 @@ export function Footer() {
               <div className="hidden md:block w-px h-3 bg-neutral-300 dark:bg-white/20" />
 
               <div className="flex items-center gap-6">
-                <Link href="#" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                <Link href="/politica-de-privacidad" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
                   {t('footer.privacy')}
                 </Link>
-                <Link href="#" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                <Link href="/terminos-y-condiciones" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
                   {t('footer.terms')}
                 </Link>
               </div>

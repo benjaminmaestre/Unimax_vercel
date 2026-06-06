@@ -120,7 +120,7 @@ export function ServiceHero({ titleKey, descKey, bgImage }: ServiceHeroProps) {
             </Link>
             
             <a
-              href="tel:+5116043900"
+              href="tel:+51959345117"
               className="inline-flex items-center justify-center gap-2.5 h-12 px-6 md:px-8 text-[11px] font-extrabold tracking-widest uppercase bg-surface/80 dark:bg-white/10 text-text-primary dark:text-white border border-border/80 dark:border-white/15 hover:bg-elevated dark:hover:bg-white/20 transition-all duration-200 rounded-md active:scale-95 flex-1 sm:flex-none"
             >
               <Phone size={13} />

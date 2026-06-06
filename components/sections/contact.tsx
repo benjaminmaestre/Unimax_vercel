@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
 
 export function ContactSection() {
@@ -17,6 +17,25 @@ export function ContactSection() {
   })
   const [touched, setTouched] = useState<Record<string, boolean>>({})
 
+  // Event listener for map quote click autofill
+  useEffect(() => {
+    const handleAutofill = (e: Event) => {
+      const customEvent = e as CustomEvent
+      if (customEvent.detail) {
+        setFormData(prev => ({
+          ...prev,
+          address: customEvent.detail.address || prev.address,
+          message: customEvent.detail.message || prev.message,
+          type: customEvent.detail.service || prev.type,
+        }))
+      }
+    }
+    window.addEventListener('autofill-contact', handleAutofill)
+    return () => {
+      window.removeEventListener('autofill-contact', handleAutofill)
+    }
+  }, [])
+
   const handleBlur = (field: string) => {
     setTouched(prev => ({ ...prev, [field]: true }))
   }
@@ -24,13 +43,13 @@ export function ContactSection() {
   const contactLines = [
     {
       title: language === 'es' ? 'Central Comercial' : 'Commercial Central',
-      phones: ['+51 (01) 555-0199', '+51 999 888 777 (WhatsApp)'],
+      phones: ['+51 959 345 117 (WhatsApp / Llamadas)'],
       hours: language === 'es' ? 'Lun–Vie: 8:00 am – 6:00 pm | Sáb: 8:00 am – 1:00 pm' : 'Mon–Fri: 8:00 am – 6:00 pm | Sat: 8:00 am – 1:00 pm',
     },
     {
-      title: language === 'es' ? 'Área de Calidad y Consultas' : 'Quality & Inquiries Department',
-      phones: ['area.calidad@unimaxcorp.com', 'consultas@unimaxcorp.com'],
-      hours: language === 'es' ? 'Soporte de laboratorio y dosificación técnica' : 'Laboratory support and technical dosage',
+      title: language === 'es' ? 'Áreas de Contacto' : 'Contact Departments',
+      phones: ['area.comercial@unimaxcorp.com', 'consultas@unimaxcorp.com'],
+      hours: language === 'es' ? 'Consultas comerciales, soporte y calidad' : 'Commercial inquiries, support and quality',
     },
   ]
 
@@ -226,7 +245,7 @@ export function ContactSection() {
                   <Instagram className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://wa.me/51999888777"
+                  href="https://wa.me/51959345117"
                   className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-xs"
                   aria-label="WhatsApp"
                 >
@@ -240,7 +259,7 @@ export function ContactSection() {
 
       {/* WhatsApp FAB - Premium Authentic Green Floating Button */}
       <motion.a
-        href="https://wa.me/51999888777"
+        href="https://wa.me/51959345117"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, scale: 0.8 }}
