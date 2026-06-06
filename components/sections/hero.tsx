@@ -13,7 +13,7 @@ export function HeroSection() {
     { value: '+85,000', unit: t('hero.stats.despacho.unit'), label: t('hero.stats.despacho.label') },
     { value: '25', unit: t('hero.stats.trayectoria.unit'), label: t('hero.stats.trayectoria.label') },
     { value: '2', unit: t('hero.stats.plantas.unit'), label: t('hero.stats.plantas.label') },
-    { value: '<60', unit: t('hero.stats.entrega.unit'), label: t('hero.stats.entrega.label') },
+    { value: '90*', unit: t('hero.stats.entrega.unit'), label: t('hero.stats.entrega.label') },
   ]
 
   return (
@@ -172,8 +172,8 @@ export function HeroSection() {
           
           <p className="text-[11px] text-[#374151] dark:text-white/70 leading-relaxed font-light mt-1">
             {language === 'es' 
-              ? 'Monitoreo GPS en tiempo real para asegurar entregas en menos de 60 minutos en todo Lima.' 
-              : 'Real-time GPS monitoring to ensure deliveries in under 60 minutes across Lima.'}
+              ? 'Monitoreo GPS en tiempo real para asegurar entregas en 90 minutos* en todo Lima.' 
+              : 'Real-time GPS monitoring to ensure deliveries in 90 minutes* across Lima.'}
           </p>
           
           <Link
@@ -211,7 +211,7 @@ export function HeroSection() {
         <div className="section-container">
           <div className="grid grid-cols-4 divide-x divide-neutral-200 dark:divide-white/10">
             {stats.map((stat) => (
-              <div key={stat.label} className="py-8 px-6 flex flex-col justify-center">
+              <div key={stat.label} className="py-8 px-6 flex flex-col justify-center relative">
                 <div className="flex items-baseline gap-1">
                   <span className="font-display text-4xl text-[#0A0F14] dark:text-white tracking-tight font-extrabold">
                     {stat.value}
@@ -223,6 +223,11 @@ export function HeroSection() {
                 <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-neutral-500 dark:text-white/60 mt-1">
                   {stat.label}
                 </p>
+                {stat.value.includes('*') && (
+                  <span className="text-[8px] text-neutral-400 dark:text-white/40 block mt-1 leading-none select-none">
+                    {t('hero.stats.entrega.disclaimer')}
+                  </span>
+                )}
               </div>
             ))}
           </div>

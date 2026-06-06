@@ -52,7 +52,7 @@ export function StatsSection() {
     { value: 85000, prefix: '', suffix: '', unit: t('hero.stats.despacho.unit'), label: t('hero.stats.despacho.label') },
     { value: 1200, prefix: '', suffix: '+', unit: '', label: t('projects.prelabel').replace('• ', '') },
     { value: 25, prefix: '', suffix: '', unit: t('hero.stats.trayectoria.unit'), label: t('hero.stats.trayectoria.label') },
-    { value: 60, prefix: '<', suffix: '', unit: t('hero.stats.entrega.unit'), label: t('hero.stats.entrega.label') },
+    { value: 90, prefix: '', suffix: '*', unit: t('hero.stats.entrega.unit'), label: t('hero.stats.entrega.label') },
   ]
 
   return (
@@ -85,6 +85,11 @@ export function StatsSection() {
               <p className="mt-1 text-[10px] font-bold tracking-[0.2em] uppercase text-text-muted">
                 {stat.label}
               </p>
+              {stat.suffix === '*' && (
+                <span className="text-[8px] text-text-muted mt-1.5 block leading-none select-none max-w-[150px] mx-auto">
+                  {t('hero.stats.entrega.disclaimer')}
+                </span>
+              )}
             </motion.div>
           ))}
         </div>

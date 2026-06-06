@@ -1,9 +1,25 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react'
+import { ArrowRight, Phone, Mail, MapPin, Facebook } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
+
+function TiktokIcon({ className, strokeWidth = 2 }: { className?: string; strokeWidth?: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+    </svg>
+  )
+}
 
 export function ContactSection() {
   const { language, t } = useLanguage()
@@ -231,21 +247,27 @@ export function ContactSection() {
               {/* Social Links - Technical Matte style */}
               <div className="mt-6 pt-6 border-t border-border/40 flex items-center gap-4">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/UNIMAXCORP/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-xs"
-                  aria-label="LinkedIn"
+                  aria-label="Facebook"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Facebook className="w-4 h-4" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@unimaxcorp"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-xs"
-                  aria-label="Instagram"
+                  aria-label="TikTok"
                 >
-                  <Instagram className="w-4 h-4" />
+                  <TiktokIcon className="w-4 h-4" />
                 </a>
                 <a
                   href="https://wa.me/51959345117"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-xs"
                   aria-label="WhatsApp"
                 >

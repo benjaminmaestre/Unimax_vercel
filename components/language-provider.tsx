@@ -43,6 +43,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'hero.stats.plantas.label': 'EN LIMA',
     'hero.stats.entrega.unit': 'min',
     'hero.stats.entrega.label': 'ENTREGA',
+    'hero.stats.entrega.disclaimer': '*Sujeto a tráfico vehicular',
 
     // Manifesto (Nosotros / Quiénes Somos)
     'manifesto.prelabel': '• ACERCA DE LA EMPRESA',
@@ -312,6 +313,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'hero.stats.plantas.label': 'IN LIMA',
     'hero.stats.entrega.unit': 'min',
     'hero.stats.entrega.label': 'DELIVERY',
+    'hero.stats.entrega.disclaimer': '*Subject to traffic conditions',
 
     // Manifesto (Nosotros / Quiénes Somos)
     'manifesto.prelabel': '• ABOUT THE COMPANY',

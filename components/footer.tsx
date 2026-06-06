@@ -5,7 +5,23 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
 import { useTheme } from 'next-themes'
-import { Facebook, Instagram, Linkedin } from 'lucide-react'
+import { Facebook } from 'lucide-react'
+
+function TiktokIcon({ className, strokeWidth = 1.5 }: { className?: string; strokeWidth?: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+    </svg>
+  )
+}
 
 const navLinks = [
   { href: '/#soluciones', key: 'nav.soluciones' },
@@ -201,17 +217,13 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
               {/* Minimal Social Icons */}
               <div className="flex items-center gap-5">
-                <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                <Link href="https://www.facebook.com/UNIMAXCORP/" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
                   <Facebook className="w-[18px] h-[18px]" strokeWidth={1.5} />
                   <span className="sr-only">Facebook</span>
                 </Link>
-                <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
-                  <Instagram className="w-[18px] h-[18px]" strokeWidth={1.5} />
-                  <span className="sr-only">Instagram</span>
-                </Link>
-                <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
-                  <Linkedin className="w-[18px] h-[18px]" strokeWidth={1.5} />
-                  <span className="sr-only">LinkedIn</span>
+                <Link href="https://www.tiktok.com/@unimaxcorp" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                  <TiktokIcon className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                  <span className="sr-only">TikTok</span>
                 </Link>
               </div>
               
