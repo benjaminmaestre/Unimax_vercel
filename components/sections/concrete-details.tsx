@@ -396,7 +396,7 @@ export function ConcreteDetails() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                     style={{ backgroundImage: `url('${bgImg}')` }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30 group-hover:via-black/60 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/30 group-hover:via-black/60 transition-colors duration-500" />
                   
                   {/* Content */}
                   <span className="text-3xl font-bold text-white/20 group-hover:text-white/40 transition-colors mb-4 block relative z-10">
@@ -427,7 +427,7 @@ export function ConcreteDetails() {
               style={{ backgroundImage: "url('/PERSONAL-CALIFICADO.webp')" }}
             />
             {/* Gradient to smooth edges */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-black/60 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-r from-primary/95 via-primary/80 to-black/60 pointer-events-none" />
             
             <div className="max-w-2xl relative z-10 text-center lg:text-left">
               <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase block mb-3">
