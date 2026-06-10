@@ -59,12 +59,20 @@ export function ContactSection() {
   const contactLines = [
     {
       title: language === 'es' ? 'Central Comercial' : 'Commercial Central',
-      phones: ['+51 959 345 117 (WhatsApp / Llamadas)'],
+      items: [
+        {
+          label: language === 'es' ? '+51 959 345 117 (Solo WhatsApp)' : '+51 959 345 117 (WhatsApp Only)',
+          href: 'https://wa.me/51959345117',
+        },
+      ],
       hours: language === 'es' ? 'Lun–Vie: 8:00 am – 6:00 pm | Sáb: 8:00 am – 1:00 pm' : 'Mon–Fri: 8:00 am – 6:00 pm | Sat: 8:00 am – 1:00 pm',
     },
     {
       title: language === 'es' ? 'Áreas de Contacto' : 'Contact Departments',
-      phones: ['area.comercial@unimaxcorp.com', 'consultas@unimaxcorp.com'],
+      items: [
+        { label: 'area.comercial@unimaxcorp.com', href: 'mailto:area.comercial@unimaxcorp.com' },
+        { label: 'consultas@unimaxcorp.com', href: 'mailto:consultas@unimaxcorp.com' },
+      ],
       hours: language === 'es' ? 'Consultas comerciales, soporte y calidad' : 'Commercial inquiries, support and quality',
     },
   ]
@@ -212,9 +220,15 @@ export function ContactSection() {
                       <span className="font-bold text-sm lg:text-base text-text-primary">{line.title}</span>
                     </div>
                     <div className="ml-4 space-y-1">
-                      {line.phones.map((phone) => (
-                        <a href={`tel:${phone.replace(/\s+/g, '')}`} key={phone} className="block text-sm lg:text-base text-text-secondary hover:text-primary transition-colors font-mono">
-                          {phone}
+                      {line.items.map((item) => (
+                        <a
+                          href={item.href}
+                          key={item.label}
+                          target={item.href.startsWith('http') ? '_blank' : undefined}
+                          rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          className="block text-sm lg:text-base text-text-secondary hover:text-primary transition-colors font-mono"
+                        >
+                          {item.label}
                         </a>
                       ))}
                       <p className="text-xs text-text-muted">{line.hours}</p>
