@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
 import { useTheme } from 'next-themes'
 import { Facebook } from 'lucide-react'
+import { trackEvent } from '@/lib/analytics'
 
 function TiktokIcon({ className, strokeWidth = 1.5 }: { className?: string; strokeWidth?: number }) {
   return (
@@ -71,12 +72,14 @@ export function Footer() {
           <div className="flex flex-row gap-3 w-full lg:w-auto shrink-0">
             <Link
               href="/#contacto"
+              onClick={() => trackEvent('click_quote_cta', 'Footer', 'Footer Band Cotizar Proyecto')}
               className="inline-flex items-center justify-center h-12 px-6 text-[11px] font-extrabold tracking-widest uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md active:scale-95 shadow-md text-center flex-1 lg:flex-none lg:px-8"
             >
               {language === 'es' ? 'COTIZAR PROYECTO' : 'QUOTE PROJECT'}
             </Link>
             <Link
               href="/#soluciones"
+              onClick={() => trackEvent('click_view_services', 'Footer', 'Footer Band Ver Servicios')}
               className="inline-flex items-center justify-center h-12 px-6 text-[11px] font-extrabold tracking-widest uppercase bg-transparent text-neutral-900 dark:text-white border border-neutral-900/20 dark:border-white/20 hover:bg-neutral-900/5 dark:hover:bg-white/5 hover:border-neutral-900/40 dark:hover:border-white/45 transition-all duration-200 rounded-md active:scale-95 text-center flex-1 lg:flex-none lg:px-8"
             >
               {language === 'es' ? 'VER SERVICIOS' : 'VIEW SERVICES'}
@@ -217,11 +220,11 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
               {/* Minimal Social Icons */}
               <div className="flex items-center gap-5">
-                <Link href="https://www.facebook.com/UNIMAXCORP/" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                <Link href="https://www.facebook.com/UNIMAXCORP/" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('click_social', 'Footer', 'Facebook Link')} className="hover:text-primary dark:hover:text-white transition-colors duration-200">
                   <Facebook className="w-[18px] h-[18px]" strokeWidth={1.5} />
                   <span className="sr-only">Facebook</span>
                 </Link>
-                <Link href="https://www.tiktok.com/@unimaxcorp" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                <Link href="https://www.tiktok.com/@unimaxcorp" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('click_social', 'Footer', 'TikTok Link')} className="hover:text-primary dark:hover:text-white transition-colors duration-200">
                   <TiktokIcon className="w-[18px] h-[18px]" strokeWidth={1.5} />
                   <span className="sr-only">TikTok</span>
                 </Link>

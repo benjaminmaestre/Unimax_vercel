@@ -161,7 +161,7 @@ export function BentoGridSection() {
   }[language]
 
   return (
-    <section className="relative py-12 lg:py-32 bg-background grain" id="productos">
+    <section className="relative py-12 lg:py-32 bg-background grain" id="soluciones">
       <div className="section-container">
         {/* Section Header */}
         <motion.div

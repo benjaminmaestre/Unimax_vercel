@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useLanguage } from '@/components/language-provider'
 
 export function ProjectsHero() {
@@ -14,18 +15,34 @@ export function ProjectsHero() {
         initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.9 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none block dark:hidden"
-        style={{ backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pavimento-san-juan-de-lurigancho-Unimaxcorp-aFKG9rAwfcI1r2anhItf2YY1uzZyVb.webp')` }}
-      />
+        className="absolute inset-0 pointer-events-none block dark:hidden"
+      >
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pavimento-san-juan-de-lurigancho-Unimaxcorp-aFKG9rAwfcI1r2anhItf2YY1uzZyVb.webp"
+          alt="Pavimento San Juan de Lurigancho"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       {/* Background Image with Parallax-like scale entry - Dark Mode */}
       <motion.div
         initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.75 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none hidden dark:block"
-        style={{ backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pavimento-san-juan-de-lurigancho-Unimaxcorp-aFKG9rAwfcI1r2anhItf2YY1uzZyVb.webp')` }}
-      />
+        className="absolute inset-0 pointer-events-none hidden dark:block"
+      >
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pavimento-san-juan-de-lurigancho-Unimaxcorp-aFKG9rAwfcI1r2anhItf2YY1uzZyVb.webp"
+          alt="Pavimento San Juan de Lurigancho"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       {/* Cinematic Overlays - Light Mode */}
       <div 

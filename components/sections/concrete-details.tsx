@@ -9,6 +9,7 @@ import {
   ArrowRight
 } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function ConcreteDetails() {
   const { t, language } = useLanguage()
@@ -145,9 +146,13 @@ export function ConcreteDetails() {
             <div className={`lg:col-span-4 ${card} p-8 flex flex-col justify-between overflow-hidden`}>
               
               {/* Background Image & Overlay */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: "url('/DOSIFICACION-CONTROLADA-CEL-UNIMAXCORP.webp')" }}
+              <Image
+                src="/DOSIFICACION-CONTROLADA-CEL-UNIMAXCORP.webp"
+                alt="Dosificación Controlada"
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black/60 dark:bg-black/80" />
               
@@ -316,9 +321,13 @@ export function ConcreteDetails() {
             </div>
             
             <div className="hidden lg:block w-64 h-32 rounded-xl overflow-hidden relative shrink-0 shadow-sm border border-border/40">
-              <div 
-                className="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-700" 
-                style={{ backgroundImage: "url('/materia-calidad.webp')" }}
+              <Image
+                src="/materia-calidad.webp"
+                alt="Materia de Calidad"
+                fill
+                sizes="256px"
+                className="object-cover hover:scale-105 transition-transform duration-700"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black/10" />
             </div>

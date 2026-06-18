@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Phone, Mail, MapPin, Facebook } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
+import { trackEvent } from '@/lib/analytics'
 
 function TiktokIcon({ className, strokeWidth = 2 }: { className?: string; strokeWidth?: number }) {
   return (
@@ -79,6 +80,8 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    // Track form submission event in GA4
+    trackEvent('submit_form', 'Contact', 'Quote Form Submitted')
     // Handle form submission
     console.log('Submitted', formData)
   }
@@ -122,7 +125,7 @@ export function ContactSection() {
                   required
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   onBlur={() => handleBlur('name')}
-                  className={`h-12 px-4 rounded-md bg-background border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm ${
+                  className={`h-12 px-4 rounded-md bg-background border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-base lg:text-sm ${
                     touched.name && !formData.name ? 'border-red-500 bg-red-500/5' : 'border-border'
                   }`}
                 />
@@ -131,7 +134,7 @@ export function ContactSection() {
                   placeholder={language === 'es' ? 'Empresa / Razón social (Opcional)' : 'Company Name (Optional)'}
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="h-12 px-4 rounded-md bg-background border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm"
+                  className="h-12 px-4 rounded-md bg-background border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-base lg:text-sm"
                 />
               </div>
 
@@ -141,7 +144,7 @@ export function ContactSection() {
                   required
                   onChange={(e) => setFormData({ ...formData, type: e.target.value })}
                   onBlur={() => handleBlur('type')}
-                  className={`h-12 px-4 rounded-md bg-background border text-text-primary focus:outline-none focus:border-primary transition-colors text-sm appearance-none cursor-pointer ${
+                  className={`h-12 px-4 rounded-md bg-background border text-text-primary focus:outline-none focus:border-primary transition-colors text-base lg:text-sm appearance-none cursor-pointer ${
                     touched.type && !formData.type ? 'border-red-500 bg-red-500/5' : 'border-border'
                   }`}
                 >
@@ -157,7 +160,7 @@ export function ContactSection() {
                   required
                   onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
                   onBlur={() => handleBlur('volume')}
-                  className={`h-12 px-4 rounded-md bg-background border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm ${
+                  className={`h-12 px-4 rounded-md bg-background border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-base lg:text-sm ${
                     touched.volume && !formData.volume ? 'border-red-500 bg-red-500/5' : 'border-border'
                   }`}
                 />
@@ -170,7 +173,7 @@ export function ContactSection() {
                 required
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                 onBlur={() => handleBlur('address')}
-                className={`w-full h-12 px-4 rounded-md bg-background border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-sm ${
+                className={`w-full h-12 px-4 rounded-md bg-background border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors text-base lg:text-sm ${
                   touched.address && !formData.address ? 'border-red-500 bg-red-500/5' : 'border-border'
                 }`}
               />
@@ -180,7 +183,7 @@ export function ContactSection() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={4}
-                className="w-full px-4 py-3 rounded-md bg-background border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors resize-none text-sm"
+                className="w-full px-4 py-3 rounded-md bg-background border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors resize-none text-base lg:text-sm"
               />
 
               <button
@@ -226,6 +229,13 @@ export function ContactSection() {
                           key={item.label}
                           target={item.href.startsWith('http') ? '_blank' : undefined}
                           rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          onClick={() => {
+                            if (item.href.includes('wa.me')) {
+                              trackEvent('click_whatsapp', 'Contact', 'WhatsApp Link Info')
+                            } else if (item.href.startsWith('mailto:')) {
+                              trackEvent('click_email', 'Contact', item.label)
+                            }
+                          }}
                           className="block text-sm lg:text-base text-text-secondary hover:text-primary transition-colors font-mono"
                         >
                           {item.label}
@@ -251,7 +261,11 @@ export function ContactSection() {
                   <Mail className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm lg:text-base font-bold text-text-primary">{t('contact.info.email.title')}</p>
-                    <a href={`mailto:${t('contact.info.email.desc')}`} className="text-xs lg:text-sm text-text-muted hover:text-primary transition-colors mt-0.5 block font-mono">
+                    <a 
+                      href={`mailto:${t('contact.info.email.desc')}`} 
+                      onClick={() => trackEvent('click_email', 'Contact', t('contact.info.email.desc'))}
+                      className="text-xs lg:text-sm text-text-muted hover:text-primary transition-colors mt-0.5 block font-mono"
+                    >
                       {t('contact.info.email.desc')}
                     </a>
                   </div>
@@ -264,6 +278,7 @@ export function ContactSection() {
                   href="https://www.facebook.com/UNIMAXCORP/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('click_social', 'Contact', 'Facebook Link')}
                   className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-xs"
                   aria-label="Facebook"
                 >
@@ -273,6 +288,7 @@ export function ContactSection() {
                   href="https://www.tiktok.com/@unimaxcorp"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('click_social', 'Contact', 'TikTok Link')}
                   className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-xs"
                   aria-label="TikTok"
                 >
@@ -282,6 +298,7 @@ export function ContactSection() {
                   href="https://wa.me/51959345117"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('click_whatsapp', 'Contact', 'Social Section WhatsApp')}
                   className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-all shadow-xs"
                   aria-label="WhatsApp"
                 >
@@ -298,6 +315,7 @@ export function ContactSection() {
         href="https://wa.me/51959345117"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackEvent('click_whatsapp', 'Contact', 'Floating WhatsApp Button')}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 1 }}

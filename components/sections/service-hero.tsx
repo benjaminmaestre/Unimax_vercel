@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useLanguage } from '@/components/language-provider'
 import { ArrowRight, Phone } from 'lucide-react'
 
@@ -21,18 +22,34 @@ export function ServiceHero({ titleKey, descKey, bgImage }: ServiceHeroProps) {
         initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.9 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none block dark:hidden"
-        style={{ backgroundImage: `url('${bgImage}')` }}
-      />
+        className="absolute inset-0 pointer-events-none block dark:hidden"
+      >
+        <Image
+          src={bgImage}
+          alt={t(titleKey)}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       {/* Background Image with Parallax-like scale entry - Dark Mode */}
       <motion.div
         initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.75 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none hidden dark:block"
-        style={{ backgroundImage: `url('${bgImage}')` }}
-      />
+        className="absolute inset-0 pointer-events-none hidden dark:block"
+      >
+        <Image
+          src={bgImage}
+          alt={t(titleKey)}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       {/* Cinematic Overlays - Light Mode */}
       <div 

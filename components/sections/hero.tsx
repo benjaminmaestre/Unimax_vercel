@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useLanguage } from '@/components/language-provider'
+import { trackEvent } from '@/lib/analytics'
 
 export function HeroSection() {
   const { t, language } = useLanguage()
@@ -137,6 +138,7 @@ export function HeroSection() {
             <div className="mt-8 sm:mt-6 flex flex-col sm:flex-row gap-3.5 sm:gap-4 w-full">
               <Link
                 href="#contacto"
+                onClick={() => trackEvent('click_quote_cta', 'Hero', 'Hero Cotizar Proyecto')}
                 className="group relative inline-flex items-center justify-center h-[56px] px-12 text-[13px] sm:text-[14px] font-extrabold tracking-[0.15em] uppercase bg-primary text-white rounded-md overflow-hidden transition-all duration-300 border border-primary hover:bg-cta-hover active:scale-95 shadow-lg hover:shadow-primary/20 w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
@@ -146,6 +148,7 @@ export function HeroSection() {
               </Link>
               <Link
                 href="#soluciones"
+                onClick={() => trackEvent('click_view_services', 'Hero', 'Hero Nuestros Servicios')}
                 className="inline-flex items-center justify-center h-[56px] px-9 text-[12px] font-bold tracking-[0.15em] uppercase bg-white/60 dark:bg-white/5 backdrop-blur-md text-neutral-900 dark:text-white border sm:border-2 border-neutral-950/15 sm:border-neutral-900/40 dark:border-white/20 sm:dark:border-white/50 hover:bg-white/80 dark:hover:bg-white/10 hover:border-neutral-900 dark:hover:border-white rounded-md transition-all duration-200 active:scale-95 shadow-sm w-full sm:w-auto"
               >
                 {t('hero.cta.servicios')}

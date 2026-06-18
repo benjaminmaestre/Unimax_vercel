@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon, Phone, ChevronDown, Layers, Cpu } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useLanguage } from '@/components/language-provider'
+import { trackEvent } from '@/lib/analytics'
 
 interface NavLinkItem {
   href?: string
@@ -281,6 +282,7 @@ export function Navigation() {
               >
                 <Link
                   href={isHome ? '#contacto' : '/#contacto'}
+                  onClick={() => trackEvent('click_quote_cta', 'Navigation', 'Header Desktop Button')}
                   className="inline-flex items-center justify-center h-10 px-5 text-[11px] font-bold tracking-[0.12em] uppercase bg-primary text-white hover:bg-cta-hover transition-all duration-200 rounded-md border border-primary hover:border-cta-hover active:scale-95"
                 >
                   {t('nav.cotizar')}
@@ -308,6 +310,7 @@ export function Navigation() {
             href="https://wa.me/51959345117"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('click_whatsapp', 'Navigation', 'Mobile Header Phone Icon')}
             className="p-2 rounded-lg bg-primary text-white"
             aria-label="Chat on WhatsApp"
           >
@@ -425,7 +428,10 @@ export function Navigation() {
               {/* Mobile Quote CTA */}
               <Link
                 href={isHome ? '#contacto' : '/#contacto'}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  trackEvent('click_quote_cta', 'Navigation', 'Header Mobile Drawer Button')
+                }}
                 className="inline-flex items-center justify-center h-12 text-[12px] font-bold tracking-[0.15em] uppercase bg-primary text-white hover:bg-cta-hover transition-colors rounded-md mt-2 w-full"
               >
                 {t('nav.cotizar')}

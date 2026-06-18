@@ -87,7 +87,7 @@ export function PartnersSection() {
                 }}
               >
                 {/* Render duplicates for infinite scroll illusion */}
-                {[...partners, ...partners, ...partners, ...partners].map((partner, i) => {
+                {[...partners, ...partners].map((partner, i) => {
                   const Icon = partner.icon
                   return (
                     <div 

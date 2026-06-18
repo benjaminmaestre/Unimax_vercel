@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
 import { RingCarousel3D } from '@/components/ui/ring-carousel-3d'
+import { trackEvent } from '@/lib/analytics'
 import {
   Carousel,
   CarouselContent,
@@ -110,6 +111,38 @@ export function FleetGallerySection() {
   const { language, t } = useLanguage()
   const [api, setApi] = useState<CarouselApi>()
 
+  const handleRequest = (item: typeof fleet[0]) => {
+    const serviceMap: Record<string, string> = {
+      'Mixer 8m³': 'concreto',
+      'Mixer 10m³': 'concreto',
+      'Boom Pump 47m': 'bombeo',
+      'Boom Pump 58m': 'bombeo',
+      'Retroexcavadora': 'bombeo',
+      'Cargador Frontal': 'bombeo',
+      'Excavadoras': 'bombeo',
+    }
+    
+    const selectedService = serviceMap[item.type] || ''
+    
+    // Track click event in GA4
+    trackEvent('click_request_fleet', 'Fleet', `${item.model} (${item.type})`)
+    
+    // Dispatch custom event to fill the contact form
+    const event = new CustomEvent('autofill-contact', {
+      detail: {
+        service: selectedService,
+        message: language === 'es' 
+          ? `Solicito cotización para el equipo: ${item.model} (${item.type})` 
+          : `Requesting quote for equipment: ${item.model} (${item.type})`
+      }
+    })
+    window.dispatchEvent(event)
+  }
+
+  const handleGeneralCta = () => {
+    trackEvent('click_quote_cta', 'Fleet', 'Fleet More Card')
+  }
+
   // Premium Custom Autoplay loop using native Embla API hooks
   useEffect(() => {
     if (!api) return
@@ -211,12 +244,13 @@ export function FleetGallerySection() {
                         </div>
 
                         <div className="mt-5">
-                          <Link
+                          <a
                             href="#contacto"
+                            onClick={() => handleRequest(item)}
                             className="inline-flex items-center justify-center h-9 px-4 text-xs font-bold tracking-widest uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
                           >
                             {t('fleet.cta')}
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -240,13 +274,14 @@ export function FleetGallerySection() {
                     <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-[240px]">
                       {t('fleet.more.desc')}
                     </p>
-                    <Link
+                    <a
                       href="#contacto"
+                      onClick={handleGeneralCta}
                       className="group mt-6 inline-flex items-center justify-center h-[50px] px-6 text-xs font-bold tracking-[0.12em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
                     >
                       {t('fleet.more.cta')}
                       <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
-                    </Link>
+                    </a>
                   </div>
                 </motion.div>
               </CarouselItem>
@@ -300,12 +335,13 @@ export function FleetGallerySection() {
                       </div>
 
                       <div className="mt-5">
-                        <Link
+                        <a
                           href="#contacto"
+                          onClick={() => handleRequest(item)}
                           className="inline-flex items-center justify-center h-9 px-4 text-xs font-bold tracking-widest uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
                         >
                           {t('fleet.cta')}
-                        </Link>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -321,13 +357,14 @@ export function FleetGallerySection() {
                   <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-[240px]">
                     {t('fleet.more.desc')}
                   </p>
-                  <Link
+                  <a
                     href="#contacto"
+                    onClick={handleGeneralCta}
                     className="group mt-6 inline-flex items-center justify-center h-[50px] px-6 text-xs font-bold tracking-[0.12em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
                   >
                     {t('fleet.more.cta')}
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </RingCarousel3D>

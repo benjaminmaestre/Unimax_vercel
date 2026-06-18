@@ -3,15 +3,16 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/components/language-provider'
 import { 
-  Check, 
-  Clock, 
-  Users, 
-  Trash2, 
-  MessageSquare, 
-  PhoneCall, 
-  ArrowRight 
+   Check, 
+   Clock, 
+   Users, 
+   Trash2, 
+   MessageSquare, 
+   PhoneCall, 
+   ArrowRight 
 } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function PumpDetails() {
   const { t, language } = useLanguage()
@@ -67,9 +68,13 @@ export function PumpDetails() {
             className="flex flex-col bg-surface/30 dark:bg-black/20 border border-border/80 dark:border-white/5 rounded-2xl overflow-hidden shadow-2xs hover:border-primary transition-all duration-300 group"
           >
             <div className="h-[240px] md:h-[280px] w-full relative overflow-hidden bg-surface">
-              <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-103"
-                style={{ backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vaciado-Unimaxcorp-002-lCojy5wXyOYj9Fl3zxtJ0S1EpUHHYT.webp')" }}
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vaciado-Unimaxcorp-002-lCojy5wXyOYj9Fl3zxtJ0S1EpUHHYT.webp"
+                alt={t('pump.equipos.estacionaria.title')}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-103"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent" />
             </div>
@@ -100,9 +105,13 @@ export function PumpDetails() {
             className="flex flex-col bg-surface/30 dark:bg-black/20 border border-border/80 dark:border-white/5 rounded-2xl overflow-hidden shadow-2xs hover:border-primary transition-all duration-300 group"
           >
             <div className="h-[240px] md:h-[280px] w-full relative overflow-hidden bg-surface">
-              <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-103"
-                style={{ backgroundImage: "url('/pluma%20en%20vereda%20unimax.jpg')" }}
+              <Image
+                src="/pluma en vereda unimax.jpg"
+                alt={t('pump.equipos.pluma.title')}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-103"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent" />
             </div>
