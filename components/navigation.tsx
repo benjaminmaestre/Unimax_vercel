@@ -128,9 +128,9 @@ export function Navigation() {
           <Image
             src={mounted && currentTheme === 'dark' ? '/logo_unimx-removebg-preview.png' : '/logo_unimx_light.png'}
             alt="UNIMAX Corp"
-            width={150}
-            height={48}
-            className="h-10 w-auto object-contain select-none transition-all duration-300"
+            width={180}
+            height={56}
+            className="h-11 lg:h-13 w-auto object-contain select-none transition-all duration-300"
             priority
             draggable={false}
             onContextMenu={(e) => e.preventDefault()}
