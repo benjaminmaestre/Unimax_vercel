@@ -46,12 +46,12 @@ function AnimatedCounter({
 }
 
 export function StatsSection() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const stats = [
-    { value: 85000, prefix: '', suffix: '', unit: t('hero.stats.despacho.unit'), label: t('hero.stats.despacho.label') },
-    { value: 1200, prefix: '', suffix: '+', unit: '', label: t('projects.prelabel').replace('• ', '') },
-    { value: 25, prefix: '', suffix: '', unit: t('hero.stats.trayectoria.unit'), label: t('hero.stats.trayectoria.label') },
+    { value: 600, prefix: '', suffix: '', unit: t('hero.stats.despacho.unit'), label: t('hero.stats.despacho.label') },
+    { value: 25, prefix: '', suffix: '+', unit: '', label: language === 'es' ? 'OBRAS DE GRAN ENVERGADURA' : 'LARGE-SCALE PROJECTS' },
+    { value: 10, prefix: '+', suffix: '', unit: t('hero.stats.trayectoria.unit'), label: t('hero.stats.trayectoria.label') },
     { value: 90, prefix: '', suffix: '*', unit: t('hero.stats.entrega.unit'), label: t('hero.stats.entrega.label') },
   ]
 

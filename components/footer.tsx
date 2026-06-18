@@ -121,7 +121,7 @@ export function Footer() {
                   <span>Lima, Perú</span>
                 </div>
                 <div className="flex items-center gap-2.5 font-mono text-[10px] opacity-75 mt-1">
-                  <span>RUC: 20608552190</span>
+                  <span>RUC: 20614013983</span>
                 </div>
               </div>
             </div>
@@ -184,8 +184,8 @@ export function Footer() {
                   <span className="text-primary mt-0.5">✓</span>
                   <span>
                     {language === 'es' 
-                      ? 'Más de 25 años construyendo el desarrollo del país.' 
-                      : 'Over 25 years building the country\'s development.'}
+                      ? 'Más de 10 años de experiencia acumulada en el sector.' 
+                      : 'Over 10 years of accumulated experience in the sector.'}
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">

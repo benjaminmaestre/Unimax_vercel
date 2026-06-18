@@ -40,10 +40,10 @@ export default function PrivacyPage() {
             
             <div className="text-xs text-text-muted mb-8 pb-4 border-b border-border/40 flex justify-between items-center">
               <span>Grupo Empresarial UNIMAX S.A.C. — Lima, Perú</span>
-              <span>RUC: 20608552190</span>
+              <span>RUC: 20614013983</span>
             </div>
 
-            <div className="space-y-10 text-sm md:text-base leading-relaxed text-text-secondary font-light">
+            <div className="space-y-10 text-sm md:text-base leading-relaxed text-text-secondary font-light text-justify">
               
               {/* 1. RESPONSABLE DEL TRATAMIENTO DE DATOS */}
               <div className="space-y-3">
@@ -74,7 +74,7 @@ export default function PrivacyPage() {
                 <ul className="list-disc pl-8 space-y-2 text-xs md:text-sm">
                   <li><strong>Datos de identificación:</strong> nombre, denominación social, RUC/DNI, representante legal.</li>
                   <li><strong>Datos de contacto:</strong> correo electrónico, número de teléfono, número de WhatsApp.</li>
-                  <li><strong>Datos de ubicación y obra:</strong> dirección de obra, coordenadas GPS para el seguimiento de despachos y logística de entrega.</li>
+                  <li><strong>Datos de ubicación y obra:</strong> dirección de obra para la coordinación logística, seguimiento operativo de ruta y, cuando corresponda, herramientas de geolocalización.</li>
                   <li><strong>Datos comerciales y contractuales:</strong> cotizaciones aceptadas, órdenes de compra, especificaciones técnicas, guías de remisión, comprobantes de pago e historial de pedidos.</li>
                   <li><strong>Datos de comunicación:</strong> correos electrónicos, mensajes de WhatsApp, llamadas telefónicas y cualquier comunicación digital relacionada con la contratación o prestación del servicio.</li>
                   <li><strong>Datos de acceso a plataformas:</strong> credenciales de usuario, historial de acceso y registros de actividad en portales web o app móvil.</li>
@@ -94,7 +94,7 @@ export default function PrivacyPage() {
                 <ul className="list-disc pl-8 space-y-1">
                   <li>Gestionar la relación comercial: cotizaciones, pedidos, programaciones y despachos.</li>
                   <li>Verificar y validar las especificaciones técnicas proporcionadas por el cliente.</li>
-                  <li>Coordinar la logística de entrega y el seguimiento de unidades mediante GPS.</li>
+                  <li>Coordinar la logística de entrega, el seguimiento operativo de ruta y, cuando corresponda, el uso de herramientas de geolocalización.</li>
                   <li>Emitir comprobantes de pago, guías de remisión y demás documentos contables y tributarios.</li>
                   <li>Administrar líneas de crédito, gestionar cobros y, de ser necesario, iniciar procedimientos de recuperación de cartera.</li>
                   <li>Atender reclamos, consultas y solicitudes de soporte técnico o comercial.</li>
@@ -129,7 +129,7 @@ export default function PrivacyPage() {
                   5. PLATAFORMAS DIGITALES, HERRAMIENTAS TECNOLÓGICAS Y GPS
                 </h2>
                 <p className="pl-4">
-                  UNIMAX CORP. pone a disposición de sus clientes portales web, aplicaciones móviles, sistemas de seguimiento de pedidos, monitoreo GPS de unidades, reportes en línea y demás herramientas tecnológicas con fines operativos y comerciales.
+                  UNIMAX CORP. pone a disposición de sus clientes portales web, aplicaciones móviles, sistemas de seguimiento de pedidos, seguimiento de despacho de unidades (cuando la unidad lo permita y según disponibilidad operativa), reportes en línea y demás herramientas tecnológicas con fines operativos y comerciales.
                 </p>
                 <p className="pl-4">
                   El uso de estas herramientas puede implicar el registro de datos de acceso, preferencias, historial de consultas y datos de geolocalización. Dichos datos se utilizan exclusivamente para facilitar la gestión operativa y mejorar la experiencia del usuario, y no serán utilizados para ninguna otra finalidad sin consentimiento previo.
@@ -157,14 +157,14 @@ export default function PrivacyPage() {
               <div className="space-y-3">
                 <h2 className="text-base font-bold text-text-primary uppercase tracking-wide flex items-center gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  7. COMPARTICIÓN DE DATOS WITH TERCEROS
+                  7. COMPARTICIÓN DE DATOS CON TERCEROS
                 </h2>
                 <p className="pl-4">
                   UNIMAX CORP. podrá compartir sus datos personales con terceros únicamente en los siguientes supuestos:
                 </p>
                 <ul className="list-disc pl-8 space-y-2 text-xs md:text-sm">
                   <li><strong>Operadores logísticos y socios comerciales:</strong> empresas aliadas, unidades afiliadas o proveedores estratégicos que participen en la ejecución del servicio, bajo acuerdos de confidencialidad.</li>
-                  <li><strong>Proveedores tecnológicos:</strong> empresas que prestan servicios de hosting, desarrollo de software, monitoreo GPS u otros servicios digitales necesarios para nuestra operación.</li>
+                  <li><strong>Proveedores tecnológicos:</strong> empresas que prestan servicios de hosting, desarrollo de software, seguimiento de despacho u otros servicios digitales necesarios para nuestra operación.</li>
                   <li><strong>Entidades financieras y de cobranza:</strong> en caso de créditos aprobados, líneas corporativas o procesos de recuperación de cartera vencida.</li>
                   <li><strong>Autoridades competentes:</strong> cuando sea requerido por mandato legal, orden judicial o disposición de autoridades reguladoras.</li>
                 </ul>

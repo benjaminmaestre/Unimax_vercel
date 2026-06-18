@@ -171,7 +171,7 @@ export function RingCarousel3D({
       {/* Floating White Circular Controls positioned completely outside the cards */}
       <button 
         onClick={handlePrev}
-        className="absolute left-2 lg:-left-12 z-50 w-12 h-12 rounded-full bg-white text-black flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg border border-black/5 hover:bg-primary hover:text-white"
+        className="absolute left-2 lg:-left-14 z-50 w-12 h-12 rounded-full bg-white text-black flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg border border-black/5 hover:bg-primary hover:text-white"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
@@ -179,7 +179,7 @@ export function RingCarousel3D({
       
       <button 
         onClick={handleNext}
-        className="absolute right-2 lg:-right-12 z-50 w-12 h-12 rounded-full bg-white text-black flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg border border-black/5 hover:bg-primary hover:text-white"
+        className="absolute right-2 lg:-right-14 z-50 w-12 h-12 rounded-full bg-white text-black flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg border border-black/5 hover:bg-primary hover:text-white"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6 stroke-[2.5]" />

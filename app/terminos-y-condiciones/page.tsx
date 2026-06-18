@@ -39,10 +39,10 @@ export default function TermsPage() {
           <div className="max-w-4xl mx-auto rounded-xl bg-white dark:bg-white/5 border border-neutral-200/70 dark:border-white/10 p-6 md:p-12 lg:p-16 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_6px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.15)]">
             <div className="text-xs text-text-muted mb-8 pb-4 border-b border-border/40 flex justify-between items-center">
               <span>GRUPO EMPRESARIAL UNIMAX S.A.C.</span>
-              <span>RUC: 20608552190</span>
+              <span>RUC: 20614013983</span>
             </div>
 
-            <div className="space-y-10 text-sm md:text-base leading-relaxed text-text-secondary font-light">
+            <div className="space-y-10 text-sm md:text-base leading-relaxed text-text-secondary font-light text-justify">
               
               {/* 1. OBJETO */}
               <div className="space-y-3">
@@ -342,7 +342,7 @@ export default function TermsPage() {
                   18. SISTEMAS DIGITALES, HERRAMIENTAS TECNOLÓGICAS Y MEDIOS ELECTRÓNICOS
                 </h2>
                 <p className="pl-4">
-                  LA EMPRESA podrá poner a disposición de sus clientes plataformas digitales, portales web, aplicaciones móviles, certificados digitales, sistemas de seguimiento, monitoreo GPS de unidades, reportes, consultas en línea y demás medios electrónicos destinados a facilitar la gestión comercial, administrativa y operativa.
+                  LA EMPRESA podrá poner a disposición de sus clientes plataformas digitales, portales web, aplicaciones móviles, certificados digitales, sistemas de seguimiento, monitoreo de unidades de despacho (cuando la unidad lo permita y según disponibilidad operativa), reportes, consultas en línea y demás medios electrónicos destinados a facilitar la gestión comercial, administrativa y operativa.
                 </p>
                 <p className="pl-4">
                   El acceso a dichas herramientas podrá estar sujeto a usuarios, contraseñas, perfiles autorizados, disponibilidad técnica, mantenimiento, actualizaciones o restricciones operativas. La información proporcionada mediante dichos sistemas tendrá carácter referencial.

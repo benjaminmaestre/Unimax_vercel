@@ -10,8 +10,8 @@ export function HeroSection() {
   const { t, language } = useLanguage()
 
   const stats = [
-    { value: '+85,000', unit: t('hero.stats.despacho.unit'), label: t('hero.stats.despacho.label') },
-    { value: '25', unit: t('hero.stats.trayectoria.unit'), label: t('hero.stats.trayectoria.label') },
+    { value: '600', unit: t('hero.stats.despacho.unit'), label: t('hero.stats.despacho.label') },
+    { value: '+10', unit: t('hero.stats.trayectoria.unit'), label: t('hero.stats.trayectoria.label') },
     { value: '2', unit: t('hero.stats.plantas.unit'), label: t('hero.stats.plantas.label') },
     { value: '90*', unit: t('hero.stats.entrega.unit'), label: t('hero.stats.entrega.label') },
   ]
@@ -180,8 +180,8 @@ export function HeroSection() {
           
           <p className="text-[11px] text-[#374151] dark:text-white/70 leading-relaxed font-light mt-1">
             {language === 'es' 
-              ? 'Monitoreo GPS en tiempo real para asegurar entregas en 90 minutos* en todo Lima.' 
-              : 'Real-time GPS monitoring to ensure deliveries in 90 minutes* across Lima.'}
+              ? 'Coordinamos cada despacho mediante comunicación directa con nuestros operadores y seguimiento operativo de ruta. Algunos equipos pueden contar con GPS según disponibilidad.' 
+              : 'We coordinate each dispatch through direct communication with our operators and operational route tracking. Some units may have GPS depending on availability.'}
           </p>
           
           <Link

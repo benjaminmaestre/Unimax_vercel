@@ -22,7 +22,7 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://unimax-vercel.verce
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
-  description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 25 años de experiencia en soluciones de concreto para proyectos de infraestructura.',
+  description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 10 años de experiencia acumulada en el sector, integrando trayectoria operativa, conocimiento técnico y atención directa a obras.',
   keywords: ['concreto premezclado', 'Lima', 'Perú', 'bombeo de concreto', 'mixer truck', 'construcción', 'maquinaria pesada', 'plantas de concreto'],
   generator: 'v0.app',
   openGraph: {

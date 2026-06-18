@@ -110,8 +110,8 @@ export function ProcessSection() {
           className="mt-12 text-[10px] text-text-muted text-center max-w-lg mx-auto leading-relaxed select-none"
         >
           {language === 'es'
-            ? '* El tiempo estimado de entrega de 90 minutos está sujeto a la fluidez del tráfico vehicular y a la accesibilidad del sector de la obra.'
-            : '* The estimated 90-minute delivery time is subject to vehicular traffic flow and job site accessibility.'}
+            ? '*Tiempo referencial sujeto a ubicación, tráfico, programación y condiciones de obra.'
+            : '*Reference time subject to location, traffic, scheduling, and job site conditions.'}
         </motion.p>
       </div>
     </section>

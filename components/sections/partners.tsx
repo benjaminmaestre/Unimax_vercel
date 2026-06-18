@@ -21,13 +21,13 @@ export function PartnersSection() {
       pre: 'RESPALDO GARANTIZADO',
       title1: 'ALIANZAS',
       title2: 'ESTRATÉGICAS',
-      desc: 'En UNIMAX tenemos convenios exclusivos con las empresas más grandes e importantes del Perú. Esta red de aliados estratégicos nos permite asegurar un suministro ininterrumpido, maquinaria de última generación y un servicio a prueba de fallas para tu proyecto, sin importar su escala.'
+      desc: 'En UNIMAX CORP tenemos convenios exclusivos con las empresas más grandes e importantes del Perú. Esta red de aliados estratégicos nos permite asegurar un suministro ininterrumpido, maquinaria de última generación y un servicio a prueba de fallas para tu proyecto, sin importar su escala.'
     },
     en: {
       pre: 'GUARANTEED BACKING',
       title1: 'STRATEGIC',
       title2: 'PARTNERSHIPS',
-      desc: 'At UNIMAX, we hold exclusive agreements with the largest and most important companies in Peru. This network of strategic allies allows us to guarantee uninterrupted supply, cutting-edge machinery, and a fail-proof service for your project, regardless of its scale.'
+      desc: 'At UNIMAX CORP, we hold exclusive agreements with the largest and most important companies in Peru. This network of strategic allies allows us to guarantee uninterrupted supply, cutting-edge machinery, and a fail-proof service for your project, regardless of its scale.'
     }
   }
 

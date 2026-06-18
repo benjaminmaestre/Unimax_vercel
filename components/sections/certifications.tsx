@@ -86,8 +86,8 @@ export function CertificationsSection() {
               ))}
             </CarouselContent>
 
-            {/* Industrial Navigation Controls */}
-            <div className="flex justify-end gap-3 mt-6 select-none">
+            {/* Navigation Controls — only visible on mobile/tablet where carousel scrolls */}
+            <div className="flex justify-end gap-3 mt-6 select-none lg:hidden">
               <CarouselPrevious className="static translate-y-0 border border-border hover:bg-primary hover:text-white" />
               <CarouselNext className="static translate-y-0 border border-border hover:bg-primary hover:text-white" />
             </div>
