@@ -236,8 +236,14 @@ export function Footer() {
                 <Link href="/politica-de-privacidad" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
                   {t('footer.privacy')}
                 </Link>
+                <Link href="/politica-de-cookies" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                  {t('footer.cookies')}
+                </Link>
                 <Link href="/terminos-y-condiciones" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
                   {t('footer.terms')}
+                </Link>
+                <Link href="/libro-de-reclamaciones" className="hover:text-primary dark:hover:text-white transition-colors duration-200">
+                  {t('footer.reclamaciones')}
                 </Link>
               </div>
             </div>

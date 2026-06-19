@@ -186,6 +186,12 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'footer.rights': '© 2026 UNIMAX Corp. Todos los derechos reservados.',
     'footer.privacy': 'Políticas de Privacidad',
     'footer.terms': 'Términos de Servicio',
+    'footer.reclamaciones': 'Libro de Reclamaciones',
+    'footer.cookies': 'Política de Cookies',
+    'cookie.banner.text': 'Utilizamos cookies para optimizar tu experiencia y analizar el tráfico del sitio conforme a nuestras políticas.',
+    'cookie.banner.accept': 'Aceptar todas',
+    'cookie.banner.decline': 'Rechazar analíticas',
+    'cookie.banner.info': 'Configurar',
 
     // Concreto Premezclado Page
     'concrete.hero.title': 'CONCRETO PREMEZCLADO',
@@ -456,6 +462,12 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'footer.rights': '© 2026 UNIMAX Corp. All rights reserved.',
     'footer.privacy': 'Privacy Policies',
     'footer.terms': 'Terms of Service',
+    'footer.reclamaciones': 'Complaints Book',
+    'footer.cookies': 'Cookie Policy',
+    'cookie.banner.text': 'We use cookies to optimize your experience and analyze site traffic in accordance with our policies.',
+    'cookie.banner.accept': 'Accept all',
+    'cookie.banner.decline': 'Decline analytics',
+    'cookie.banner.info': 'Configure',
 
     // Ready-Mix Concrete Page
     'concrete.hero.title': 'READY-MIX CONCRETE',

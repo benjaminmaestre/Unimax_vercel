@@ -53,6 +53,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/components/language-provider'
 import { AiChat } from '@/components/ai-chat'
+import { CookieBanner } from '@/components/cookie-banner'
 
 export const viewport: Viewport = {
   themeColor: '#0A0F14',
@@ -94,6 +95,7 @@ export default function RootLayout({
           <LanguageProvider>
             {children}
             <AiChat />
+            <CookieBanner />
           </LanguageProvider>
         </ThemeProvider>
         {process.env.NEXT_PUBLIC_GA_ID && (
