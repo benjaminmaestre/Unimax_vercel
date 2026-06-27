@@ -24,11 +24,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'nav.cotizar': 'Cotizar Ahora',
 
     // Hero
-    'hero.prelabel': 'LÍDERES EN CONCRETO PREMEZCLADO · PERÚ',
-    'hero.title1': 'Concreto premezclado de alta resistencia',
-    'hero.title2': 'para los proyectos más exigentes del Perú',
+    'hero.prelabel': 'LÍDERES EN CONCRETO PREMEZCLADO (MIXER) EN LIMA Y PERÚ',
+    'hero.title1': 'Concreto premezclado (mixer) en Lima y todo el Perú',
+    'hero.title2': 'Dosificación y alta resistencia para su obra',
     'hero.bg_decor': 'QUE TRASCIENDEN.',
-    'hero.desc': 'Especialistas en Concreto Premezclado de alta resistencia. Procesos de calidad, bombeo de precisión y logística pesada para el sector de la construcción.',
+    'hero.desc': 'Servicio y venta de concreto premezclado (mixer) en Lima y todo el Perú. Mezclas dosificadas electrónicamente, bombeo de precisión y despacho rápido para construcción.',
     'hero.hook': 'INSPECCIÓN Y COTIZACIÓN 100% GRATIS',
     'hero.cta.cotizar': 'COTIZAR PROYECTO',
     'hero.cta.servicios': 'NUESTROS SERVICIOS',
@@ -194,8 +194,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'cookie.banner.info': 'Configurar',
 
     // Concreto Premezclado Page
-    'concrete.hero.title': 'CONCRETO PREMEZCLADO',
-    'concrete.hero.desc': 'Mezclas dosificadas con precisión técnica que garantizan ahorro de tiempo, limpieza y cero desperdicios en obra.',
+    'concrete.hero.title': 'CONCRETO PREMEZCLADO EN PERÚ Y LIMA (MIXER)',
+    'concrete.hero.desc': 'Venta y suministro de concreto premezclado (mixer) de alta resistencia en Lima y todo el Perú. Mezclas certificadas dosificadas electrónicamente con despacho continuo.',
     'concrete.intro.title': 'GESTIÓN IMPECABLE Y SOPORTE TÉCNICO DE ALTO NIVEL',
     'concrete.intro.desc': 'En Unimaxcorp, garantizamos que cada metro cúbico llegue a su destino con la precisión y calidad exigidas por las normas internacionales, apoyándonos en una moderna flota y laboratorios avanzados.',
     'concrete.commitment.title': 'MÁS DE 10 AÑOS DE EXPERIENCIA ACUMULADA.',
@@ -255,8 +255,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'concrete.cta.brochure': 'DESCARGAR BROCHURE',
 
     // Bomba de Concreto Page
-    'pump.hero.title': 'BOMBA DE CONCRETO',
-    'pump.hero.desc': 'Potencia, precisión y alcance para vaciados continuos de alto volumen en cualquier escala.',
+    'pump.hero.title': 'BOMBEO DE CONCRETO Y MAQUINARIAS',
+    'pump.hero.desc': 'Servicio de bombeo de concreto en Lima y provincias. Alquiler de bombas telescópicas y estacionarias de alta presión para su obra.',
     'pump.intro.title': 'SOLUCIONES DE BOMBEO Y MAQUINARIA PESADA',
     'pump.intro.desc': 'Equipamiento moderno y operadores certificados que garantizan la colocación exacta del concreto en el menor tiempo posible, minimizando costos y fatiga operativa.',
     'pump.equipos.title': 'Equipamientos a su Medida',
@@ -300,11 +300,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'nav.cotizar': 'Quote Now',
 
     // Hero
-    'hero.prelabel': 'LEADERS IN READY-MIX CONCRETE · PERU',
-    'hero.title1': 'High-resistance ready-mix concrete',
-    'hero.title2': 'for the most demanding projects in Peru',
+    'hero.prelabel': 'LEADERS IN READY-MIX CONCRETE IN LIMA & PERU',
+    'hero.title1': 'Ready-mix concrete in Lima and all Peru',
+    'hero.title2': 'Automated batching and high resistance for your project',
     'hero.bg_decor': 'TRANSCEND.',
-    'hero.desc': 'Specialists in high-resistance Ready-Mix Concrete. Quality processes, precision pumping, and heavy logistics for the construction sector.',
+    'hero.desc': 'Specialists in Ready-Mix Concrete in Lima and Peru. Electronically batched mixes, precision pumping, and fast site dispatch.',
     'hero.hook': 'FREE INSPECTION & QUOTE — 100% FREE',
     'hero.cta.cotizar': 'QUOTE PROJECT',
     'hero.cta.servicios': 'OUR SERVICES',
@@ -470,8 +470,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'cookie.banner.info': 'Configure',
 
     // Ready-Mix Concrete Page
-    'concrete.hero.title': 'READY-MIX CONCRETE',
-    'concrete.hero.desc': 'Precisely measured mix designs that guarantee time savings, cleanliness, and zero waste on site.',
+    'concrete.hero.title': 'READY-MIX CONCRETE IN LIMA',
+    'concrete.hero.desc': 'Supply of high-strength ready-mix concrete in Lima and all Peru. Certified mixes electronically batched for your project.',
     'concrete.intro.title': 'IMPECCABLE MANAGEMENT & HIGH-LEVEL TECHNICAL SUPPORT',
     'concrete.intro.desc': 'At Unimaxcorp, we ensure that every cubic meter reaches its destination with the precision and quality required by international standards, backed by a modern fleet and advanced laboratory testing.',
     'concrete.commitment.title': 'OVER 10 YEARS OF ACCUMULATED EXPERIENCE.',
@@ -531,8 +531,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'concrete.cta.brochure': 'DOWNLOAD BROCHURE',
 
     // Concrete Pump Page
-    'pump.hero.title': 'CONCRETE PUMPING',
-    'pump.hero.desc': 'Power, precision, and reach for high-volume continuous concrete pours at any scale.',
+    'pump.hero.title': 'CONCRETE PUMPING & MACHINERY',
+    'pump.hero.desc': 'Concrete pumping services in Lima and surrounding provinces. Boom and line pumps rental with full technical support.',
     'pump.intro.title': 'PUMPING SOLUTIONS & HEAVY MACHINERY',
     'pump.intro.desc': 'Modern equipment and certified operators that guarantee exact concrete placement in the shortest possible time, minimizing costs and operational fatigue.',
     'pump.equipos.title': 'Equipment Tailored to Your Needs',

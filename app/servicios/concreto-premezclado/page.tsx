@@ -3,12 +3,33 @@ import { Navigation } from '@/components/navigation'
 import { ServiceHero } from '@/components/sections/service-hero'
 import { ConcreteDetails } from '@/components/sections/concrete-details'
 import { Footer } from '@/components/footer'
+import { SchemaConcreteService } from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
-  title: 'Concreto Premezclado de Alta Resistencia | UNIMAX Corp | Lima',
-  description: 'Suministro de concreto premezclado dosificado electrónicamente bajo criterios técnicos aplicables, incluyendo la Norma E.060. Soporte en obra, control de calidad y despacho continuo en Lima.',
+  title: 'Concreto Premezclado en Lima | Calidad y Buen Precio',
+  description: 'Venta de concreto premezclado en Lima con alta resistencia garantizada. Consulta el precio del concreto mixer por m3. ¡Llama y cotiza tu obra!',
+  keywords: [
+    'concreto premezclado en Lima',
+    'precio concreto mixer',
+    'concreto de alta resistencia Lima'
+  ],
+  openGraph: {
+    title: 'Venta de Concreto Premezclado en Lima | UNIMAX Corp',
+    description: 'Venta de concreto premezclado en Lima con alta resistencia garantizada. Consulta el precio del concreto mixer por m3. ¡Llama y cotiza tu obra!',
+    url: 'https://www.unimaxcorp.com/servicios/concreto-premezclado',
+    siteName: 'UNIMAX Corp',
+    images: [{ url: 'https://www.unimaxcorp.com/og-logo-dark.png', width: 1200, height: 630 }],
+    locale: 'es_PE',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Concreto Premezclado en Lima | Calidad y Buen Precio',
+    description: 'Venta de concreto premezclado en Lima con alta resistencia garantizada. Consulta el precio del concreto mixer por m3. ¡Llama y cotiza tu obra!',
+    images: ['https://www.unimaxcorp.com/og-logo-dark.png'],
+  },
   alternates: {
-    canonical: '/servicios/concreto-premezclado',
+    canonical: 'https://www.unimaxcorp.com/servicios/concreto-premezclado',
   },
 }
 
@@ -23,6 +44,7 @@ export default function ConcreteServicePage() {
       />
       <ConcreteDetails />
       <Footer />
+      <SchemaConcreteService />
     </main>
   )
 }

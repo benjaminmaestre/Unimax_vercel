@@ -3,12 +3,33 @@ import { Navigation } from '@/components/navigation'
 import { ServiceHero } from '@/components/sections/service-hero'
 import { PumpDetails } from '@/components/sections/pump-details'
 import { Footer } from '@/components/footer'
+import { SchemaPumpService } from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
-  title: 'Alquiler de Bomba de Concreto y Maquinarias | UNIMAX Corp | Lima',
-  description: 'Servicios de bombeo de concreto premezclado de alta presión y precisión en Lima. Alquiler de bomba estacionaria y pluma telescópica con operadores certificados.',
+  title: 'Alquiler de Bomba de Concreto Lima | UNIMAX Corp',
+  description: 'Servicio de bomba de concreto en Lima. Alquiler de bomba pluma telescópica y estacionaria para tu obra. Ahorra tiempo y dinero. ¡Solicita precio!',
+  keywords: [
+    'bomba de concreto Lima',
+    'alquiler bomba pluma Lima',
+    'boom pump Lima Perú'
+  ],
+  openGraph: {
+    title: 'Servicio y Alquiler de Bomba de Concreto en Lima',
+    description: 'Servicio de bomba de concreto en Lima. Alquiler de bomba pluma telescópica y estacionaria para tu obra. Ahorra tiempo y dinero. ¡Solicita precio!',
+    url: 'https://www.unimaxcorp.com/servicios/bomba-de-concreto',
+    siteName: 'UNIMAX Corp',
+    images: [{ url: 'https://www.unimaxcorp.com/og-logo-dark.png', width: 1200, height: 630 }],
+    locale: 'es_PE',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alquiler de Bomba de Concreto Lima | UNIMAX Corp',
+    description: 'Servicio de bomba de concreto en Lima. Alquiler de bomba pluma telescópica y estacionaria para tu obra. Ahorra tiempo y dinero. ¡Solicita precio!',
+    images: ['https://www.unimaxcorp.com/og-logo-dark.png'],
+  },
   alternates: {
-    canonical: '/servicios/bomba-de-concreto',
+    canonical: 'https://www.unimaxcorp.com/servicios/bomba-de-concreto',
   },
 }
 
@@ -23,6 +44,7 @@ export default function PumpServicePage() {
       />
       <PumpDetails />
       <Footer />
+      <SchemaPumpService />
     </main>
   )
 }

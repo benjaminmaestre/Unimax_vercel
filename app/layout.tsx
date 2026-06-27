@@ -17,17 +17,37 @@ const bebasNeue = Bebas_Neue({
   display: 'swap',
 })
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://unimax-vercel.vercel.app'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.unimaxcorp.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
-  description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 10 años de experiencia acumulada en el sector, integrando trayectoria operativa, conocimiento técnico y atención directa a obras.',
-  keywords: ['concreto premezclado', 'Lima', 'Perú', 'bombeo de concreto', 'mixer truck', 'construcción', 'maquinaria pesada', 'plantas de concreto'],
+  title: 'UNIMAX Corp | Concreto Premezclado y Mixer en Lima, Perú',
+  description: 'Servicio y venta de concreto premezclado (mixer) de alta resistencia en Lima y todo el Perú. Bombeo de concreto continuo y alquiler de maquinaria pesada. +10 años de experiencia.',
+  keywords: [
+    'premezclado en peru',
+    'concreto premezclado en lima',
+    'concreto mixer en lima',
+    'venta de concreto premezclado',
+    'concreto premezclado peru',
+    'concreto mixer',
+    'precio de concreto mixer',
+    'bombeo de concreto en lima',
+    'precio de concreto premezclado m3',
+    'bombeo de concreto',
+    'mixer truck',
+    'construcción',
+    'maquinaria pesada',
+    'plantas de concreto',
+    'dosificación de concreto',
+    'concreto de alta resistencia'
+  ],
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || '',
+  },
   generator: 'v0.app',
   openGraph: {
-    title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias',
-    description: 'Soluciones integrales de concreto premezclado y maquinaria pesada para proyectos de construcción en Lima y todo el Perú.',
+    title: 'UNIMAX Corp | Concreto Premezclado y Mixer en Lima, Perú',
+    description: 'Servicio y venta de concreto premezclado (mixer) de alta resistencia en Lima y todo el Perú.',
     type: 'website',
     images: [
       {
@@ -40,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'UNIMAX Corp | Concreto Premezclado y Maquinarias | Lima, Perú',
-    description: 'Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú.',
+    title: 'UNIMAX Corp | Concreto Premezclado y Mixer en Lima, Perú',
+    description: 'Servicio y venta de concreto premezclado (mixer) de alta resistencia en Lima y todo el Perú.',
     images: ['/og-logo-dark.png'],
   },
   icons: {
@@ -54,6 +74,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/components/language-provider'
 import { AiChat } from '@/components/ai-chat'
 import { CookieBanner } from '@/components/cookie-banner'
+import { SchemaLocalBusiness, SchemaFAQ } from '@/components/SchemaMarkup'
 
 export const viewport: Viewport = {
   themeColor: '#0A0F14',
@@ -66,28 +87,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Corporation",
-    "name": "UNIMAX Corp",
-    "url": baseUrl,
-    "logo": `${baseUrl}/logo_unimx-removebg-preview.png`,
-    "description": "Líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Calle Carrozable Lote 4, Lurigancho",
-      "addressLocality": "Lima",
-      "addressCountry": "PE"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+51-959-345-117",
-      "contactType": "technical support / sales",
-      "areaServed": "PE",
-      "availableLanguage": ["Spanish", "English"]
-    }
-  }
-
   return (
     <html lang="es" className={`${inter.variable} ${bebasNeue.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased bg-background text-foreground transition-colors duration-300">
@@ -115,12 +114,8 @@ export default function RootLayout({
           </>
         )}
         {process.env.NODE_ENV === 'production' && <Analytics />}
-        <Script
-          id="json-ld"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          strategy="beforeInteractive"
-        />
+        <SchemaLocalBusiness />
+        <SchemaFAQ />
       </body>
     </html>
   )
