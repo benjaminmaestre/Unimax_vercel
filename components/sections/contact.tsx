@@ -63,7 +63,7 @@ export function ContactSection() {
       items: [
         {
           label: language === 'es' ? '+51 959 345 117 (Solo WhatsApp)' : '+51 959 345 117 (WhatsApp Only)',
-          href: 'https://wa.me/51959345117',
+          href: 'https://wa.me/51932095130',
         },
       ],
       hours: language === 'es' ? 'Lun–Vie: 8:00 am – 6:00 pm | Sáb: 8:00 am – 1:00 pm' : 'Mon–Fri: 8:00 am – 6:00 pm | Sat: 8:00 am – 1:00 pm',
@@ -116,7 +116,7 @@ export function ContactSection() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form id="cotizador-volumen" aria-label="Cotizador de Volumen" onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <input
                   type="text"
@@ -155,7 +155,8 @@ export function ContactSection() {
                 </select>
                 <input
                   type="text"
-                  placeholder={t('contact.form.volume')}
+                  aria-label="Largo, Ancho y Espesor de la losa"
+                  placeholder={language === 'es' ? 'Volumen o Medidas (Largo x Ancho x Espesor)' : 'Volume or Dimensions (L x W x H)'}
                   value={formData.volume}
                   required
                   onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
@@ -295,7 +296,7 @@ export function ContactSection() {
                   <TiktokIcon className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://wa.me/51959345117"
+                  href="https://wa.me/51932095130"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('click_whatsapp', 'Contact', 'Social Section WhatsApp')}
@@ -312,7 +313,7 @@ export function ContactSection() {
 
       {/* WhatsApp FAB - Premium Authentic Green Floating Button */}
       <motion.a
-        href="https://wa.me/51959345117"
+        href="https://wa.me/51932095130"
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackEvent('click_whatsapp', 'Contact', 'Floating WhatsApp Button')}

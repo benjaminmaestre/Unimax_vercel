@@ -20,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/servicios/concreto-mixer-lima`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/servicios/bomba-de-concreto`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

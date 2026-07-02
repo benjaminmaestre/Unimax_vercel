@@ -211,7 +211,7 @@ export function ProjectsDetails() {
 
             <div className="flex flex-col sm:flex-row gap-3.5 w-full lg:w-auto shrink-0">
               <a
-                href="https://wa.me/51900000000"
+                href="https://wa.me/51932095130"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-2 bg-white text-primary px-8 h-12 rounded-md text-[11px] font-extrabold tracking-widest uppercase hover:bg-black hover:text-white transition-all duration-200 active:scale-95 shadow-md flex-1 sm:flex-none text-center"

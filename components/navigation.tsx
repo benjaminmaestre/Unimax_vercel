@@ -23,6 +23,7 @@ const navLinks: NavLinkItem[] = [
     key: 'nav.servicios',
     items: [
       { href: '/servicios/concreto-premezclado', labelEs: 'Concreto Premezclado', labelEn: 'Ready-Mix Concrete' },
+      { href: '/servicios/concreto-mixer-lima', labelEs: 'Servicio Mixer', labelEn: 'Mixer Service' },
       { href: '/servicios/bomba-de-concreto', labelEs: 'Bomba de Concreto', labelEn: 'Concrete Pumping' }
     ]
   },
@@ -307,7 +308,7 @@ export function Navigation() {
 
           {/* Call direct CTA for quick conversions */}
           <a
-            href="https://wa.me/51959345117"
+            href="https://wa.me/51932095130"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('click_whatsapp', 'Navigation', 'Mobile Header Phone Icon')}

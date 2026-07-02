@@ -131,8 +131,11 @@ export function ConcreteDetails() {
             viewport={{ once: true }}
             className="mt-12 max-w-4xl"
           >
-            <p className="text-lg md:text-xl font-light italic text-text-muted leading-relaxed">
+            <p className="text-lg md:text-xl font-light italic text-text-muted leading-relaxed mb-6">
               "{t('concrete.commitment.quote')}"
+            </p>
+            <p className="text-sm text-text-secondary font-light">
+              Respaldamos nuestra calidad con una extensa <Link href="/servicios/concreto-mixer-lima" className="text-primary hover:underline font-bold">flota de mixer para vaciado en Lima</Link>, asegurando entregas puntuales y un servicio logístico ininterrumpido.
             </p>
           </motion.div>
         </section>
@@ -452,7 +455,7 @@ export function ConcreteDetails() {
             
             <div className="flex flex-col sm:flex-row lg:flex-col w-full sm:w-auto gap-4 shrink-0 relative z-10">
               <a
-                href="https://wa.me/51900000000"
+                href="https://wa.me/51932095130"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-6 bg-white text-primary px-8 h-12 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all active:scale-95 shadow-sm"

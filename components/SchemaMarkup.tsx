@@ -57,7 +57,7 @@ export function SchemaLocalBusiness() {
         "closes": "13:00"
       }
     ],
-    "areaServed": "Lima Metropolitana, Perú",
+    "areaServed": "Lima y alrededores",
     "sameAs": [
       "https://www.facebook.com/UNIMAXCORP/",
       "https://www.tiktok.com/@unimaxcorp"
@@ -96,7 +96,21 @@ export function SchemaConcreteService() {
         "@type": "PriceSpecification",
         "description": "El precio varía según el volumen solicitado, la resistencia del concreto (f'c) requerida y la ubicación del proyecto."
       }
-    }
+    },
+    "certification": [
+      {
+        "@type": "Certification",
+        "name": "Reglamento Nacional de Edificaciones E.060"
+      },
+      {
+        "@type": "Certification",
+        "name": "ASTM"
+      },
+      {
+        "@type": "Certification",
+        "name": "ACI 211"
+      }
+    ]
   }
 
   return (
