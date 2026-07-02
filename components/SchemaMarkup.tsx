@@ -1,50 +1,96 @@
 // JSON-LD data objects — exported for use with dangerouslySetInnerHTML on <script> directly
 // These are used inline in layout.tsx and page files (NOT as React components)
 
-export const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ConcreteContractor",
-  "name": "UNIMAX Corp",
-  "url": "https://www.unimaxcorp.com",
-  "logo": "https://www.unimaxcorp.com/og-logo-dark.png",
-  "image": "https://www.unimaxcorp.com/og-logo-dark.png",
-  "description": "Empresa líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 10 años de experiencia en el sector construcción.",
-  "telephone": "+51 959 345 117",
-  "email": ["area.comercial@unimaxcorp.com", "consultas@unimaxcorp.com"],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Calle Carrozable Lote 4, Lurigancho",
-    "addressLocality": "Lima",
-    "addressRegion": "Lima",
-    "addressCountry": "PE"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "-11.9961",
-    "longitude": "-76.9922"
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
+export const localBusinessJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ConcreteContractor"],
+    "name": "UNIMAX Corp - Planta Lima Este",
+    "url": "https://www.unimaxcorp.com",
+    "logo": "https://www.unimaxcorp.com/og-logo-dark.png",
+    "image": "https://www.unimaxcorp.com/og-logo-dark.png",
+    "description": "Empresa líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 10 años de experiencia en el sector construcción.",
+    "telephone": "+51 932 095 130",
+    "email": ["area.comercial@unimaxcorp.com", "consultas@unimaxcorp.com"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Carrozable Lote 4, Lurigancho",
+      "addressLocality": "Lima",
+      "addressRegion": "Lima",
+      "addressCountry": "PE"
     },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "08:00",
-      "closes": "13:00"
-    }
-  ],
-  "areaServed": "Lima y alrededores",
-  "sameAs": [
-    "https://www.facebook.com/UNIMAXCORP/",
-    "https://www.tiktok.com/@unimaxcorp"
-  ],
-  "taxID": "20614013983",
-  "priceRange": "$$"
-}
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-11.9961",
+      "longitude": "-76.9922"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "areaServed": "Lima y alrededores",
+    "sameAs": [
+      "https://www.facebook.com/UNIMAXCORP/",
+      "https://www.tiktok.com/@unimaxcorp"
+    ],
+    "taxID": "20614013983",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ConcreteContractor"],
+    "name": "UNIMAX Corp - Planta Lima Sur",
+    "url": "https://www.unimaxcorp.com",
+    "logo": "https://www.unimaxcorp.com/og-logo-dark.png",
+    "image": "https://www.unimaxcorp.com/og-logo-dark.png",
+    "description": "Empresa líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 10 años de experiencia en el sector construcción.",
+    "telephone": "+51 932 095 130",
+    "email": ["area.comercial@unimaxcorp.com", "consultas@unimaxcorp.com"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 13 Mz. S Lote 16 Coop. Las Vertientes, Villa el salvador",
+      "addressLocality": "Lima",
+      "addressRegion": "Lima",
+      "addressCountry": "PE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-12.2220",
+      "longitude": "-76.9690"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "areaServed": "Lima y alrededores",
+    "sameAs": [
+      "https://www.facebook.com/UNIMAXCORP/",
+      "https://www.tiktok.com/@unimaxcorp"
+    ],
+    "taxID": "20614013983",
+    "priceRange": "$$"
+  }
+]
 
 export const concreteServiceJsonLd = {
   "@context": "https://schema.org",

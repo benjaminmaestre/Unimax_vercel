@@ -14,6 +14,21 @@ export const metadata: Metadata = {
     'despacho mixer para obras',
     'capacidad mixer 8m3'
   ],
+  openGraph: {
+    title: 'Servicio de Concreto Mixer en Lima | Logística y Despacho',
+    description: 'Conoce nuestra flota de camiones mixer, capacidades de 8 m3 y 10 m3, y nuestra logística de despacho de concreto en Lima para tu obra.',
+    url: 'https://www.unimaxcorp.com/servicios/concreto-mixer-lima',
+    siteName: 'UNIMAX Corp',
+    images: [{ url: 'https://www.unimaxcorp.com/og-logo-dark.png', width: 1200, height: 630 }],
+    locale: 'es_PE',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Servicio de Concreto Mixer en Lima | Logística y Despacho',
+    description: 'Conoce nuestra flota de camiones mixer, capacidades de 8 m3 y 10 m3, y nuestra logística de despacho de concreto en Lima para tu obra.',
+    images: ['https://www.unimaxcorp.com/og-logo-dark.png'],
+  },
   alternates: {
     canonical: 'https://www.unimaxcorp.com/servicios/concreto-mixer-lima',
   },

@@ -62,7 +62,7 @@ export function ContactSection() {
       title: language === 'es' ? 'Central Comercial' : 'Commercial Central',
       items: [
         {
-          label: language === 'es' ? '+51 959 345 117 (Solo WhatsApp)' : '+51 959 345 117 (WhatsApp Only)',
+          label: language === 'es' ? '+51 932 095 130 (Solo WhatsApp)' : '+51 932 095 130 (WhatsApp Only)',
           href: 'https://wa.me/51932095130',
         },
       ],
