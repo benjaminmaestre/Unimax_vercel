@@ -28,7 +28,7 @@ export function HeroSection() {
           className="absolute inset-0"
         >
           <Image
-            src="/hero-bg.png"
+            src="/hero-bg.webp"
             alt="Fondo Unimax Corp"
             fill
             priority
