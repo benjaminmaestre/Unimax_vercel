@@ -140,9 +140,9 @@ export function ProjectsGallerySection() {
                       <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 z-10">
                         <div className="flex items-end justify-between gap-3">
                           <div>
-                            <h3 className="text-sm md:text-base font-bold text-white leading-snug">
+                            <p className="text-sm md:text-base font-bold text-white leading-snug">
                               {project.title}
-                            </h3>
+                            </p>
                             <p className="text-xs text-white/70 mt-0.5">
                               {project.location}
                             </p>
@@ -189,9 +189,9 @@ export function ProjectsGallerySection() {
                   <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
                     <div className="flex items-end justify-between gap-3">
                       <div>
-                        <h3 className="text-base xl:text-lg font-bold text-white leading-snug">
+                        <p className="text-base xl:text-lg font-bold text-white leading-snug">
                           {project.title}
-                        </h3>
+                        </p>
                         <p className="text-xs text-white/70 mt-0.5">
                           {project.location}
                         </p>

@@ -90,9 +90,9 @@ export function ProcessSection() {
                 </div>
 
                 {/* Content */}
-                <h3 className="mt-4 lg:mt-5 text-base lg:text-lg font-bold text-text-primary">
+                <p className="mt-4 lg:mt-5 text-base lg:text-lg font-bold text-text-primary">
                   {step.title}
-                </h3>
+                </p>
                 <p className="mt-1 lg:mt-2 text-xs lg:text-sm leading-relaxed text-text-muted max-w-[180px] mx-auto">
                   {step.description}
                 </p>

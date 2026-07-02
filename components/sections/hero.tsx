@@ -177,9 +177,9 @@ export function HeroSection() {
             </span>
           </div>
           
-          <h3 className="font-display text-xl text-[#0A0F14] dark:text-white mt-1 leading-tight tracking-wide">
+          <p className="font-display text-xl text-[#0A0F14] dark:text-white mt-1 leading-tight tracking-wide">
             {language === 'es' ? '2 PLANTAS DOSIFICADORAS DESPACHANDO 24/7' : '2 BATCHING PLANTS DISPATCHING 24/7'}
-          </h3>
+          </p>
           
           <p className="text-[11px] text-[#374151] dark:text-white/70 leading-relaxed font-light mt-1">
             {language === 'es' 

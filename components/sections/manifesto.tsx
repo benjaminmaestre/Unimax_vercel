@@ -155,9 +155,9 @@ export function ManifestoSection() {
                   <div className="p-5 lg:p-6 rounded-xl bg-surface border border-border/80 shadow-xs">
                     <div className="flex items-center gap-3">
                       <span className="w-1.5 h-6 bg-primary rounded-full shrink-0" />
-                      <h3 className="text-base lg:text-lg font-bold text-text-primary uppercase tracking-wider">
+                      <p className="text-base lg:text-lg font-bold text-text-primary uppercase tracking-wider">
                         {t('manifesto.mision.title')}
-                      </h3>
+                      </p>
                     </div>
                     <p className="mt-3 text-xs lg:text-sm text-text-secondary leading-relaxed pl-4">
                       {t('manifesto.mision.desc')}
@@ -168,9 +168,9 @@ export function ManifestoSection() {
                   <div className="p-5 lg:p-6 rounded-xl bg-surface border border-border/80 shadow-xs">
                     <div className="flex items-center gap-3">
                       <span className="w-1.5 h-6 bg-primary rounded-full shrink-0" />
-                      <h3 className="text-base lg:text-lg font-bold text-text-primary uppercase tracking-wider">
+                      <p className="text-base lg:text-lg font-bold text-text-primary uppercase tracking-wider">
                         {t('manifesto.vision.title')}
-                      </h3>
+                      </p>
                     </div>
                     <p className="mt-3 text-xs lg:text-sm text-text-secondary leading-relaxed pl-4">
                       {t('manifesto.vision.desc')}
@@ -181,9 +181,9 @@ export function ManifestoSection() {
                   <div className="p-5 lg:p-6 rounded-xl bg-surface border border-border/80 shadow-xs">
                     <div className="flex items-center gap-3">
                       <span className="w-1.5 h-6 bg-primary rounded-full shrink-0" />
-                      <h3 className="text-base lg:text-lg font-bold text-text-primary uppercase tracking-wider">
+                      <p className="text-base lg:text-lg font-bold text-text-primary uppercase tracking-wider">
                         {t('manifesto.proposito.title')}
-                      </h3>
+                      </p>
                     </div>
                     <p className="mt-3 text-xs lg:text-sm text-text-secondary leading-relaxed pl-4">
                       {t('manifesto.proposito.desc')}
@@ -213,9 +213,9 @@ export function ManifestoSection() {
                         <Icon className="w-5 h-5" />
                       </div>
 
-                      <h3 className="mt-4 text-base lg:text-lg font-bold text-text-primary tracking-wide">
+                      <p className="mt-4 text-base lg:text-lg font-bold text-text-primary tracking-wide">
                         {item.title}
-                      </h3>
+                      </p>
 
                       <p className="mt-2 text-xs lg:text-sm text-text-muted leading-relaxed">
                         {item.desc}

@@ -231,9 +231,9 @@ export function FleetGallerySection() {
 
                       {/* Content Card */}
                       <div className="relative p-5 lg:p-6 z-10">
-                        <h3 className="text-xl lg:text-2xl font-bold text-white leading-tight">
+                        <p className="text-xl lg:text-2xl font-bold text-white leading-tight">
                           {item.model}
-                        </h3>
+                        </p>
                         
                         <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-xs text-white/70">
                           {item.specs.map((spec, i) => (
@@ -268,9 +268,9 @@ export function FleetGallerySection() {
                   className="h-full"
                 >
                   <div className="h-[440px] rounded-xl overflow-hidden bg-surface border border-border/80 flex flex-col items-center justify-center text-center p-6 lg:p-8 shadow-xs">
-                    <h3 className="text-xl lg:text-2xl font-bold text-text-primary">
+                    <p className="text-xl lg:text-2xl font-bold text-text-primary">
                       {t('fleet.more.title')}
-                    </h3>
+                    </p>
                     <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-[240px]">
                       {t('fleet.more.desc')}
                     </p>
@@ -322,9 +322,9 @@ export function FleetGallerySection() {
 
                     {/* Content Card */}
                     <div className="relative p-5 lg:p-6 z-10">
-                      <h3 className="text-xl lg:text-2xl font-bold text-white leading-tight">
+                      <p className="text-xl lg:text-2xl font-bold text-white leading-tight">
                         {item.model}
-                      </h3>
+                      </p>
                       
                       <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-xs text-white/70">
                         {item.specs.map((spec, i) => (
@@ -351,9 +351,9 @@ export function FleetGallerySection() {
               {/* Symmetrical CTA Slide */}
               <div className="w-full h-full">
                 <div className="h-full rounded-xl overflow-hidden bg-surface border border-border/80 flex flex-col items-center justify-center text-center p-6 lg:p-8 shadow-xs">
-                  <h3 className="text-xl lg:text-2xl font-bold text-text-primary">
+                  <p className="text-xl lg:text-2xl font-bold text-text-primary">
                     {t('fleet.more.title')}
-                  </h3>
+                  </p>
                   <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-[240px]">
                     {t('fleet.more.desc')}
                   </p>

@@ -171,9 +171,9 @@ export function ProjectsDetails() {
                       
                       {/* Title & Location */}
                       <div>
-                        <h3 className="text-base lg:text-lg font-bold text-white leading-snug">
+                        <p className="text-base lg:text-lg font-bold text-white leading-snug">
                           {displayTitle}
-                        </h3>
+                        </p>
                         <p className="text-xs text-white/70 mt-1">
                           {project.location}
                         </p>
@@ -201,9 +201,9 @@ export function ProjectsDetails() {
               <span className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-white/70 uppercase block mb-3">
                 • {language === 'es' ? 'ASESORÍA SIN COSTO' : 'FREE ADVISORY'}
               </span>
-              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white tracking-wide uppercase leading-tight">
+              <p className="text-2xl md:text-4xl font-display font-extrabold text-white tracking-wide uppercase leading-tight">
                 {t('projects.cta.title')}
-              </h3>
+              </p>
               <p className="mt-3 text-xs md:text-sm text-white/90 leading-relaxed font-light">
                 {t('projects.cta.desc')}
               </p>

@@ -163,9 +163,9 @@ export function ConcreteDetails() {
                 <span className="text-[10px] font-bold tracking-widest text-primary mb-4 block uppercase">
                   {language === 'es' ? 'Ficha de Diseño' : 'Design Sheet'}
                 </span>
-                <h3 className="text-xl md:text-2xl font-bold uppercase leading-snug mb-4 text-white">
+                <p className="text-xl md:text-2xl font-bold uppercase leading-snug mb-4 text-white">
                   {t('concrete.versatility.title')}
-                </h3>
+                </p>
                 <p className="text-xs text-white/80 leading-relaxed mb-8">
                   {t('concrete.versatility.desc')}
                 </p>
@@ -228,9 +228,9 @@ export function ConcreteDetails() {
                 <span className="text-[10px] font-bold tracking-widest text-primary mb-3 block uppercase">
                   {language === 'es' ? 'Rendimiento Acelerado' : 'Accelerated Performance'}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-bold uppercase leading-tight mb-4 text-text-primary">
+                <p className="text-2xl md:text-3xl font-bold uppercase leading-tight mb-4 text-text-primary">
                   {t('concrete.accel.title')}
-                </h3>
+                </p>
                 <p className="text-xs md:text-sm text-text-secondary font-light">
                   {t('concrete.accel.subtitle')}
                 </p>
@@ -273,9 +273,9 @@ export function ConcreteDetails() {
                 <div className="w-12 h-12 rounded-lg bg-white dark:bg-white/10 border border-neutral-200/70 dark:border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm mb-6">
                   <FlaskConical className="w-5 h-5 animate-pulse" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-bold uppercase tracking-wide mb-3 text-text-primary">
+                <p className="text-xl font-bold uppercase tracking-wide mb-3 text-text-primary">
                   {t('concrete.aditivos.title')}
-                </h3>
+                </p>
                 <p className="text-xs text-text-muted font-light leading-relaxed">
                   {t('concrete.aditivos.desc')}
                 </p>
@@ -315,9 +315,9 @@ export function ConcreteDetails() {
               <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase block mb-3">
                 {language === 'es' ? 'Análisis de Malla' : 'Sieve Analysis'}
               </span>
-              <h3 className="text-2xl md:text-3xl font-bold uppercase leading-tight text-text-primary mb-4">
+              <p className="text-2xl md:text-3xl font-bold uppercase leading-tight text-text-primary mb-4">
                 {t('concrete.agregados.title')}
-              </h3>
+              </p>
               <p className="text-xs text-text-muted font-light max-w-sm">
                 {t('concrete.agregados.desc')}
               </p>
@@ -385,9 +385,9 @@ export function ConcreteDetails() {
         {/* SECTION 5: APPLICATIONS                                                   */}
         {/* ========================================================================= */}
         <section className="mb-20 lg:mb-32 relative z-10">
-          <h3 className="text-xl md:text-2xl font-bold uppercase mb-10 text-text-primary">
+          <p className="text-xl md:text-2xl font-bold uppercase mb-10 text-text-primary">
             {t('concrete.applications.banner')}
-          </h3>
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {apps.map((app, idx) => {
               const bgImages = [
@@ -445,9 +445,9 @@ export function ConcreteDetails() {
               <span className="text-[10px] font-bold tracking-[0.2em] text-white/70 uppercase block mb-3">
                 {language === 'es' ? 'Soporte de Ingeniería' : 'Engineering Support'}
               </span>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight mb-3">
+              <p className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight mb-3">
                 {t('concrete.cta.title')}
-              </h3>
+              </p>
               <p className="text-xs md:text-sm font-light text-white/90">
                 {t('concrete.cta.desc')}
               </p>

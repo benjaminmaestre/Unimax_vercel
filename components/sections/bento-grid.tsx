@@ -219,9 +219,9 @@ export function BentoGridSection() {
                             <span className="text-[10px] font-bold tracking-widest uppercase text-primary">
                               {item.tag}
                             </span>
-                            <h3 className="mt-2 text-xl lg:text-2xl font-bold text-white leading-tight">
+                            <p className="mt-2 text-xl lg:text-2xl font-bold text-white leading-tight">
                               {item.title}
-                            </h3>
+                            </p>
                             <ul className="mt-4 space-y-2 max-w-sm">
                               {item.items?.map((bullet) => (
                                 <li key={bullet} className="flex items-center gap-2.5 text-sm text-white/80">
@@ -252,9 +252,9 @@ export function BentoGridSection() {
                             <span className="mt-6 block text-[10px] font-bold tracking-widest uppercase text-primary">
                               {item.tag}
                             </span>
-                            <h3 className="mt-2 text-xl lg:text-2xl font-bold text-text-primary leading-tight">
+                            <p className="mt-2 text-xl lg:text-2xl font-bold text-text-primary leading-tight">
                               {item.title}
-                            </h3>
+                            </p>
                             <ul className="mt-4 space-y-2">
                               {item.items?.map((bullet) => (
                                 <li key={bullet} className="flex items-center gap-2.5 text-sm text-text-secondary">
@@ -331,9 +331,9 @@ export function BentoGridSection() {
                         <span className="text-[10px] font-bold tracking-widest uppercase text-primary">
                           {item.tag}
                         </span>
-                        <h3 className="mt-2 text-xl lg:text-2xl font-bold text-white leading-tight">
+                        <p className="mt-2 text-xl lg:text-2xl font-bold text-white leading-tight">
                           {item.title}
-                        </h3>
+                        </p>
                         <ul className="mt-4 space-y-2 max-w-sm">
                           {item.items?.map((bullet) => (
                             <li key={bullet} className="flex items-center gap-2.5 text-sm text-white/80">
@@ -360,9 +360,9 @@ export function BentoGridSection() {
                         <span className="mt-6 block text-[10px] font-bold tracking-widest uppercase text-primary">
                           {item.tag}
                         </span>
-                        <h3 className="mt-2 text-xl lg:text-2xl font-bold text-text-primary leading-tight">
+                        <p className="mt-2 text-xl lg:text-2xl font-bold text-text-primary leading-tight">
                           {item.title}
-                        </h3>
+                        </p>
                         <ul className="mt-4 space-y-2">
                           {item.items?.map((bullet) => (
                             <li key={bullet} className="flex items-center gap-2.5 text-sm text-text-secondary">
@@ -436,9 +436,9 @@ export function BentoGridSection() {
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-base lg:text-lg font-bold text-text-primary tracking-wide leading-tight">
+                    <p className="text-base lg:text-lg font-bold text-text-primary tracking-wide leading-tight">
                       {specsData.title}
-                    </h3>
+                    </p>
                     <p className="text-[11px] text-text-muted mt-0.5 hidden sm:block">
                       {specsData.subtitle}
                     </p>
@@ -457,10 +457,10 @@ export function BentoGridSection() {
               <div className="overflow-y-auto p-6 lg:p-8 space-y-8 relative z-0">
                 {/* Section 1: Table of Compressive Strength */}
                 <div>
-                  <h4 className="text-sm font-extrabold uppercase tracking-widest text-primary flex items-center gap-2 mb-4">
+                  <p className="text-sm font-extrabold uppercase tracking-widest text-primary flex items-center gap-2 mb-4">
                     <span className="w-1.5 h-3 bg-primary rounded-full" />
                     {specsData.sec1}
-                  </h4>
+                  </p>
                   <div className="overflow-x-auto rounded-xl border border-border/80 bg-surface">
                     <table className="w-full text-left border-collapse">
                       <thead>

@@ -82,9 +82,9 @@ export function PumpDetails() {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-1.5 h-3 bg-primary rounded-full" />
-                  <h3 className="text-lg md:text-xl font-bold text-text-primary uppercase">
+                  <p className="text-lg md:text-xl font-bold text-text-primary uppercase">
                     {t('pump.equipos.estacionaria.title')}
-                  </h3>
+                  </p>
                 </div>
                 <p className="text-xs md:text-sm text-text-secondary leading-relaxed">
                   {t('pump.equipos.estacionaria.desc')}
@@ -119,9 +119,9 @@ export function PumpDetails() {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-1.5 h-3 bg-primary rounded-full" />
-                  <h3 className="text-lg md:text-xl font-bold text-text-primary uppercase">
+                  <p className="text-lg md:text-xl font-bold text-text-primary uppercase">
                     {t('pump.equipos.pluma.title')}
-                  </h3>
+                  </p>
                 </div>
                 <p className="text-xs md:text-sm text-text-secondary leading-relaxed">
                   {t('pump.equipos.pluma.desc')}
@@ -152,9 +152,9 @@ export function PumpDetails() {
               <span className="text-[10px] md:text-[11px] font-extrabold tracking-[0.2em] text-primary uppercase block">
                 • {language === 'es' ? 'OPTIMIZACIÓN FINANCIERA' : 'FINANCIAL STRATEGY'}
               </span>
-              <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-text-primary uppercase leading-tight">
+              <p className="text-2xl md:text-3xl font-bold tracking-tight text-text-primary uppercase leading-tight">
                 {t('pump.ventajas.title')}
-              </h3>
+              </p>
               <p className="text-xs md:text-sm text-text-secondary leading-relaxed">
                 {t('pump.ventajas.desc')}
               </p>
@@ -217,9 +217,9 @@ export function PumpDetails() {
               <span className="text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-white/70 uppercase block mb-3">
                 • {language === 'es' ? 'CONSULTORÍA TÉCNICA' : 'TECHNICAL ADVISORY'}
               </span>
-              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white tracking-wide uppercase leading-tight">
+              <p className="text-2xl md:text-4xl font-display font-extrabold text-white tracking-wide uppercase leading-tight">
                 {t('pump.cta.title')}
-              </h3>
+              </p>
               <p className="mt-3 text-xs md:text-sm text-white/90 leading-relaxed font-light">
                 {t('pump.cta.desc')}
               </p>

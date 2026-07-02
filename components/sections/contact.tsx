@@ -209,9 +209,9 @@ export function ContactSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="bg-background rounded-xl border border-border/80 p-6 lg:p-8 shadow-xs">
-              <h3 className="text-lg lg:text-xl font-bold text-text-primary tracking-wide">
+              <p className="text-lg lg:text-xl font-bold text-text-primary tracking-wide">
                 {t('contact.info.title')}
-              </h3>
+              </p>
 
               <div className="mt-6 space-y-6">
                 {contactLines.map((line, index) => (
