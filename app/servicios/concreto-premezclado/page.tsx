@@ -3,7 +3,7 @@ import { Navigation } from '@/components/navigation'
 import { ServiceHero } from '@/components/sections/service-hero'
 import { ConcreteDetails } from '@/components/sections/concrete-details'
 import { Footer } from '@/components/footer'
-import { SchemaConcreteService } from '@/components/SchemaMarkup'
+import { concreteServiceJsonLd } from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
   title: 'Concreto Premezclado en Lima | Calidad y Buen Precio',
@@ -36,15 +36,20 @@ export const metadata: Metadata = {
 export default function ConcreteServicePage() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Navigation />
-      <ServiceHero
-        titleKey="concrete.hero.title"
-        descKey="concrete.hero.desc"
-        bgImage="/Concreto%20Premezclado.jpg"
+      <script
+        id="schema-service-premezclado"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(concreteServiceJsonLd) }}
       />
-      <ConcreteDetails />
-      <Footer />
-      <SchemaConcreteService />
+      <Navigation />
+        <ServiceHero
+          titleKey="concrete.hero.title"
+          descKey="concrete.hero.desc"
+          bgImage="/Concreto%20Premezclado.jpg"
+        />
+        <ConcreteDetails />
+        <Footer />
     </main>
   )
 }
+

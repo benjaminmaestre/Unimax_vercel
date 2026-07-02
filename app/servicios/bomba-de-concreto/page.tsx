@@ -3,7 +3,7 @@ import { Navigation } from '@/components/navigation'
 import { ServiceHero } from '@/components/sections/service-hero'
 import { PumpDetails } from '@/components/sections/pump-details'
 import { Footer } from '@/components/footer'
-import { SchemaPumpService } from '@/components/SchemaMarkup'
+import { pumpServiceJsonLd } from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
   title: 'Alquiler de Bomba de Concreto Lima | UNIMAX Corp',
@@ -36,15 +36,20 @@ export const metadata: Metadata = {
 export default function PumpServicePage() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Navigation />
-      <ServiceHero
-        titleKey="pump.hero.title"
-        descKey="pump.hero.desc"
-        bgImage="/unimax%20bomba.jpg"
+      <script
+        id="schema-service-bomba"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pumpServiceJsonLd) }}
       />
-      <PumpDetails />
-      <Footer />
-      <SchemaPumpService />
+      <Navigation />
+        <ServiceHero
+          titleKey="pump.hero.title"
+          descKey="pump.hero.desc"
+          bgImage="/unimax%20bomba.jpg"
+        />
+        <PumpDetails />
+        <Footer />
     </main>
   )
 }
+

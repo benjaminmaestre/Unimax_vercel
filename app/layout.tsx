@@ -74,7 +74,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/components/language-provider'
 import { AiChat } from '@/components/ai-chat'
 import { CookieBanner } from '@/components/cookie-banner'
-import { SchemaLocalBusiness, SchemaFAQ } from '@/components/SchemaMarkup'
+import { localBusinessJsonLd } from '@/components/SchemaMarkup'
 
 export const viewport: Viewport = {
   themeColor: '#0A0F14',
@@ -90,6 +90,11 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${bebasNeue.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased bg-background text-foreground transition-colors duration-300">
+        <script
+          id="schema-local-business"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <LanguageProvider>
             {children}
@@ -114,8 +119,6 @@ export default function RootLayout({
           </>
         )}
         {process.env.NODE_ENV === 'production' && <Analytics />}
-        <SchemaLocalBusiness />
-        <SchemaFAQ />
       </body>
     </html>
   )
