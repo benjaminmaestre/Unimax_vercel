@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X, Send, Bot, User, Loader2 } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
+import Image from 'next/image'
 
 type Message = {
   role: 'user' | 'assistant'
@@ -21,17 +22,17 @@ export function AiChat() {
 
   const texts = {
     es: {
-      title: 'UNIMAX Asistente',
-      subtitle: 'IA · Responde al instante',
+      title: 'Valeria de UNIMAX',
+      subtitle: 'En línea',
       placeholder: 'Escribe tu pregunta...',
-      greeting: '¡Hola! 👋 Soy el asistente virtual de UNIMAX Corp. ¿En qué puedo ayudarte hoy? Puedo informarte sobre nuestros servicios de concreto premezclado, bombeo o maquinaria pesada.',
+      greeting: '¡Hola! 👋 Soy Valeria, tu asesora de UNIMAX Corp. ¿En qué puedo ayudarte hoy? Puedo informarte sobre nuestros servicios de concreto premezclado, bombeo o maquinaria pesada.',
       error: 'Hubo un error. Intenta de nuevo.',
     },
     en: {
-      title: 'UNIMAX Assistant',
-      subtitle: 'AI · Instant answers',
+      title: 'Valeria from UNIMAX',
+      subtitle: 'Online',
       placeholder: 'Type your question...',
-      greeting: 'Hello! 👋 I\'m UNIMAX Corp\'s virtual assistant. How can I help you today? I can provide information about our ready-mix concrete, pumping, or heavy machinery services.',
+      greeting: 'Hello! 👋 I\'m Valeria, your UNIMAX Corp advisor. How can I help you today? I can provide information about our ready-mix concrete, pumping, or heavy machinery services.',
       error: 'An error occurred. Please try again.',
     },
   }
@@ -110,11 +111,13 @@ export function AiChat() {
             className="fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-[#0A0F14] dark:bg-white text-white dark:text-[#0A0F14] shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform duration-200 border border-white/10 dark:border-black/10"
             aria-label="Abrir chat de IA"
           >
-            <MessageCircle className="w-6 h-6" />
+            <div className="w-full h-full rounded-full overflow-hidden">
+              <img src="/avatar.png" alt="Assistant" className="w-full h-full object-cover" />
+            </div>
             {/* Pulse indicator */}
             <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-primary" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-green-500" />
             </span>
           </motion.button>
         )}
@@ -133,8 +136,8 @@ export function AiChat() {
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 bg-[#0A0F14] dark:bg-[#0A0F14] border-b border-white/10">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden border border-primary/20">
+                  <img src="/avatar.png" alt="Assistant" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-white leading-tight">{t.title}</h3>
@@ -161,12 +164,12 @@ export function AiChat() {
                   className={`flex gap-2.5 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
                 >
                   {/* Avatar */}
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 overflow-hidden ${
                     msg.role === 'user' 
                       ? 'bg-primary/15 text-primary' 
-                      : 'bg-neutral-100 dark:bg-white/10 text-neutral-500 dark:text-white/50'
+                      : 'border border-primary/20'
                   }`}>
-                    {msg.role === 'user' ? <User className="w-3.5 h-3.5" /> : <Bot className="w-3.5 h-3.5" />}
+                    {msg.role === 'user' ? <User className="w-4 h-4" /> : <img src="/avatar.png" alt="Bot" className="w-full h-full object-cover" />}
                   </div>
 
                   {/* Bubble */}
@@ -187,8 +190,8 @@ export function AiChat() {
                   animate={{ opacity: 1 }}
                   className="flex gap-2.5"
                 >
-                  <div className="w-7 h-7 rounded-full bg-neutral-100 dark:bg-white/10 flex items-center justify-center text-neutral-500 dark:text-white/50">
-                    <Bot className="w-3.5 h-3.5" />
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 overflow-hidden border border-primary/20">
+                    <img src="/avatar.png" alt="Bot" className="w-full h-full object-cover" />
                   </div>
                   <div className="bg-neutral-100 dark:bg-white/8 border border-neutral-200/60 dark:border-white/5 rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1.5">
                     <Loader2 className="w-3.5 h-3.5 animate-spin text-primary" />
