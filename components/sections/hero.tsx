@@ -93,14 +93,14 @@ export function HeroSection() {
             </motion.span>
 
             {/* Monumental value proposition headline */}
-            <h1 className="font-display select-none leading-tight">
-              <span className="block text-[26px] xs:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[68px] font-extrabold tracking-tight text-[#0A0F14] dark:text-white uppercase sm:normal-case drop-shadow-2xl">
+            <div className="font-display select-none leading-tight">
+              <h1 className="block text-[26px] xs:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[68px] font-extrabold tracking-tight text-[#0A0F14] dark:text-white uppercase sm:normal-case drop-shadow-2xl">
                 {t('hero.title1')}
-              </span>
-              <span className="block text-[17px] xs:text-[22px] sm:text-[30px] md:text-[36px] lg:text-[38px] xl:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-3 sm:mt-2 drop-shadow-xl font-sans">
+              </h1>
+              <p className="block text-[17px] xs:text-[22px] sm:text-[30px] md:text-[36px] lg:text-[38px] xl:text-[48px] font-bold text-[#1F2937] dark:text-white/90 tracking-tight mt-3 sm:mt-2 drop-shadow-xl font-sans">
                 {t('hero.title2')}
-              </span>
-            </h1>
+              </p>
+            </div>
 
             <motion.p 
               initial={{ opacity: 0 }}
