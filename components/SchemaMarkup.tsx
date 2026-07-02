@@ -4,7 +4,7 @@
 export const localBusinessJsonLd = [
   {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ConcreteContractor"],
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness", "ConcreteContractor"],
     "name": "UNIMAX Corp - Planta Lima Este",
     "url": "https://www.unimaxcorp.com",
     "logo": "https://www.unimaxcorp.com/og-logo-dark.png",
@@ -48,7 +48,7 @@ export const localBusinessJsonLd = [
   },
   {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ConcreteContractor"],
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness", "ConcreteContractor"],
     "name": "UNIMAX Corp - Planta Lima Sur",
     "url": "https://www.unimaxcorp.com",
     "logo": "https://www.unimaxcorp.com/og-logo-dark.png",
