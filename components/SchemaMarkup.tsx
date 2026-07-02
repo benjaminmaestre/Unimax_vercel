@@ -1,5 +1,4 @@
 import React from 'react'
-import Script from 'next/script'
 
 // LocalBusiness y FAQ van en app/layout.tsx
 // Los Service van en cada página de servicio
@@ -67,11 +66,9 @@ export function SchemaLocalBusiness() {
   }
 
   return (
-    <Script
-      id="schema-local-business"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessData) }}
-      strategy="beforeInteractive"
     />
   )
 }
@@ -114,11 +111,9 @@ export function SchemaConcreteService() {
   }
 
   return (
-    <Script
-      id="schema-concrete-service"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(concreteServiceData) }}
-      strategy="beforeInteractive"
     />
   )
 }
@@ -147,11 +142,9 @@ export function SchemaPumpService() {
   }
 
   return (
-    <Script
-      id="schema-pump-service"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(pumpServiceData) }}
-      strategy="beforeInteractive"
     />
   )
 }
@@ -213,11 +206,9 @@ export function SchemaFAQ() {
   }
 
   return (
-    <Script
-      id="schema-faq"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
-      strategy="beforeInteractive"
     />
   )
 }
