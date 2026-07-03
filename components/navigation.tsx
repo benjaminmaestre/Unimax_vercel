@@ -308,7 +308,7 @@ export function Navigation() {
 
           {/* Call direct CTA for quick conversions */}
           <a
-            href="https://wa.me/51932095130"
+            href="https://wa.me/51959345117"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('click_whatsapp', 'Navigation', 'Mobile Header Phone Icon')}

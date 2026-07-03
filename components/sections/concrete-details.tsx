@@ -455,7 +455,7 @@ export function ConcreteDetails() {
             
             <div className="flex flex-col sm:flex-row lg:flex-col w-full sm:w-auto gap-4 shrink-0 relative z-10">
               <a
-                href="https://wa.me/51932095130"
+                href="https://wa.me/51959345117"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-6 bg-white text-primary px-8 h-12 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all active:scale-95 shadow-sm"

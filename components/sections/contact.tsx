@@ -62,8 +62,8 @@ export function ContactSection() {
       title: language === 'es' ? 'Central Comercial' : 'Commercial Central',
       items: [
         {
-          label: language === 'es' ? '+51 932 095 130 (Solo WhatsApp)' : '+51 932 095 130 (WhatsApp Only)',
-          href: 'https://wa.me/51932095130',
+          label: language === 'es' ? '+51 959 345 117 (Solo WhatsApp)' : '+51 959 345 117 (WhatsApp Only)',
+          href: 'https://wa.me/51959345117',
         },
       ],
       hours: language === 'es' ? 'Lun–Vie: 8:00 am – 6:00 pm | Sáb: 8:00 am – 1:00 pm' : 'Mon–Fri: 8:00 am – 6:00 pm | Sat: 8:00 am – 1:00 pm',
@@ -296,7 +296,7 @@ export function ContactSection() {
                   <TiktokIcon className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://wa.me/51932095130"
+                  href="https://wa.me/51959345117"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('click_whatsapp', 'Contact', 'Social Section WhatsApp')}
@@ -313,7 +313,7 @@ export function ContactSection() {
 
       {/* WhatsApp FAB - Premium Authentic Green Floating Button */}
       <motion.a
-        href="https://wa.me/51932095130"
+        href="https://wa.me/51959345117"
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackEvent('click_whatsapp', 'Contact', 'Floating WhatsApp Button')}

@@ -10,7 +10,7 @@ export const localBusinessJsonLd = [
     "logo": "https://www.unimaxcorp.com/og-logo-dark.png",
     "image": "https://www.unimaxcorp.com/og-logo-dark.png",
     "description": "Empresa líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 10 años de experiencia en el sector construcción.",
-    "telephone": "+51 932 095 130",
+    "telephone": "+51 959 345 117",
     "email": ["area.comercial@unimaxcorp.com", "consultas@unimaxcorp.com"],
     "address": {
       "@type": "PostalAddress",
@@ -54,7 +54,7 @@ export const localBusinessJsonLd = [
     "logo": "https://www.unimaxcorp.com/og-logo-dark.png",
     "image": "https://www.unimaxcorp.com/og-logo-dark.png",
     "description": "Empresa líder en concreto premezclado de alta resistencia, bombeo continuo y alquiler de maquinaria pesada en Lima y Perú. Más de 10 años de experiencia en el sector construcción.",
-    "telephone": "+51 932 095 130",
+    "telephone": "+51 959 345 117",
     "email": ["area.comercial@unimaxcorp.com", "consultas@unimaxcorp.com"],
     "address": {
       "@type": "PostalAddress",
