@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Términos y Condiciones | UNIMAX Corp',
   description: 'Términos y condiciones generales de atención, suministro y servicio de concreto premezclado y maquinarias de UNIMAX Corp.',
   alternates: {
-    canonical: '/terminos-y-condiciones',
+    canonical: 'https://www.unimaxcorp.com/terminos-y-condiciones',
   },
 }
 

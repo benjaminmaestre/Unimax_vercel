@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Política de Cookies | UNIMAX Corp',
   description: 'Política de cookies y tecnologías de seguimiento de UNIMAX Corp conforme a la legislación de protección de datos personales del Perú.',
   alternates: {
-    canonical: '/politica-de-cookies',
+    canonical: 'https://www.unimaxcorp.com/politica-de-cookies',
   },
 }
 

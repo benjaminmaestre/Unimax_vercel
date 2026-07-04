@@ -3,6 +3,21 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  trailingSlash: false,
+  async redirects() {
+    return [
+      {
+        source: '/contacto',
+        destination: '/#contacto',
+        permanent: true,
+      },
+      {
+        source: '/contacto/',
+        destination: '/#contacto',
+        permanent: true,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {

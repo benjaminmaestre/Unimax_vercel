@@ -8,13 +8,20 @@ export default function robots(): MetadataRoute.Robots {
       // ── Googlebot: acceso completo con bloqueo de rutas privadas ─────────
       {
         userAgent: 'Googlebot',
-        allow: '/',
+        allow: [
+          '/',
+          '/nosotros/proyectos',
+          '/servicios/bomba-de-concreto',
+          '/politica-de-cookies',
+          '/politica-de-privacidad',
+          '/terminos-y-condiciones',
+        ],
         disallow: [
           '/api/',
           '/_next/',
           '/admin/',
+          '/wp-admin/',
           '/*.json$',
-          '/*?*', // evita indexar URLs con query params duplicados
         ],
       },
       // ── Bingbot ───────────────────────────────────────────────────────────
@@ -25,16 +32,25 @@ export default function robots(): MetadataRoute.Robots {
           '/api/',
           '/_next/',
           '/admin/',
+          '/wp-admin/',
         ],
       },
       // ── Todos los demás crawlers ──────────────────────────────────────────
       {
         userAgent: '*',
-        allow: '/',
+        allow: [
+          '/',
+          '/nosotros/proyectos',
+          '/servicios/bomba-de-concreto',
+          '/politica-de-cookies',
+          '/politica-de-privacidad',
+          '/terminos-y-condiciones',
+        ],
         disallow: [
           '/api/',
           '/_next/',
           '/admin/',
+          '/wp-admin/',
         ],
       },
     ],

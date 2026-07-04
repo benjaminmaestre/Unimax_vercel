@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Portafolio de Proyectos y Obras Entregadas | UNIMAX Corp | Lima',
   description: 'Explore nuestro portafolio de obras en Lima y todo el Perú. Suministro masivo de concreto premezclado de alta resistencia y bombeo de alta precisión.',
   alternates: {
-    canonical: '/nosotros/proyectos',
+    canonical: 'https://www.unimaxcorp.com/nosotros/proyectos',
   },
 }
 
