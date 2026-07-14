@@ -40,7 +40,7 @@ export default function AlquilerMaquinariaPage() {
       <ServiceHero
         titleKey="machinery.hero.title"
         descKey="machinery.hero.desc"
-        bgImage="/bomba_hero.png"
+        bgImage="/retroexcavadora.png"
       />
       <MachineryDetails />
       <Footer />

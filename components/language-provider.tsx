@@ -283,8 +283,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     // Maquinaria Pesada
     'machinery.hero.title': 'BOMBAS DE CONCRETO Y MAQUINARIA',
     'machinery.hero.desc': 'Nuestro servicio estrella: Alquiler de bombas de concreto de última generación, y maquinaria pesada para todo el Perú.',
-    'machinery.intro.title': 'NUESTRO ESTANDARTE: BOMBEO DE CONCRETO',
-    'machinery.intro.desc': 'Somos líderes en bombeo de concreto. Maximizamos el rendimiento de su obra con bombas pluma y estacionarias de alta tecnología.',
+    'machinery.intro.title': 'FLOTA DE MAQUINARIA MODERNA',
+    'machinery.intro.desc': 'Disponemos de un catálogo de maquinaria pesada moderna para optimizar el rendimiento y la logística en cada etapa de su obra.',
     'machinery.pump.title': 'Bombas de Concreto (Pluma y Estacionarias)',
     'machinery.pump.desc': 'El servicio más eficiente del mercado. Compatible con los principales proveedores de concreto de Lima. Acelera el vaciado, ahorra personal y garantiza un vaciado monolítico sin juntas frías.',
     'machinery.equipos.title': 'Otras Maquinarias Disponibles',
@@ -576,8 +576,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     // Heavy Machinery
     'machinery.hero.title': 'CONCRETE PUMPS & MACHINERY',
     'machinery.hero.desc': 'Our flagship service: State-of-the-art concrete pump rental, and heavy machinery for all of Peru.',
-    'machinery.intro.title': 'OUR FLAGSHIP: CONCRETE PUMPING',
-    'machinery.intro.desc': 'We are leaders in concrete pumping. We maximize your project\'s performance with high-tech boom and stationary pumps.',
+    'machinery.intro.title': 'MODERN MACHINERY FLEET',
+    'machinery.intro.desc': 'We have a catalog of modern heavy machinery to optimize performance and logistics at every stage of your construction.',
     'machinery.pump.title': 'Concrete Pumps (Boom & Stationary)',
     'machinery.pump.desc': 'The most efficient service on the market. Compatible with major concrete suppliers in Lima. Accelerates pouring, saves manpower, and ensures a monolithic pour without cold joints.',
     'machinery.equipos.title': 'Other Available Machinery',
