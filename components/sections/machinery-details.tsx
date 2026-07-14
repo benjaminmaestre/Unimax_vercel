@@ -39,7 +39,7 @@ export function MachineryDetails() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="p-8">
+              <div className="p-6 md:p-8">
                 <h4 className="text-2xl font-bold text-text-primary uppercase mb-3">
                   {t('machinery.equipos.retro.title')}
                 </h4>
@@ -59,7 +59,7 @@ export function MachineryDetails() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="p-8">
+              <div className="p-6 md:p-8">
                 <h4 className="text-2xl font-bold text-text-primary uppercase mb-3">
                   {t('machinery.equipos.cargador.title')}
                 </h4>
@@ -84,7 +84,7 @@ export function MachineryDetails() {
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="relative z-20 p-8 md:p-12 flex flex-col items-start min-h-[300px] justify-center">
+            <div className="relative z-20 p-6 md:p-12 flex flex-col items-start min-h-[300px] justify-center">
               <div className="max-w-2xl text-white drop-shadow-lg animate-fade-in">
                 <p className="text-base md:text-xl text-white/90 leading-relaxed font-medium mb-6">
                   {t('machinery.pump.desc')}
