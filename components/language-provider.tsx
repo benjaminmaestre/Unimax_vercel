@@ -281,8 +281,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'pump.cta.desc': 'Comuníquese con nosotros y le brindaremos asesoramiento técnico sin costo para seleccionar el equipo óptimo para su obra.',
     'pump.cta.whatsapp': 'SOLICITAR COTIZACIÓN',
     // Maquinaria Pesada
-    'machinery.hero.title': 'BOMBAS DE CONCRETO Y MAQUINARIA',
-    'machinery.hero.desc': 'Nuestro servicio estrella: Alquiler de bombas de concreto de última generación, y maquinaria pesada para todo el Perú.',
+    'machinery.hero.title': 'ALQUILER DE MAQUINARIA PESADA',
+    'machinery.hero.desc': 'Modernos equipos para construcción y movimiento de tierras, incluyendo retroexcavadoras, cargadores frontales y alquiler de bombas de concreto.',
     'machinery.intro.title': 'FLOTA DE MAQUINARIA MODERNA',
     'machinery.intro.desc': 'Disponemos de un catálogo de maquinaria pesada moderna para optimizar el rendimiento y la logística en cada etapa de su obra.',
     'machinery.pump.title': 'Bombas de Concreto (Pluma y Estacionarias)',
@@ -574,8 +574,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
     'pump.cta.desc': 'Get in touch with us and we will provide free technical advice to select the optimal equipment for your work site.',
     'pump.cta.whatsapp': 'REQUEST A QUOTE',
     // Heavy Machinery
-    'machinery.hero.title': 'CONCRETE PUMPS & MACHINERY',
-    'machinery.hero.desc': 'Our flagship service: State-of-the-art concrete pump rental, and heavy machinery for all of Peru.',
+    'machinery.hero.title': 'HEAVY MACHINERY RENTAL',
+    'machinery.hero.desc': 'Modern equipment for construction and earthmoving, including backhoe loaders, wheel loaders, and concrete pump rentals.',
     'machinery.intro.title': 'MODERN MACHINERY FLEET',
     'machinery.intro.desc': 'We have a catalog of modern heavy machinery to optimize performance and logistics at every stage of your construction.',
     'machinery.pump.title': 'Concrete Pumps (Boom & Stationary)',

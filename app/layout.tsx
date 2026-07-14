@@ -77,6 +77,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/components/language-provider'
 import { AiChat } from '@/components/ai-chat'
+import { FloatingWhatsApp } from '@/components/floating-whatsapp'
 import { CookieBanner } from '@/components/cookie-banner'
 import { localBusinessJsonLd } from '@/components/SchemaMarkup'
 
@@ -103,6 +104,7 @@ export default function RootLayout({
           <LanguageProvider>
             {children}
             <AiChat />
+            <FloatingWhatsApp />
             <CookieBanner />
           </LanguageProvider>
         </ThemeProvider>
