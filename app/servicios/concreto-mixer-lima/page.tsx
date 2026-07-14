@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     'concreto mixer Lima',
     'logística de concreto Lima',
     'despacho mixer para obras',
-    'capacidad mixer 8m3'
+    'capacidad mixer 8m3',
+    'refrigerante de concreto'
   ],
   openGraph: {
     title: 'Servicio de Concreto Mixer en Lima | Logística y Despacho',

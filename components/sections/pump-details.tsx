@@ -36,6 +36,12 @@ export function PumpDetails() {
       desc: t('pump.ventajas.desperdicio.desc'),
       icon: Trash2,
       gradient: 'from-emerald-500/10 to-transparent'
+    },
+    {
+      title: t('pump.ventajas.compatibilidad.title'),
+      desc: t('pump.ventajas.compatibilidad.desc'),
+      icon: Check,
+      gradient: 'from-blue-500/10 to-transparent'
     }
   ]
 

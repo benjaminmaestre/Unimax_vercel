@@ -39,7 +39,11 @@ export const metadata: Metadata = {
     'maquinaria pesada',
     'plantas de concreto',
     'dosificación de concreto',
-    'concreto de alta resistencia'
+    'concreto de alta resistencia',
+    'bomba de concreto',
+    'alquiler bomba de concreto',
+    'alquiler maquinaria pesada',
+    'refrigerante de concreto'
   ],
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || '',

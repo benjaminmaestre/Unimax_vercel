@@ -32,13 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-    /* NO CONTRATADO AÚN
     {
       url: `${baseUrl}/servicios/alquiler-maquinaria-pesada`,
       lastModified: LAST_MODIFIED,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    /* NO CONTRATADO AÚN
     {
       url: `${baseUrl}/servicios/diseno-de-mezcla`,
       lastModified: LAST_MODIFIED,

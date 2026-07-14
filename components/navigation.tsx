@@ -24,7 +24,8 @@ const navLinks: NavLinkItem[] = [
     items: [
       { href: '/servicios/concreto-premezclado', labelEs: 'Concreto Premezclado', labelEn: 'Ready-Mix Concrete' },
       { href: '/servicios/concreto-mixer-lima', labelEs: 'Servicio Mixer', labelEn: 'Mixer Service' },
-      { href: '/servicios/bomba-de-concreto', labelEs: 'Bomba de Concreto', labelEn: 'Concrete Pumping' }
+      { href: '/servicios/bomba-de-concreto', labelEs: 'Bomba de Concreto', labelEn: 'Concrete Pumping' },
+      { href: '/servicios/alquiler-maquinaria-pesada', labelEs: 'Alquiler Maquinaria', labelEn: 'Machinery Rental' }
     ]
   },
   { href: '#plantas', key: 'nav.plantas' },

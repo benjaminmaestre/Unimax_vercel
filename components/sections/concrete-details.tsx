@@ -286,7 +286,8 @@ export function ConcreteDetails() {
                   { title: t('concrete.aditivos.colocacion.title'), desc: t('concrete.aditivos.colocacion.desc') },
                   { title: t('concrete.aditivos.bombeo.title'), desc: t('concrete.aditivos.bombeo.desc') },
                   { title: t('concrete.aditivos.cara.title'), desc: t('concrete.aditivos.cara.desc') },
-                  { title: t('concrete.aditivos.durabilidad.title'), desc: t('concrete.aditivos.durabilidad.desc') }
+                  { title: t('concrete.aditivos.durabilidad.title'), desc: t('concrete.aditivos.durabilidad.desc') },
+                  { title: t('concrete.refrigerado.title'), desc: t('concrete.refrigerado.desc') }
                 ].map((ad, idx) => (
                   <div key={idx} className={`${cardInner} p-4 hover:bg-neutral-100/80 dark:hover:bg-white/10 transition-all duration-300 flex flex-col h-full`}>
                     <span className="text-[10px] font-bold text-primary mb-2 block">

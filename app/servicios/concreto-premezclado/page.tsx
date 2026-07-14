@@ -11,7 +11,9 @@ export const metadata: Metadata = {
   keywords: [
     'concreto premezclado en Lima',
     'precio concreto mixer',
-    'concreto de alta resistencia Lima'
+    'concreto de alta resistencia Lima',
+    'refrigerante de concreto',
+    'bombeo concreto Unicon'
   ],
   openGraph: {
     title: 'Venta de Concreto Premezclado en Lima | UNIMAX Corp',

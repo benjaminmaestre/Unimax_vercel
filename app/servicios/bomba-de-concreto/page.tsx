@@ -6,16 +6,18 @@ import { Footer } from '@/components/footer'
 import { pumpServiceJsonLd } from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
-  title: 'Alquiler de Bomba de Concreto Lima | UNIMAX Corp',
-  description: 'Servicio de bomba de concreto en Lima. Alquiler de bomba pluma telescópica y estacionaria para tu obra. Ahorra tiempo y dinero. ¡Solicita precio!',
+  title: 'Alquiler de Bomba de Concreto Lima hoy | UNIMAX Corp',
+  description: 'Servicio y alquiler de bomba de concreto en Lima hoy. Bombas pluma y estacionarias. Bombeo de concreto compatible con Unicon, Mixercon y otros proveedores.',
   keywords: [
     'bomba de concreto Lima',
+    'bomba de concreto en Lima hoy',
     'alquiler bomba pluma Lima',
-    'boom pump Lima Perú'
+    'alquiler de bomba de concreto',
+    'bombeo concreto Unicon'
   ],
   openGraph: {
-    title: 'Servicio y Alquiler de Bomba de Concreto en Lima',
-    description: 'Servicio de bomba de concreto en Lima. Alquiler de bomba pluma telescópica y estacionaria para tu obra. Ahorra tiempo y dinero. ¡Solicita precio!',
+    title: 'Servicio y Alquiler de Bomba de Concreto en Lima hoy',
+    description: 'Servicio y alquiler de bomba de concreto en Lima. Bombas pluma y estacionarias. Bombeo de concreto compatible con Unicon, Mixercon y otros proveedores.',
     url: 'https://www.unimaxcorp.com/servicios/bomba-de-concreto',
     siteName: 'UNIMAX Corp',
     images: [{ url: 'https://www.unimaxcorp.com/og-logo-dark.png', width: 1200, height: 630 }],
@@ -24,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alquiler de Bomba de Concreto Lima | UNIMAX Corp',
-    description: 'Servicio de bomba de concreto en Lima. Alquiler de bomba pluma telescópica y estacionaria para tu obra. Ahorra tiempo y dinero. ¡Solicita precio!',
+    title: 'Alquiler de Bomba de Concreto Lima hoy | UNIMAX Corp',
+    description: 'Servicio y alquiler de bomba de concreto en Lima. Bombas pluma y estacionarias. Bombeo de concreto compatible con Unicon, Mixercon y otros proveedores.',
     images: ['https://www.unimaxcorp.com/og-logo-dark.png'],
   },
   alternates: {

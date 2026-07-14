@@ -34,14 +34,28 @@ export default function AlquilerMaquinariaPage() {
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col">
       <Navigation />
-      <div className="flex-grow flex items-center justify-center py-32 mt-20 px-4 text-center">
+      <div className="grow flex items-center justify-center py-32 mt-20 px-4 text-center">
         <div>
           <h1 className="text-5xl md:text-6xl font-bold font-bebas tracking-wider text-primary mb-6 uppercase">
             Alquiler de Maquinaria Pesada
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Estamos trabajando en esta sección. Pronto encontrarás toda la información sobre nuestro servicio de alquiler de maquinaria pesada en Lima.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            Ofrecemos servicio especializado de alquiler de maquinaria pesada en Lima para obras de construcción. Equipos modernos y operadores certificados para garantizar la eficiencia de su proyecto.
           </p>
+          <ul className="text-left text-lg text-muted-foreground max-w-md mx-auto space-y-4">
+            <li className="flex items-center gap-3">
+              <span className="text-primary font-bold">✓</span> Retroexcavadoras
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-primary font-bold">✓</span> Cargadores Frontales
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-primary font-bold">✓</span> Excavadoras sobre orugas
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-primary font-bold">✓</span> Rodillos compactadores
+            </li>
+          </ul>
         </div>
       </div>
       <Footer />

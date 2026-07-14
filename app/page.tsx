@@ -23,7 +23,8 @@ export const metadata: Metadata = {
     'concreto premezclado Lima',
     'mixer Lima',
     'concreto premezclado Perú',
-    'mixer truck Lima'
+    'bomba de concreto',
+    'alquiler maquinaria pesada Lima'
   ],
   openGraph: {
     title: 'Concreto Premezclado en Lima | UNIMAX Corp',
