@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/components/language-provider'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export function MachineryDetails() {
   const { t, language } = useLanguage()
@@ -84,10 +85,16 @@ export function MachineryDetails() {
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="relative z-20 p-8 md:p-12 flex flex-col items-start min-h-[300px] justify-center">
-              <div className="max-w-2xl text-white drop-shadow-lg">
-                <p className="text-base md:text-xl text-white/90 leading-relaxed font-medium">
+              <div className="max-w-2xl text-white drop-shadow-lg animate-fade-in">
+                <p className="text-base md:text-xl text-white/90 leading-relaxed font-medium mb-6">
                   {t('machinery.pump.desc')}
                 </p>
+                <Link
+                  href="/servicios/bomba-de-concreto"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-primary px-8 h-12 rounded-md text-xs font-bold tracking-widest uppercase hover:bg-neutral-100 hover:scale-105 active:scale-95 transition-all shadow-md cursor-pointer"
+                >
+                  {t('machinery.pump.btn')}
+                </Link>
               </div>
             </div>
           </div>

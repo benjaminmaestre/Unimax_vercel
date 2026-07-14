@@ -47,7 +47,7 @@ export function ConcreteDetails() {
   // Technical table rows
   const tableRows = [
     { fc: '100–140', unit: 'kg/cm²', app: language === 'es' ? 'Ideal para elementos de relleno, falsos pisos, solados y concreto ciclópeo.' : 'Ideal for filling elements, subfloors, blinding concrete, and cyclopean concrete.' },
-    { fc: '175–210', unit: 'kg/cm²', app: language === 'es' ? 'El estándar residencial. Utilizado en cimientos, columnas, vigas y losas aligeradas.' : 'The residential standard. Used in foundations, columns, beams, and lightweight slabs.' },
+    { fc: '175–210', unit: 'kg/cm²', app: language === 'es' ? 'El estándar residencial (tipo concreto Unicon 210 para techos). Utilizado en cimientos, columnas, vigas y losas aligeradas.' : 'The residential standard (like standard Unicon 210 concrete for slabs). Used in foundations, columns, beams, and lightweight slabs.' },
     { fc: '245–280', unit: 'kg/cm²', app: language === 'es' ? 'Resistencia moderada-alta. Para mayores luces, pavimentos rígidos y edificios de varios niveles.' : 'Moderate-high strength. For wider spans, rigid pavements, and multi-story buildings.' },
     { fc: '315–350', unit: 'kg/cm²', app: language === 'es' ? 'Alta resistencia para infraestructura, placas de edificios altos y ambientes agresivos.' : 'High strength for infrastructure, high-rise shear walls, and aggressive environments.' }
   ]
