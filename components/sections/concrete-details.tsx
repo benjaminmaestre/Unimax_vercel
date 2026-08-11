@@ -132,7 +132,7 @@ export function ConcreteDetails() {
             className="mt-12 max-w-4xl"
           >
             <p className="text-lg md:text-xl font-light italic text-text-muted leading-relaxed mb-6">
-              "{t('concrete.commitment.quote')}"
+              &ldquo;{t('concrete.commitment.quote')}&rdquo;
             </p>
             <p className="text-sm text-text-secondary font-light">
               Respaldamos nuestra calidad con una extensa <Link href="/servicios/concreto-mixer-lima" className="text-primary hover:underline font-bold">flota de mixer para vaciado en Lima</Link>, asegurando entregas puntuales y un servicio logístico ininterrumpido.
