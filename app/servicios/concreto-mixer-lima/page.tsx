@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: '¿Cuánto cuesta el concreto premezclado en Lima?',
-    answer: 'El precio varía según la resistencia del concreto (f\'c), el volumen solicitado y la distancia de la obra. El costo de nuestro concreto mixer de alta calidad es sumamente competitivo frente al precio de concreto Unicon o Mixercon por metro cúbico (m3). Puede solicitar una cotización gratuita para obtener el precio exacto.',
+    answer: 'El precio varía según la resistencia del concreto (f\'c), el volumen solicitado, la ubicación, la programación y la necesidad de bombeo. Puede solicitar una cotización para obtener un precio ajustado a las condiciones reales de la obra.',
   },
   {
     question: '¿Cuál es el tiempo de entrega del mixer?',
@@ -97,7 +97,7 @@ export default function ConcreteMixerPage() {
                 <div className="p-6 pt-0 text-text-secondary border-t border-border/40">
                   <p className="mb-4 mt-4">
                     Contamos con una moderna flota de camiones mixer diseñados para acceder a diversos distritos de Lima.
-                    Nuestra capacidad y dosificación se adaptan tanto a proyectos residenciales como a grandes infraestructuras, garantizando un estándar equivalente al del concreto tipo Unicon o Mixercon en términos de resistencia y fraguado.
+                    Nuestra capacidad y dosificación se adaptan tanto a proyectos residenciales como a obras de mayor escala, con diseños de mezcla definidos según resistencia, trabajabilidad y condiciones de colocación.
                   </p>
                   <ul className="list-disc pl-5 space-y-2">
                     <li><strong>Mixers de 8 m³:</strong> Ideales para obras en zonas urbanas con accesos limitados o calles estrechas.</li>

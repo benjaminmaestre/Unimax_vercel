@@ -26,6 +26,16 @@ const nextConfig = {
         destination: '/#contacto',
         permanent: true,
       },
+      {
+        source: '/logistica',
+        destination: '/servicios/concreto-mixer-lima',
+        permanent: true,
+      },
+      {
+        source: '/logistica/',
+        destination: '/servicios/concreto-mixer-lima',
+        permanent: true,
+      },
     ]
   },
   images: {
