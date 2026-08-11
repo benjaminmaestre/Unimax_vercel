@@ -2,12 +2,12 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.unimaxcorp.com'
-  const LAST_MODIFIED = new Date('2026-06-29')
+  const LAST_MODIFIED = new Date('2026-08-11')
 
   return [
     // ── HOME ──────────────────────────────────────────────────────────────
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 1.0,

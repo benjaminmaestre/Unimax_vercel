@@ -118,7 +118,7 @@ export function Navigation() {
       initial={{ y: -72 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 h-18 transition-all duration-300 ${
         isScrolled 
           ? 'bg-background/95 border-b border-border/80 shadow-md backdrop-blur-md' 
           : 'bg-transparent border-b border-border/20 dark:border-white/10 backdrop-blur-sm'

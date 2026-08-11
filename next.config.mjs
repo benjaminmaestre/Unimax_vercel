@@ -16,6 +16,16 @@ const nextConfig = {
         destination: '/#contacto',
         permanent: true,
       },
+      {
+        source: '/conctacto',
+        destination: '/#contacto',
+        permanent: true,
+      },
+      {
+        source: '/conctacto/',
+        destination: '/#contacto',
+        permanent: true,
+      },
     ]
   },
   images: {

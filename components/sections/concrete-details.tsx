@@ -60,7 +60,7 @@ export function ConcreteDetails() {
   return (
     <div className="bg-background text-text-primary py-12 lg:py-32 relative overflow-hidden font-sans selection:bg-primary selection:text-white grain">
 
-      <div className="max-w-[1280px] mx-auto px-5 md:px-10 lg:px-16 xl:px-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16 xl:px-20 relative z-10">
         
         {/* ========================================================================= */}
         {/* SECTION 1: EDITORIAL HEADER & METRICS                                     */}
@@ -75,7 +75,7 @@ export function ConcreteDetails() {
               className="lg:col-span-8"
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="h-[2px] w-8 bg-primary"></div>
+                <div className="h-0.5 w-8 bg-primary"></div>
                 <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-primary">
                   {language === 'es' ? 'Especificaciones Técnicas' : 'Technical Specifications'}
                 </span>
@@ -402,7 +402,7 @@ export function ConcreteDetails() {
               return (
                 <div 
                   key={app.tag} 
-                  className={`${card} p-6 flex flex-col h-full min-h-[280px] overflow-hidden`}
+                  className={`${card} p-6 flex flex-col h-full min-h-70 overflow-hidden`}
                 >
                   {/* Background Image & Overlay */}
                   <div 

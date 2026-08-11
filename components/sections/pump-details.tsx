@@ -73,7 +73,7 @@ export function PumpDetails() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col bg-surface/30 dark:bg-black/20 border border-border/80 dark:border-white/5 rounded-2xl overflow-hidden shadow-2xs hover:border-primary transition-all duration-300 group"
           >
-            <div className="h-[240px] md:h-[280px] w-full relative overflow-hidden bg-surface">
+            <div className="h-60 md:h-70 w-full relative overflow-hidden bg-surface">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vaciado-Unimaxcorp-002-lCojy5wXyOYj9Fl3zxtJ0S1EpUHHYT.webp"
                 alt={t('pump.equipos.estacionaria.title')}
@@ -110,7 +110,7 @@ export function PumpDetails() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col bg-surface/30 dark:bg-black/20 border border-border/80 dark:border-white/5 rounded-2xl overflow-hidden shadow-2xs hover:border-primary transition-all duration-300 group"
           >
-            <div className="h-[240px] md:h-[280px] w-full relative overflow-hidden bg-surface">
+            <div className="h-60 md:h-70 w-full relative overflow-hidden bg-surface">
               <Image
                 src="/pluma en vereda unimax.jpg"
                 alt={t('pump.equipos.pluma.title')}
