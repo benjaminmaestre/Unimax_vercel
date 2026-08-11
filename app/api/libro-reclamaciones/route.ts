@@ -30,7 +30,7 @@ const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KE
 async function saveToSupabase(data: unknown, code: string, timestamp: string) {
   // TODO: Implementar guardado en Supabase a futuro
   // const { data, error } = await supabase.from('reclamaciones').insert([{ ...data, code, created_at: timestamp }])
-  console.log('[Supabase Prep] Guardando datos con código:', code)
+  console.log('[Supabase Prep] Guardando datos con código:', code, 'registrado en:', timestamp)
   return true
 }
 

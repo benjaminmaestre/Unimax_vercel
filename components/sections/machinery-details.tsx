@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useLanguage } from '@/components/language-provider'
 import Image from 'next/image'
 import Link from 'next/link'

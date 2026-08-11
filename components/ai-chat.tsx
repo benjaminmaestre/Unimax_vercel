@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, X, Send, Bot, User, Loader2 } from 'lucide-react'
+import { X, Send, User, Loader2 } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 import Image from 'next/image'
 

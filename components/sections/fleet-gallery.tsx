@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/components/language-provider'
@@ -209,7 +208,7 @@ export function FleetGallerySection() {
                     transition={{ duration: 0.5, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
                     className="h-full"
                   >
-                    <div className="group relative h-[440px] rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
+                    <div className="group relative h-110 rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
                       {/* Image */}
                       <Image
                         src={item.image}
@@ -267,17 +266,17 @@ export function FleetGallerySection() {
                   transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   className="h-full"
                 >
-                  <div className="h-[440px] rounded-xl overflow-hidden bg-surface border border-border/80 flex flex-col items-center justify-center text-center p-6 lg:p-8 shadow-xs">
+                  <div className="h-110 rounded-xl overflow-hidden bg-surface border border-border/80 flex flex-col items-center justify-center text-center p-6 lg:p-8 shadow-xs">
                     <p className="text-xl lg:text-2xl font-bold text-text-primary">
                       {t('fleet.more.title')}
                     </p>
-                    <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-[240px]">
+                    <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-60">
                       {t('fleet.more.desc')}
                     </p>
                     <a
                       href="#contacto"
                       onClick={handleGeneralCta}
-                      className="group mt-6 inline-flex items-center justify-center h-[50px] px-6 text-xs font-bold tracking-[0.12em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
+                      className="group mt-6 inline-flex items-center justify-center h-12.5 px-6 text-xs font-bold tracking-[0.12em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
                     >
                       {t('fleet.more.cta')}
                       <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
@@ -298,7 +297,7 @@ export function FleetGallerySection() {
           {/* Desktop View: 3D Ring Carousel (Large screens only) */}
           <div className="hidden lg:block py-10">
             <RingCarousel3D itemWidth={380} itemHeight={480}>
-              {fleet.map((item, index) => (
+              {fleet.map((item) => (
                 <div key={item.id} className="w-full h-full">
                   <div className="group relative h-full rounded-xl overflow-hidden border border-border/80 hover:border-primary transition-colors duration-300 bg-surface shadow-xs flex flex-col justify-end">
                     {/* Image */}
@@ -354,13 +353,13 @@ export function FleetGallerySection() {
                   <p className="text-xl lg:text-2xl font-bold text-text-primary">
                     {t('fleet.more.title')}
                   </p>
-                  <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-[240px]">
+                  <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-60">
                     {t('fleet.more.desc')}
                   </p>
                   <a
                     href="#contacto"
                     onClick={handleGeneralCta}
-                    className="group mt-6 inline-flex items-center justify-center h-[50px] px-6 text-xs font-bold tracking-[0.12em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
+                    className="group mt-6 inline-flex items-center justify-center h-12.5 px-6 text-xs font-bold tracking-[0.12em] uppercase bg-primary hover:bg-cta-hover text-white rounded-md transition-all active:scale-95 shadow-sm border border-primary hover:border-cta-hover"
                   >
                     {t('fleet.more.cta')}
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />

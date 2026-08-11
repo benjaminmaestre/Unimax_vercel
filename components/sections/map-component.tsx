@@ -1,9 +1,14 @@
 'use client'
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 
 import { useEffect, useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
+import type * as L from 'leaflet'
+
+declare global {
+  interface Window {
+    L?: typeof import('leaflet')
+  }
+}
 
 interface MapComponentProps {
   language: 'es' | 'en'
@@ -56,6 +61,23 @@ function getDistance(lat1: number, lon1: number, lat2: number, lon2: number): nu
   return R * c
 }
 
+interface NominatimResponse {
+  lat: string
+  lon: string
+  display_name: string
+}
+
+interface OSRMRouteResponse {
+  code: string
+  routes?: Array<{
+    distance: number
+    duration: number
+    geometry: {
+      coordinates: [number, number][]
+    }
+  }>
+}
+
 interface RouteData {
   distanceKm: number
   durationMin: number
@@ -72,9 +94,9 @@ async function getRoute(lat1: number, lng1: number, lat2: number, lng2: number):
   }
 
   try {
-    const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${lng1},${lat1};${lng2},{lat2}?overview=full&geometries=geojson`
+    const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${lng1},${lat1};${lng2},${lat2}?overview=full&geometries=geojson`
     const res = await fetch(osrmUrl)
-    const data = await res.json()
+    const data = (await res.json()) as OSRMRouteResponse
 
     if (data.code === 'Ok' && data.routes && data.routes.length > 0) {
       const route = data.routes[0]
@@ -113,11 +135,12 @@ export default function MapComponent({
   onMapClickAddress
 }: MapComponentProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null)
-  const mapInstanceRef = useRef<any>(null)
-  const tileLayerRef = useRef<any>(null)
-  const markersRef = useRef<any[]>([])
-  const searchMarkerRef = useRef<any>(null)
-  const polylineRef = useRef<any>(null)
+  const mapInstanceRef = useRef<L.Map | null>(null)
+  const tileLayerRef = useRef<L.TileLayer | null>(null)
+  const markersRef = useRef<L.Marker[]>([])
+  const searchMarkerRef = useRef<L.Marker | null>(null)
+  const polylineRef = useRef<L.Polyline | null>(null)
+  const lastSearchTriggerRef = useRef(0)
   const [leafletLoaded, setLeafletLoaded] = useState(false)
   const { theme, resolvedTheme } = useTheme()
   const isDark = (resolvedTheme || theme) === 'dark'
@@ -167,7 +190,7 @@ export default function MapComponent({
   useEffect(() => {
     if (!leafletLoaded || !mapContainerRef.current || mapInstanceRef.current) return
 
-    const L = (window as any).L
+    const L = window.L
     if (!L) return
 
     // Center of plants
@@ -234,7 +257,7 @@ export default function MapComponent({
     })
 
     // Add click event for reverse geocoding and routing
-    map.on('click', async (e: any) => {
+    map.on('click', async (e: L.LeafletMouseEvent) => {
       const { lat, lng } = e.latlng
       if (isNaN(lat) || isNaN(lng)) return
       onSearchStartRef.current?.()
@@ -242,7 +265,7 @@ export default function MapComponent({
       try {
         const reverseUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
         const res = await fetch(reverseUrl)
-        const data = await res.json()
+        const data = (await res.json()) as NominatimResponse
         const label = data.display_name || (languageRef.current === 'es' ? `Ubicación Seleccionada` : `Selected Location`)
 
         let minDistance = Infinity
@@ -261,7 +284,7 @@ export default function MapComponent({
         const activePlantName = languageRef.current === 'es' ? targetPlant.name : targetPlant.nameEn
 
         if (searchMarkerRef.current) {
-          mapInstanceRef.current.removeLayer(searchMarkerRef.current)
+          map.removeLayer(searchMarkerRef.current)
         }
 
         const jobIcon = L.divIcon({
@@ -278,7 +301,7 @@ export default function MapComponent({
         })
 
         searchMarkerRef.current = L.marker([lat, lng], { icon: jobIcon })
-          .addTo(mapInstanceRef.current)
+          .addTo(map)
           .bindPopup(`
             <div style="font-family: var(--font-inter), sans-serif; color: ${isDarkRef.current ? '#fff' : '#0f172a'}; padding: 4px; max-width: 200px;">
               <h4 style="margin: 0 0 4px 0; font-weight: bold; font-size: 12px; color: #f59e0b;">
@@ -293,7 +316,7 @@ export default function MapComponent({
           .openPopup()
 
         if (polylineRef.current) {
-          mapInstanceRef.current.removeLayer(polylineRef.current)
+          map.removeLayer(polylineRef.current)
         }
 
         if (routeCoords && routeCoords.length >= 2) {
@@ -303,20 +326,20 @@ export default function MapComponent({
             opacity: 0.85,
             lineCap: 'round',
             lineJoin: 'round'
-          }).addTo(mapInstanceRef.current)
+          }).addTo(map)
           
           const bounds = L.latLngBounds(routeCoords)
-          mapInstanceRef.current.fitBounds(bounds, { padding: [50, 50] })
+          map.fitBounds(bounds, { padding: [50, 50] })
         } else {
           polylineRef.current = L.polyline([[lat, lng], [targetPlant.lat, targetPlant.lng]], {
             color: '#C13D3A',
             weight: 4,
             opacity: 0.85,
             dashArray: '5, 5'
-          }).addTo(mapInstanceRef.current)
+          }).addTo(map)
           
           const bounds = L.latLngBounds([[lat, lng], [targetPlant.lat, targetPlant.lng]])
-          mapInstanceRef.current.fitBounds(bounds, { padding: [50, 50] })
+          map.fitBounds(bounds, { padding: [50, 50] })
         }
 
         onMapClickAddressRef.current?.(label)
@@ -350,26 +373,26 @@ export default function MapComponent({
         const activePlantName = languageRef.current === 'es' ? targetPlant.name : targetPlant.nameEn
 
         if (searchMarkerRef.current) {
-          mapInstanceRef.current.removeLayer(searchMarkerRef.current)
+          map.removeLayer(searchMarkerRef.current)
         }
 
         searchMarkerRef.current = L.marker([lat, lng])
-          .addTo(mapInstanceRef.current)
+          .addTo(map)
           .bindPopup(`<b>${label}</b>`)
           .openPopup()
 
         if (polylineRef.current) {
-          mapInstanceRef.current.removeLayer(polylineRef.current)
+          map.removeLayer(polylineRef.current)
         }
 
         if (routeCoords && routeCoords.length >= 2) {
-          polylineRef.current = L.polyline(routeCoords, { color: '#C13D3A', weight: 4 }).addTo(mapInstanceRef.current)
+          polylineRef.current = L.polyline(routeCoords, { color: '#C13D3A', weight: 4 }).addTo(map)
         } else {
           polylineRef.current = L.polyline([[lat, lng], [targetPlant.lat, targetPlant.lng]], {
             color: '#C13D3A',
             weight: 4,
             dashArray: '5, 5'
-          }).addTo(mapInstanceRef.current)
+          }).addTo(map)
         }
 
         onMapClickAddressRef.current?.(label)
@@ -389,7 +412,7 @@ export default function MapComponent({
   // Update map tiles when theme changes
   useEffect(() => {
     if (!mapInstanceRef.current || !tileLayerRef.current) return
-    const L = (window as any).L
+    const L = window.L
     if (!L) return
 
     const tileUrl = isDark
@@ -407,8 +430,12 @@ export default function MapComponent({
 
   // Handle address geocode search
   useEffect(() => {
-    if (!mapInstanceRef.current || searchTrigger === 0 || !searchQuery) return
-    const L = (window as any).L
+    const mapInstance = mapInstanceRef.current
+    if (!mapInstance || searchTrigger === 0 || !searchQuery) return
+    if (lastSearchTriggerRef.current === searchTrigger) return
+    lastSearchTriggerRef.current = searchTrigger
+
+    const L = window.L
     if (!L) return
 
     const executeSearch = async () => {
@@ -416,12 +443,12 @@ export default function MapComponent({
       try {
         let url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery + ', Lima, Peru')}&limit=1`
         let res = await fetch(url)
-        let data = await res.json()
+        let data = (await res.json()) as NominatimResponse[]
 
         if (!data || data.length === 0) {
           url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery)}&limit=1`
           res = await fetch(url)
-          data = await res.json()
+          data = (await res.json()) as NominatimResponse[]
         }
 
         if (data && data.length > 0) {
@@ -461,7 +488,7 @@ export default function MapComponent({
           const activePlantName = languageRef.current === 'es' ? targetPlant.name : targetPlant.nameEn
 
           if (searchMarkerRef.current) {
-            mapInstanceRef.current.removeLayer(searchMarkerRef.current)
+            mapInstance.removeLayer(searchMarkerRef.current)
           }
 
           const jobIcon = L.divIcon({
@@ -478,7 +505,7 @@ export default function MapComponent({
           })
 
           searchMarkerRef.current = L.marker([lat, lng], { icon: jobIcon })
-            .addTo(mapInstanceRef.current)
+            .addTo(mapInstance)
             .bindPopup(`
               <div style="font-family: var(--font-inter), sans-serif; color: ${isDarkRef.current ? '#fff' : '#0f172a'}; padding: 4px; max-width: 200px;">
                 <h4 style="margin: 0 0 4px 0; font-weight: bold; font-size: 12px; color: #f59e0b;">
@@ -493,7 +520,7 @@ export default function MapComponent({
             .openPopup()
 
           if (polylineRef.current) {
-            mapInstanceRef.current.removeLayer(polylineRef.current)
+            mapInstance.removeLayer(polylineRef.current)
           }
 
           if (routeCoords && routeCoords.length >= 2) {
@@ -503,20 +530,20 @@ export default function MapComponent({
               opacity: 0.85,
               lineCap: 'round',
               lineJoin: 'round'
-            }).addTo(mapInstanceRef.current)
+            }).addTo(mapInstance)
             
             const bounds = L.latLngBounds(routeCoords)
-            mapInstanceRef.current.fitBounds(bounds, { padding: [50, 50] })
+            mapInstance.fitBounds(bounds, { padding: [50, 50] })
           } else {
             polylineRef.current = L.polyline([[lat, lng], [targetPlant.lat, targetPlant.lng]], {
               color: '#C13D3A',
               weight: 4,
               opacity: 0.85,
               dashArray: '5, 5'
-            }).addTo(mapInstanceRef.current)
+            }).addTo(mapInstance)
             
             const bounds = L.latLngBounds([[lat, lng], [targetPlant.lat, targetPlant.lng]])
-            mapInstanceRef.current.fitBounds(bounds, { padding: [50, 50] })
+            mapInstance.fitBounds(bounds, { padding: [50, 50] })
           }
 
           onSearchResolvedRef.current?.({
@@ -560,8 +587,7 @@ export default function MapComponent({
     }
 
     executeSearch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTrigger])
+  }, [searchTrigger, searchQuery])
 
   return (
     <div className="relative w-full h-full min-h-87.5 lg:min-h-100">

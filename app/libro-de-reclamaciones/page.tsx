@@ -56,8 +56,6 @@ export default function LibroReclamacionesPage() {
   const {
     register,
     handleSubmit,
-    setValue,
-    watch,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
