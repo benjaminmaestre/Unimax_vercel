@@ -1,4 +1,6 @@
 'use client'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 
 import { useEffect, useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
@@ -558,10 +560,11 @@ export default function MapComponent({
     }
 
     executeSearch()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTrigger])
 
   return (
-    <div className="relative w-full h-full min-h-[350px] lg:min-h-[400px]">
+    <div className="relative w-full h-full min-h-87.5 lg:min-h-100">
       {!leafletLoaded && (
         <div className="absolute inset-0 bg-neutral-950/90 flex flex-col items-center justify-center gap-3 rounded-xl border border-border/80 shadow-md">
           <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />

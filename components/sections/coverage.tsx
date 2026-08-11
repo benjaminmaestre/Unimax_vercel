@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 const MapComponent = dynamic(() => import('./map-component'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-full min-h-[350px] lg:min-h-[400px] rounded-xl bg-neutral-950/90 flex flex-col items-center justify-center gap-3 border border-border/80 shadow-md">
+    <div className="w-full h-full min-h-87.5 lg:min-h-100 rounded-xl bg-neutral-950/90 flex flex-col items-center justify-center gap-3 border border-border/80 shadow-md">
       <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />
     </div>
   )
@@ -39,7 +39,18 @@ export function CoverageSection() {
     setSearchTrigger(prev => prev + 1)
   }
 
-  const handleSearchResolved = (result: any) => {
+  const handleSearchResolved = (
+    result: {
+      lat: number
+      lng: number
+      label: string
+      closestPlant: string
+      distance: number
+      durationMin: number
+      inRadius: boolean
+      error?: string
+    } | null
+  ) => {
     setSearchResult(result)
     setIsSearching(false)
   }
@@ -131,7 +142,7 @@ export function CoverageSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full h-full min-h-[350px] lg:min-h-[400px]"
+            className="relative w-full h-full min-h-87.5 lg:min-h-100"
           >
             <MapComponent
               language={language}

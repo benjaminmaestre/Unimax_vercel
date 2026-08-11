@@ -44,6 +44,7 @@ export default function LibroReclamacionesPage() {
   const [mathChallenge, setMathChallenge] = useState({ num1: 0, num2: 0 })
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
     // Generate simple random numbers for the safety check
     setMathChallenge({

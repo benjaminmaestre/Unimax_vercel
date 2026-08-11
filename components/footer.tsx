@@ -38,6 +38,7 @@ export function Footer() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 
@@ -221,11 +222,11 @@ export function Footer() {
               {/* Minimal Social Icons */}
               <div className="flex items-center gap-5">
                 <Link href="https://www.facebook.com/UNIMAXCORP/" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('click_social', 'Footer', 'Facebook Link')} className="hover:text-primary dark:hover:text-white transition-colors duration-200">
-                  <Facebook className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                  <Facebook className="w-4.5 h-4.5" strokeWidth={1.5} />
                   <span className="sr-only">Facebook</span>
                 </Link>
                 <Link href="https://www.tiktok.com/@unimaxcorp" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('click_social', 'Footer', 'TikTok Link')} className="hover:text-primary dark:hover:text-white transition-colors duration-200">
-                  <TiktokIcon className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                  <TiktokIcon className="w-4.5 h-4.5" strokeWidth={1.5} />
                   <span className="sr-only">TikTok</span>
                 </Link>
               </div>

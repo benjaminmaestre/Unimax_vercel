@@ -1,24 +1,27 @@
-import nextConfig from "eslint-config-next";
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 
-const eslintConfig = [
-  // Configurar ignorados globales adicionales
-  {
-    ignores: [
-      "**/node_modules/**",
-      "**/scratch/**",
-      "**/lighthouse.json",
-      "**/lighthouse2.json",
-    ],
-  },
-  ...nextConfig,
+export default defineConfig([
+  ...nextVitals,
+  ...nextTypescript,
+
+  // Ajustes estrictamente necesarios del proyecto.
   {
     rules: {
-      // Ajustar reglas experimentales o hiper-estrictas a advertencias para no bloquear compilaciones
       "react-hooks/set-state-in-effect": "warn",
       "react-hooks/purity": "warn",
-      "import/no-anonymous-default-export": "off",
     },
   },
-];
 
-export default eslintConfig;
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    "node_modules/**",
+    "scratch/**",
+    "next-env.d.ts",
+    "lighthouse.json",
+    "lighthouse2.json",
+  ]),
+]);

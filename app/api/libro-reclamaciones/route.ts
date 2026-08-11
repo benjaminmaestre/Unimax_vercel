@@ -27,7 +27,7 @@ const reclamacionSchema = z.object({
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
 // Preparación para Supabase (stub a ser implementado a futuro)
-async function saveToSupabase(data: any, code: string, timestamp: string) {
+async function saveToSupabase(data: unknown, code: string, timestamp: string) {
   // TODO: Implementar guardado en Supabase a futuro
   // const { data, error } = await supabase.from('reclamaciones').insert([{ ...data, code, created_at: timestamp }])
   console.log('[Supabase Prep] Guardando datos con código:', code)

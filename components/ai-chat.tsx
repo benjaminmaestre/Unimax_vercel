@@ -58,6 +58,7 @@ export function AiChat() {
   // Add greeting on first open
   useEffect(() => {
     if (isOpen && messages.length === 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMessages([{ role: 'assistant', content: t.greeting }])
     }
   }, [isOpen, messages.length, t.greeting])
@@ -112,7 +113,7 @@ export function AiChat() {
             aria-label="Abrir chat de IA"
           >
             <div className="w-full h-full rounded-full overflow-hidden">
-              <img src="/avatar.png" alt="Assistant" className="w-full h-full object-cover" />
+              <Image src="/avatar.png" alt="Assistant" width={56} height={56} className="w-full h-full object-cover" />
             </div>
             {/* Pulse indicator */}
             <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5">
@@ -131,13 +132,13 @@ export function AiChat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-6 right-6 z-50 w-[360px] max-w-[calc(100vw-48px)] h-[520px] max-h-[calc(100vh-100px)] flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#0c1117]"
+            className="fixed bottom-6 right-6 z-50 w-90 max-w-[calc(100vw-48px)] h-130 max-h-[calc(100vh-100px)] flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-white/10 bg-white dark:bg-[#0c1117]"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 bg-[#0A0F14] dark:bg-[#0A0F14] border-b border-white/10">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden border border-primary/20">
-                  <img src="/avatar.png" alt="Assistant" className="w-full h-full object-cover" />
+                  <Image src="/avatar.png" alt="Assistant" width={40} height={40} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-white leading-tight">{t.title}</h3>
@@ -169,7 +170,7 @@ export function AiChat() {
                       ? 'bg-primary/15 text-primary' 
                       : 'border border-primary/20'
                   }`}>
-                    {msg.role === 'user' ? <User className="w-4 h-4" /> : <img src="/avatar.png" alt="Bot" className="w-full h-full object-cover" />}
+                    {msg.role === 'user' ? <User className="w-4 h-4" /> : <Image src="/avatar.png" alt="Bot" width={32} height={32} className="w-full h-full object-cover" />}
                   </div>
 
                   {/* Bubble */}
@@ -191,7 +192,7 @@ export function AiChat() {
                   className="flex gap-2.5"
                 >
                   <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 overflow-hidden border border-primary/20">
-                    <img src="/avatar.png" alt="Bot" className="w-full h-full object-cover" />
+                    <Image src="/avatar.png" alt="Bot" width={32} height={32} className="w-full h-full object-cover" />
                   </div>
                   <div className="bg-neutral-100 dark:bg-white/8 border border-neutral-200/60 dark:border-white/5 rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1.5">
                     <Loader2 className="w-3.5 h-3.5 animate-spin text-primary" />
